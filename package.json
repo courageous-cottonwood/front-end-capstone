@@ -4,7 +4,11 @@
   "description": "FEC project for hackreactor.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "react-dev": "webpack --config ./webpack.config.js --mode development -w",
+    "server-dev": "npx nodemon server/index.js",
+    "start": "npx nodemon server/index.js",
+    "web": "node server/index.js",
+    "postinstall": "webpack --mode development"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,16 @@
   "bugs": {
     "url": "https://github.com/courageous-cottonwood/front-end-capstone/issues"
   },
-  "homepage": "https://github.com/courageous-cottonwood/front-end-capstone#readme"
+  "homepage": "https://github.com/courageous-cottonwood/front-end-capstone#readme",
+  "dependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-react": "^7.16.5",
+    "babel-loader": "^8.2.3",
+    "path": "^0.12.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
 }
