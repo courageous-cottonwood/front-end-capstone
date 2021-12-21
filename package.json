@@ -1,0 +1,19 @@
+{
+  "name": "fec",
+  "version": "1.0.0",
+  "description": "FEC project for hackreactor.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/courageous-cottonwood/front-end-capstone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/courageous-cottonwood/front-end-capstone/issues"
+  },
+  "homepage": "https://github.com/courageous-cottonwood/front-end-capstone#readme"
+}
