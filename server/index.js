@@ -11,6 +11,10 @@ app.use(express.static(staticPath));
 app.use(express.json());
 
 // Routes
+app.get('/', (req, res) => {
+  res.send('/index.html');
+})
+
 app.get('/products', (req, res) => {
   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/`, {
     headers: { 'Authorization': auth } })
