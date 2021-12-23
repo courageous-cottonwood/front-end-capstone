@@ -8,7 +8,8 @@
     "server-dev": "npx nodemon server/index.js",
     "start": "npx nodemon server/index.js",
     "web": "node server/index.js",
-    "postinstall": "webpack --mode development"
+    "postinstall": "webpack --mode development",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,14 +22,27 @@
   },
   "homepage": "https://github.com/courageous-cottonwood/front-end-capstone#readme",
   "dependencies": {
-    "@babel/core": "^7.16.5",
-    "@babel/preset-env": "^7.16.5",
-    "@babel/preset-react": "^7.16.5",
     "babel-loader": "^8.2.3",
+    "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-react": "^7.16.5",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
+    "babel-jest": "^27.4.5",
+    "enzyme": "^3.11.0",
+    "eslint": "^8.5.0",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "jest": "^27.4.5",
+    "react-test-renderer": "^17.0.2"
   }
 }
