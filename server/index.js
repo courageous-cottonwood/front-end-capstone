@@ -1,49 +1,40 @@
 let path = require('path');
 let express = require('express');
 let app = express();
+let axios = require('axios');
+
+const controllers = require('./controllers/controllers');
 
 let port = process.env.PORT || 3000;
 
 const staticPath = path.join(__dirname, '..', '/client/dist/');
 
+let auth = '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';
+
 // Middleware
 app.use(express.static(staticPath));
 app.use(express.json());
 
-// Routes
+// ROUTES
 app.get('/', (req, res) => {
   res.send('/index.html');
 })
 
-app.get('/products', (req, res) => {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/`, {
-    headers: { 'Authorization': auth } })
-    .then((response) => {
-      res.send(response.data);
-    })
-});
+// PRODUCTS API
+
+//get all products
+app.get('/products', controllers.getAllProducts);
 
 //get specific product
-app.get('/products/:productid', (req, res) => {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${req.params.productid}`,
-    { headers: { 'Authorization': auth } })
-    .then((response) => {
-      res.send(response.data);
-    })
-});
+app.get('/products/:productid', controllers.getProduct);
 
 //get specific product styles
-app.get('/products/:productid/styles', (req, res) => {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${req.params.productid}/styles`, {
-    headers: { 'Authorization': auth }})
-    .then((response) => {
-      res.send(response.data);
-    })
-});
+app.get('/products/:productid/styles', controllers.getProductStyles);
 
 // REVIEWS API
 
-//list reviews
+//get all reviews
+
 // object to send with body
 // {
 //   "page": 1,
@@ -52,31 +43,18 @@ app.get('/products/:productid/styles', (req, res) => {
 //   "product_id": 63609
 // }
 
-app.get('/reviews', (req, res) => {
-  console.log(req.body);
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/`, {
-    params: req.body,
-    headers: { 'Authorization': auth }
-  })
-    .then((response) => {
-      res.send(response.data);
-    })
-});
+app.get('/reviews', controllers.getReviews);
+
+//get review metadata
 
 // object to send with body
 // {
 //   "product_id": 63609
 // }
 
-app.get('/reviews/meta', (req, res) => {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/`, {
-    params: req.body,
-    headers: { 'Authorization': auth }
-  })
-    .then((response) => {
-      res.send(response.data);
-    })
-});
+app.get('/reviews/meta', controllers.getReviewsMeta);
+
+// post reviews
 
 // object to send with body
 // {
@@ -90,14 +68,6 @@ app.get('/reviews/meta', (req, res) => {
 //   "characteristics": 63609
 // }
 
-app.post('/reviews/', (req, res) => {
-  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/`, {
-    params: req.body,
-    headers: { 'Authorization': auth }
-  })
-  .then((response) => {
-    res.send(response.ok);
-  })
-});
+app.post('/reviews/', controllers.postReviews);
 
 app.listen(port);
