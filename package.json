@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/courageous-cottonwood/front-end-capstone#readme",
   "dependencies": {
+    "axios": "^0.24.0",
     "babel-loader": "^8.2.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
