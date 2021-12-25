@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const models = require('../models/models');
 
 module.exports = {
@@ -11,7 +12,7 @@ module.exports = {
       });
   },
   getProduct: (req, res) => {
-    models.getProduct(req)
+    models.getProduct(req.query)
       .then((response) => {
         res.send(response.data);
       })
@@ -20,7 +21,16 @@ module.exports = {
       });
   },
   getProductStyles: (req, res) => {
-    models.getProductStyles(req)
+    models.getProductStyles(req.query)
+      .then((response) => {
+        res.send(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  getRelatedProducts: (req, res) => {
+    models.getRelatedProducts(req.query)
       .then((response) => {
         res.send(response.data);
       })
@@ -29,7 +39,7 @@ module.exports = {
       });
   },
   getReviews: (req, res) => {
-    models.getReviews(req)
+    models.getReviews(req.query)
       .then((response) => {
         res.send(response.data);
       })
@@ -38,7 +48,7 @@ module.exports = {
       });
   },
   getReviewsMeta: (req, res) => {
-    models.getReviewsMeta(req)
+    models.getReviewsMeta(req.query)
       .then((response) => {
         res.send(response.data);
       })
@@ -49,7 +59,25 @@ module.exports = {
   postReviews: (req, res) => {
     models.postReviews(req)
       .then((response) => {
-        res.send(response.ok);
+        res.send(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  markReviewHelpful: (req, res) => {
+    models.markReviewHelpful(req.query)
+      .then((response) => {
+        res.send(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  reportReview: (req, res) => {
+    models.reportReview(req.query)
+      .then((response) => {
+        res.send(response.data);
       })
       .catch((error) => {
         console.log(error);
