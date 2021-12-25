@@ -9,7 +9,7 @@ let port = process.env.PORT || 3000;
 
 const staticPath = path.join(__dirname, '..', '/client/dist/');
 
-let auth = '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';
+let auth = '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';
 
 // Middleware
 app.use(express.static(staticPath));
@@ -22,43 +22,34 @@ app.get('/', (req, res) => {
 
 // PRODUCTS API
 
-//get all products
+// GET ALL PRODUCTS
 app.get('/products', controllers.getAllProducts);
 
-//get specific product
+// GET SPECIFIC PRODUCT
+// required query param product_id: 63609
 app.get('/products/get', controllers.getProduct);
 
-//get specific product styles
+// GET SPECIFIC PRODUCT STYLES
+// required query param product_id: 63609
 app.get('/products/styles', controllers.getProductStyles);
 
-//get related products
+// GET RELATED PRODUCTS
+// required query param product_id: 63609
 app.get('/products/related', controllers.getRelatedProducts);
 
 // REVIEWS API
 
-//get all reviews
-
-// object to send with body
-// {
-//   "page": 1,
-//   "count": 1,
-//   "sort": "newest",
+// GET ALL REVIEWS
+// query params:
 //   "product_id": 63609
-// }
-
 app.get('/reviews', controllers.getReviews);
 
-//get review metadata
-
-// object to send with body
-// {
+// GET REVIEW METADATA
+// query params:
 //   "product_id": 63609
-// }
-
 app.get('/reviews/meta', controllers.getReviewsMeta);
 
-// post reviews
-
+// POST REVIEW
 // object to send with body
 // {
 //   "product_id": 63609,
@@ -71,25 +62,66 @@ app.get('/reviews/meta', controllers.getReviewsMeta);
 //   "photos": [],
 //   "characteristics": {}
 // }
-
 app.post('/reviews', controllers.postReviews);
 
-// mark review as helpful
-
-// object to send w/ body
+// MARK REVIEW AS HELPFUL
+// query params
 // {
 //   "review_id": 1115282
 // }
-
 app.put('/reviews/helpful', controllers.markReviewHelpful);
 
-// report review
-
-// object to send w/ body
+// REPORT REVIEW
+// query params
 // {
 //   "review_id": 1115282
 // }
-
 app.put('/reviews/report', controllers.reportReview);
+
+// LIST QUESTIONS
+// product_id query required: 63609
+app.get('/qa/questions', controllers.listQuestions);
+
+// LIST ANSWERS
+// question_id query required: 553786
+app.get('/qa/answers', controllers.listAnswers);
+
+// ADD QUESTION
+// object to send in body:
+// {
+//   "body": "hello",
+//   "name": "brandon",
+//   "email": "email@gmail.com",
+//   "product_id": 63609
+// }
+app.post('/qa/questions', controllers.postQuestion);
+
+// ADD ANSWER
+// query params: question_id: 553786
+// object to send in body:
+// {
+//   "body": "hello",
+//   "name": "brandon",
+//   "email": "email@gmail.com",
+//   "photos": []
+// }
+app.post('/qa/answers', controllers.postAnswer);
+
+// MARK QUESTION HELPFUL
+// query params: question_id: 553786
+app.put('/qa/questions/helpful', controllers.markQuestionHelpful);
+
+// REPORT QUESTION
+// query params: question_id: 553786
+app.put('/qa/questions/report', controllers.reportQuestion);
+
+// MARK ANSWER HELPFUL
+// query params: answer_id: 5269101
+app.put('/qa/answers/helpful', controllers.markAnswerHelpful);
+
+// REPORT ANSWER
+// query params: answer_id: 5269101
+app.put('/qa/answers/report', controllers.reportAnswer);
+
 
 app.listen(port);

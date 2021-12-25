@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const auth = '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';
+const auth = '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';
 
 module.exports = {
   getAllProducts: () => axios.get(
@@ -57,6 +57,62 @@ module.exports = {
   ),
   reportReview: (req) => axios.put(
     `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/${req.review_id}/report`,
+    {},
+    {
+      headers: { Authorization: auth },
+    },
+  ),
+  listQuestions: (req) => axios.get(
+    'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions',
+    {
+      params: req,
+      headers: { Authorization: auth },
+    },
+  ),
+  listAnswers: (req) => axios.get(
+    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${req.query.question_id}/answers`,
+    {
+      params: req.query,
+      headers: { Authorization: auth },
+    },
+  ),
+  postQuestion: (req) => axios.post(
+    'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions',
+    req.body,
+    {
+      headers: { Authorization: auth },
+    },
+  ),
+  postAnswer: (req) => axios.post(
+    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${req.query.question_id}/answers`,
+    req.body,
+    {
+      headers: { Authorization: auth },
+    },
+  ),
+  markQuestionHelpful: (req) => axios.put(
+    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${req.query.question_id}/helpful`,
+    {},
+    {
+      headers: { Authorization: auth },
+    },
+  ),
+  reportQuestion: (req) => axios.put(
+    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${req.query.question_id}/report`,
+    {},
+    {
+      headers: { Authorization: auth },
+    },
+  ),
+  markAnswerHelpful: (req) => axios.put(
+    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/answers/${req.query.answer_id}/helpful`,
+    {},
+    {
+      headers: { Authorization: auth },
+    },
+  ),
+  reportAnswer: (req) => axios.put(
+    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/answers/${req.query.answer_id}/report`,
     {},
     {
       headers: { Authorization: auth },

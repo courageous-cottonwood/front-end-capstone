@@ -83,4 +83,76 @@ module.exports = {
         console.log(error);
       });
   },
+  listQuestions: (req, res) => {
+    models.listQuestions(req.query)
+      .then((response) => {
+        res.send(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  listAnswers: (req, res) => {
+    models.listAnswers(req)
+      .then((response) => {
+        res.send(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  postQuestion: (req, res) => {
+    models.postQuestion(req)
+      .then((response) => {
+        res.send(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  postAnswer: (req, res) => {
+    models.postAnswer(req)
+      .then((response) => {
+        res.send(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  markQuestionHelpful: (req, res) => {
+    models.markQuestionHelpful(req)
+      .then((response) => {
+        res.send(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  reportQuestion: (req, res) => {
+    models.reportQuestion(req)
+      .then((response) => {
+        res.send(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  markAnswerHelpful: (req, res) => {
+    models.markAnswerHelpful(req)
+      .then((response) => {
+        res.send(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  reportAnswer: (req, res) => {
+    models.reportAnswer(req)
+      .then((response) => {
+        res.send(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
 };
