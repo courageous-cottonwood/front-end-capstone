@@ -9,8 +9,6 @@ let port = process.env.PORT || 3000;
 
 const staticPath = path.join(__dirname, '..', '/client/dist/');
 
-let auth = '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';
-
 // Middleware
 app.use(express.static(staticPath));
 app.use(express.json());
