@@ -155,4 +155,22 @@ module.exports = {
         console.log(error);
       });
   },
+  getCart: (req, res) => {
+    models.getCart()
+      .then((response) => {
+        res.send(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  addToCart: (req, res) => {
+    models.addToCart(req)
+      .then((response) => {
+        res.send(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
 };

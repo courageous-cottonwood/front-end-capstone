@@ -118,4 +118,17 @@ module.exports = {
       headers: { Authorization: auth },
     },
   ),
+  getCart: () => axios.get(
+    'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/cart',
+    {
+      headers: { Authorization: auth },
+    },
+  ),
+  addToCart: (req) => axios.post(
+    'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/cart',
+    req.body,
+    {
+      headers: { Authorization: auth },
+    },
+  ),
 };

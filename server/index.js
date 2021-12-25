@@ -123,5 +123,15 @@ app.put('/qa/answers/helpful', controllers.markAnswerHelpful);
 // query params: answer_id: 5269101
 app.put('/qa/answers/report', controllers.reportAnswer);
 
+// GET CART
+app.get('/cart', controllers.getCart);
+
+// ADD TO CART
+// object to send in body:
+// {
+//   "sku_id": ???
+// }
+app.post('/cart', controllers.addToCart);
+
 
 app.listen(port);
