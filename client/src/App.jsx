@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import AppOutfit from './your-outfit/outfit-app.jsx';
+import AppRelated from './related-items/related-items-app.jsx'
 
 class App extends React.Component {
 
@@ -11,7 +13,10 @@ class App extends React.Component {
     return(
       <div>
           <h1>Hello World</h1>
+          <AppRelated />
+          <AppOutfit />
       </div>
+
     )
   }
 }
