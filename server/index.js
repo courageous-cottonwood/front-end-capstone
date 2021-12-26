@@ -1,11 +1,12 @@
-let path = require('path');
-let express = require('express');
-let app = express();
-let axios = require('axios');
+const path = require('path');
+
+const express = require('express');
+
+const app = express();
 
 const controllers = require('./controllers/controllers');
 
-let port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 const staticPath = path.join(__dirname, '..', '/client/dist/');
 
@@ -16,7 +17,7 @@ app.use(express.json());
 // ROUTES
 app.get('/', (req, res) => {
   res.send('/index.html');
-})
+});
 
 // PRODUCTS API
 
@@ -130,6 +131,5 @@ app.get('/cart', controllers.getCart);
 //   "sku_id": ???
 // }
 app.post('/cart', controllers.addToCart);
-
 
 app.listen(port);
