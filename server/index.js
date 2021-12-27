@@ -1,8 +1,12 @@
-let path = require('path');
-let express = require('express');
-let app = express();
+const path = require('path');
 
-let port = process.env.PORT || 3000;
+const express = require('express');
+
+const app = express();
+
+const controllers = require('./controllers/controllers');
+
+const port = process.env.PORT || 3000;
 
 const staticPath = path.join(__dirname, '..', '/client/dist/');
 
@@ -10,94 +14,122 @@ const staticPath = path.join(__dirname, '..', '/client/dist/');
 app.use(express.static(staticPath));
 app.use(express.json());
 
-// Routes
+// ROUTES
 app.get('/', (req, res) => {
   res.send('/index.html');
-})
-
-app.get('/products', (req, res) => {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/`, {
-    headers: { 'Authorization': auth } })
-    .then((response) => {
-      res.send(response.data);
-    })
 });
 
-//get specific product
-app.get('/products/:productid', (req, res) => {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${req.params.productid}`,
-    { headers: { 'Authorization': auth } })
-    .then((response) => {
-      res.send(response.data);
-    })
-});
+// PRODUCTS API
 
-//get specific product styles
-app.get('/products/:productid/styles', (req, res) => {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${req.params.productid}/styles`, {
-    headers: { 'Authorization': auth }})
-    .then((response) => {
-      res.send(response.data);
-    })
-});
+// GET ALL PRODUCTS
+app.get('/products', controllers.getAllProducts);
+
+// GET SPECIFIC PRODUCT
+// required query param product_id: 63609
+app.get('/products/get', controllers.getProduct);
+
+// GET SPECIFIC PRODUCT STYLES
+// required query param product_id: 63609
+app.get('/products/styles', controllers.getProductStyles);
+
+// GET RELATED PRODUCTS
+// required query param product_id: 63609
+app.get('/products/related', controllers.getRelatedProducts);
 
 // REVIEWS API
 
-//list reviews
-// object to send with body
-// {
-//   "page": 1,
-//   "count": 1,
-//   "sort": "newest",
+// GET ALL REVIEWS
+// query params:
 //   "product_id": 63609
-// }
+app.get('/reviews', controllers.getReviews);
 
-app.get('/reviews', (req, res) => {
-  console.log(req.body);
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/`, {
-    params: req.body,
-    headers: { 'Authorization': auth }
-  })
-    .then((response) => {
-      res.send(response.data);
-    })
-});
-
-// object to send with body
-// {
+// GET REVIEW METADATA
+// query params:
 //   "product_id": 63609
-// }
+app.get('/reviews/meta', controllers.getReviewsMeta);
 
-app.get('/reviews/meta', (req, res) => {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/`, {
-    params: req.body,
-    headers: { 'Authorization': auth }
-  })
-    .then((response) => {
-      res.send(response.data);
-    })
-});
-
+// POST REVIEW
 // object to send with body
 // {
+//   "product_id": 63609,
 //   "rating": 1,
-//   "summary": 'this is good',
-//   "body": 'this is REALLY good',
+//   "summary": "this is good",
+//   "body": "this is good",
 //   "recommend": true,
-//   "name": 'this is good',
-//   "email": 'this is good',
-//   "photos": [photos],
-//   "characteristics": 63609
+//   "name": "this is good",
+//   "email": "email@gmail.com",
+//   "photos": [],
+//   "characteristics": {}
 // }
+app.post('/reviews', controllers.postReviews);
 
-app.post('/reviews/', (req, res) => {
-  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/`, {
-    params: req.body,
-    headers: { 'Authorization': auth }
-  })
-  .then((response) => {
-    res.send(response.ok);
-  })
-});
+// MARK REVIEW AS HELPFUL
+// query params
+// {
+//   "review_id": 1115282
+// }
+app.put('/reviews/helpful', controllers.markReviewHelpful);
+
+// REPORT REVIEW
+// query params
+// {
+//   "review_id": 1115282
+// }
+app.put('/reviews/report', controllers.reportReview);
+
+// LIST QUESTIONS
+// product_id query required: 63609
+app.get('/qa/questions', controllers.listQuestions);
+
+// LIST ANSWERS
+// question_id query required: 553786
+app.get('/qa/answers', controllers.listAnswers);
+
+// ADD QUESTION
+// object to send in body:
+// {
+//   "body": "hello",
+//   "name": "brandon",
+//   "email": "email@gmail.com",
+//   "product_id": 63609
+// }
+app.post('/qa/questions', controllers.postQuestion);
+
+// ADD ANSWER
+// query params: question_id: 553786
+// object to send in body:
+// {
+//   "body": "hello",
+//   "name": "brandon",
+//   "email": "email@gmail.com",
+//   "photos": []
+// }
+app.post('/qa/answers', controllers.postAnswer);
+
+// MARK QUESTION HELPFUL
+// query params: question_id: 553786
+app.put('/qa/questions/helpful', controllers.markQuestionHelpful);
+
+// REPORT QUESTION
+// query params: question_id: 553786
+app.put('/qa/questions/report', controllers.reportQuestion);
+
+// MARK ANSWER HELPFUL
+// query params: answer_id: 5269101
+app.put('/qa/answers/helpful', controllers.markAnswerHelpful);
+
+// REPORT ANSWER
+// query params: answer_id: 5269101
+app.put('/qa/answers/report', controllers.reportAnswer);
+
+// GET CART
+app.get('/cart', controllers.getCart);
+
+// ADD TO CART
+// object to send in body:
+// {
+//   "sku_id": ???
+// }
+app.post('/cart', controllers.addToCart);
 
 app.listen(port);
