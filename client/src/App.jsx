@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import QuestionsAnswers from './questions-answers/index.jsx';
 
 class App extends React.Component {
 
@@ -11,6 +12,7 @@ class App extends React.Component {
     return(
       <div>
           <h1>Hello World</h1>
+          <QuestionsAnswers />
       </div>
     )
   }
