@@ -1,11 +1,23 @@
 /* eslint-disable react/button-has-type */
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './qa.module.css';
 
 const QASearchBar = (props) => {
+
+  const [searchText, setSearchText] = useState('HAVE A QUESTION? SEARCH FOR ANSWERS');
+
+  let onChange = (e) => {
+    setSearchText(e.target.value)
+  }
+
+  let onClick = () => {
+    if (searchText === 'HAVE A QUESTION? SEARCH FOR ANSWERS')
+    setSearchText('')
+  };
+
   return (
-    <div className={styles.question_searchBar}>
-      <input className={styles.search_textArea} defaultValue="HAVE A QUESTION? SEARCH FOR ANSWERS" />
+    <div onClick={() => {onClick()}} className={styles.question_searchBar}>
+      <input className={styles.search_textArea} onChange={(e) => {onChange(e)}}  value={searchText} />
       {' '}
       <button className={styles.searchArea_button}>
         <svg

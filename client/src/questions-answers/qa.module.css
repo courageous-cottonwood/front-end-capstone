@@ -1,5 +1,6 @@
 .questionAnswerContainer {
   margin: 15px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .question_searchBar {
@@ -72,6 +73,11 @@
   margin-left: 15px
 }
 
+.subdetail_small p {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
 .qa_button {
   background-color: white;
   border: 1px solid #818181;
@@ -88,7 +94,11 @@
 }
 
 .answer_textDetail {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.answer_textDetail p {
+  margin-bottom: 10px;
 }
 
 .small_link {
@@ -110,9 +120,27 @@
 .answer_images li {
   margin-right: 15px;
 }
+.answerText {
+  display: flex;
+}
 
 .answer_images li img {
   height: 65px;
   width: auto;
   border: 1px solid #acacac;
 }
+
+.modal-window {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.25);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+

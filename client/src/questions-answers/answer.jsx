@@ -1,13 +1,14 @@
+import moment from 'moment';
 import React from 'react';
+import styles from './qa.module.css';
 
 const Answer = (props) => {
   return (
-    <div class="answer_textDetail answer-1">
-    <p style="margin: 0px; ">Icing macaroon bear claw jelly beans chocolate cake. Cookie oat cake chocolate
-      halvah jelly cake cotton candy soufflé topping. Jujubes topping cake gummies lemon drops.</p>
-    <div class="subdetail_small">
-      <p>by User1234, January 1, 2019 </p>
-      <p>Helpful? <a href="#">Yes</a> (2)</p>
+    <div className={styles.answer_textDetail}>
+    <p style={{ margin: 0 }}>{props.data.body}</p>
+    <div className={styles.subdetail_small}>
+      <p>by {props.data.answerer_name}, {moment(props.data.date).format("MMMM Do YYYY")} </p>
+      <p>Helpful? <a href="#">Yes</a> ({props.data.helpfulness})</p>
       <p><a href="#">Report</a></p>
     </div>
   </div>
