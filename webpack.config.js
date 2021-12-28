@@ -1,3 +1,6 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable no-var */
+/* eslint-disable quotes */
 var path = require("path");
 var SRC_DIR = path.join(__dirname, "/client/src");
 var DIST_DIR = path.join(__dirname, "/client/dist");
@@ -15,7 +18,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)?/,
-        exclude: /node_modules/,
+        exclude: ['/node_modules/'],
         use: {
           loader: "babel-loader",
           options: {
@@ -26,6 +29,10 @@ module.exports = {
           }
         },
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      }
     ],
   },
 };
