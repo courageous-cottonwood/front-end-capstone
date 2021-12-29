@@ -83,7 +83,7 @@ module.exports = {
     },
   ),
   postAnswer: (req) => axios.post(
-    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${req.query.question_id}/answers`,
+    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${req.body.question_id}/answers`,
     req.body,
     {
       headers: { Authorization: config.API_KEY },

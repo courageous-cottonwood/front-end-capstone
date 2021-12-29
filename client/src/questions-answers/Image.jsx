@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import styles from './qa.module.css';
 
 
 const Image = (props) => {
@@ -6,19 +7,23 @@ const Image = (props) => {
   const [modalShow, setModalShow] = useState(false);
 
   let showModal = () => {
-
+    setModalShow(!modalShow);
   };
 
-  if (showModal) {
+  if (modalShow) {
     return (
-    <div className={styles.modal}>
-      <div className={}
-      <img src={props.img.src} />
+    <div onClick={() => {showModal()}} className={styles.modal_background}>
+      <div className={styles.model_content}>
+        <img src={props.photo} className={styles.image_large} />
+      </div>
     </div>
+    );
+  } else {
+    return (
+      <img onClick={() => {showModal()}} className={styles.image_small} src={props.photo} />
     );
   }
 
-  return (<img src={props.img.src} />);
-
-
 };
+
+export default Image;

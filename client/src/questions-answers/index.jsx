@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+//import components
 import QASearchBar from './searchBar.jsx';
 import Question from './question.jsx';
 import Buttons from './buttons.jsx';
-import axios from 'axios';
+import AddAnswerForm from './forms/addAnswer.jsx';
+import AddQuestionForm from './forms/addQuestion.jsx';
+
+//import styles
 import styles from './qa.module.css';
 
 const QuestionsAnswers = function (props) {
@@ -16,26 +22,22 @@ const QuestionsAnswers = function (props) {
 
   const getQADataForItem = (product_id, cb) => {
     axios.get('/qa/questions', { params: { product_id: product_id, page: 1, count: numQuestions } })
-      .then((response) => {
-        setQuestions(response.data.results);
-        console.log(response.data.results);
-      });
+    .then((response) => {
+      setQuestions(response.data.results);
+    });
   };
 
   useEffect(() => {
-    getQADataForItem(props.product_id || 63609);
+    getQADataForItem(props.product_id);
   }, [numQuestions]);
 
   return (
     <div className={styles.questionAnswerContainer}>
       <h4 onClick={() => { loadMoreQuestions() }}>QUESTIONS AND ANSWERS</h4>
       <QASearchBar />
-      {questions.map((question, i) => {
-        return <Question questionData={question} key={i} />
-      })}
-      <Buttons loadMore={loadMoreQuestions} />
+      {questions.map((question, i) => { return <Question questionData={question} key={i} /> })}
+      <Buttons product_id={props.product_id} loadMore={loadMoreQuestions} />
     </div>
-
   );
 };
 

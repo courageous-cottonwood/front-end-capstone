@@ -2,19 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import QuestionsAnswers from './questions-answers/index.jsx';
 
-class App extends React.Component {
+const App = () =>  {
 
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return(
+  return (
       <div>
-        <QuestionsAnswers />
+        <QuestionsAnswers product_id={63609} />
       </div>
     )
-  }
 }
 
 export default App;
