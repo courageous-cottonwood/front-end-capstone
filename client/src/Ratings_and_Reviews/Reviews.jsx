@@ -1,6 +1,7 @@
 import React from 'react';
 import DummyReviews from './DummyReviews.js';
 import Review from './Review.jsx';
+import styles from './RR.module.css';
 
 class Reviews extends React.Component {
   constructor (props) {
@@ -17,7 +18,7 @@ class Reviews extends React.Component {
     );
     // console.log(mappedReviews);
     return (
-      <div>
+      <div className={styles.ReviewsContainer}>
         <div>{mappedReviews}</div>
         <button> More Reviews</button>
         <button> Add Review </button>

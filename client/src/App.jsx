@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Reviews from './Reviews/Reviews.jsx'
+import Ratings_and_Reviews from './Ratings_and_Reviews/Ratings_and_Reviews.jsx';
 
 class App extends React.Component {
 
@@ -12,7 +12,7 @@ class App extends React.Component {
     return(
       <div>
           <h1>Hello World</h1>
-          <Reviews/>
+          <Ratings_and_Reviews/>
       </div>
     )
   }

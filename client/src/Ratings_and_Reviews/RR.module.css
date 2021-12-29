@@ -1,0 +1,13 @@
+.ratingsAndReviewsContainer {
+  margin: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+}
+
+.ratingsContainer {
+  flex-grow: 1;
+}
+
+.ReviewsContainer {
+  flex-grow: 2;
+}
