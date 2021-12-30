@@ -49,15 +49,30 @@
 .ratingsNumberAndStarsContainer {
   display: flex;
   flex-direction: row;
+  margin-bottom: 20px;
 }
 
-/* .ratingsNumber {
-
+ .ratingsNumber {
+  font-weight: 900;
+  font-size: xx-large;
+  margin: 20px;
 }
 
-.stars {
+.ratingBreakdown {
+  margin-bottom: 20px;
+}
 
-} */
+.star {
+  --star-active: #fece3c;
+  --star-inactive: #6c6962;
+  fill: var(--star-inactive);
+}
+
+.starActive {
+  fill: var(--star-active);
+}
+
+
 
 .button {
   background-color: white;
