@@ -20,15 +20,11 @@ import { useEffect, useState } from 'react';
 import Item from './Item.jsx';
 import axios from 'axios';
 
-//helper function to get array of related items
-//iterate over the array, get their product info(axios.get), add to a new array
-
 //remove dummy data props
 const AppRelated = (props) => {
-  //useState --> items, setItems
   //const [state, setState] = useState(initialState);
   const [items, setItems] = useState([]);
-  const [isLoading, setLoading] = useState(true); //set true to appear
+  const [isLoading, setLoading] = useState(true); //set true for loader to appear
 
 
   //grab product id from the props or 63630 for now
@@ -42,7 +38,6 @@ const AppRelated = (props) => {
       .then((res) => {
         //console.log(res.data);
         getEachItem(res.data);
-        setItems(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -50,35 +45,60 @@ const AppRelated = (props) => {
 
   }, []);
 
-  // useEffect(() => {
-  //   return
-  // }, [items])
-
-  // useEffect(() => {
-  //   fakeRequest().then(() => {
-  //     const el = document.querySelector(".loader-container");
-  //     if (el) {
-  //       el.remove();
-  //       setLoading(!isLoading);
-  //     }
-  //   });
-  // }, []);
-
-
-  const getEachItem = (dataArr) => {
+    const getEachItem = (dataArr) => {
+    let promises = [];
+    var itemsFull = []
     for (var i = 0; i < dataArr.length; i++) {
-      axios.get('/products/get', { params: { product_id: dataArr[i] } })
+      promises.push(axios.get('/products/get', { params: { product_id: dataArr[i] } })
         .then((res) => {
           //console.log(res.data);
-          items.push(res.data);
+          itemsFull.push(res.data);
         })
         .catch((err) => {
           console.log(err);
         })
+      )
     }
-    console.log(items);
-    setLoading(!isLoading);
+    Promise.all(promises).then(() => {
+      setItems(itemsFull);
+      setLoading(!isLoading);
+    });
+
   }
+
+  if (isLoading) {
+    return (
+      <div className={RelatedCSS.container}>
+        <h3>FETCHING DATA</h3>
+        <div className={RelatedCSS.loader_container}>
+          <div className={RelatedCSS.loader}></div>
+        </div>
+      </div>
+    )
+  }
+  return (
+    <div className={RelatedCSS.container}>
+      {console.log(items)}
+      {items.map((item) => {
+        return (
+          <Item
+            name={item.name}
+            category={item.category}
+            price={item.default_price}
+            key={item.id}
+            id = {item.id}
+          />
+        )
+      }
+      )
+      }
+    </div>
+  )
+}
+
+export default AppRelated;
+
+
 
 
   // const array = [{ id: 'asdf' }, { id: 'foo' }, { id: 'bar' }];
@@ -95,33 +115,32 @@ const AppRelated = (props) => {
 
   // Promise.all(promises).then(() => console.log(users));
 
-  if (isLoading) {
-    return (
-      <div className={RelatedCSS.container}>
-        <div className={RelatedCSS.loader_container}>
-          <div className={RelatedCSS.loader}></div>
-        </div>
-      </div>
-    )
-  }
-  return (
-    <div className={RelatedCSS.container}>
-      {console.log(items)}
-      {items.map((item) => {
-        console.log(item);
-        return (
-        <Item
-          name={item.name}
-          category={item.category}
-          price={item.default_price}
-          key={item.id}
-        />
-        )
-      }
-      )
-      }
-    </div>
-  )
-}
 
-export default AppRelated;
+
+
+  // useEffect(() => (
+  //   items.map((item) => {
+  //     console.log(item);
+  //     return (
+  //       <Item
+  //         name={item.name}
+  //         category={item.category}
+  //         price={item.default_price}
+  //         key={item.id}
+  //       />
+  //     )
+  //   }
+  //   )
+  // ), [items]);
+
+
+    // useEffect(() => {
+    //   fakeRequest().then(() => {
+    //     const el = document.querySelector(".loader-container");
+    //     if (el) {
+    //       el.remove();
+    //       setLoading(!isLoading);
+    //     }
+    //   });
+    // }, []);
+

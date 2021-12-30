@@ -1,11 +1,12 @@
-/* eslint-disable comma-dangle */
-/* eslint-disable no-var */
-/* eslint-disable quotes */
+
 var path = require("path");
 var SRC_DIR = path.join(__dirname, "/client/src");
 var DIST_DIR = path.join(__dirname, "/client/dist");
 
 module.exports = {
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   mode: 'development',
   devtool: 'eval-source-map',
   watch: true,

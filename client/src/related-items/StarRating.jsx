@@ -1,54 +1,52 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable import/no-duplicates */
-/* eslint-disable react/no-unused-state */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable space-infix-ops */
-/* eslint-disable no-undef */
-/* eslint-disable spaced-comment */
-/* eslint-disable import/extensions */
-/* eslint-disable eol-last */
-/* eslint-disable no-plusplus */
-/* eslint-disable prefer-const */
-/* eslint-disable quotes */
-/* eslint-disable react/state-in-constructor */
-/* eslint-disable comma-dangle */
-/* eslint-disable react/destructuring-assignment */
-
 import React from "react";
 import { useEffect, useState, Component } from 'react';
 import Star from './Star.jsx';
 import StarCSS from './cssModules/StarCSS.module.css';
+import axios from 'axios';
+
+const StarRating = (props) => {
+  const [rating, setRating] = useState([]);
+
+  useEffect(() => {
+    const promises = [];
+    const avg= []
+    promises.push(axios.get('/reviews/meta', { params: { product_id: props.id } })
+      .then((res) => {
+        console.log(res.data.ratings);
+        var ratingsObj = res.data.ratings;
+        avg.push(calculateAverage(ratingsObj));
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    );
+    Promise.all(promises).then(() => {
+      console.log(avg);
+      setRating(avg);
+    });
+  }, [])
 
 
-//tranform into hooks, pass down id to use get rating, do math avg
 
-class StarRating extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      rating: 0
-    };
-  }
-
-  calculateRating = (ratingsObj) => {
+  const calculateAverage = (ratingsObj) => {
+    //console.log(ratingsObj);
+    var average = 0;
     var totalScore = 0;
     var numOfReviews = 0;
-    for (key in ratingsObj) {
-      totalScore += ratingsObj[key] * key;
-      numOfReviews += ratingsObj[key];
+    for (let el in ratingsObj) {
+      totalScore += Number(el) * Number(ratingsObj[el]);
+      numOfReviews += Number(ratingsObj[el]);
     }
-    var average = totalScore / numOfReviews;
-    return average;
+    average = totalScore / numOfReviews;
+    return average.toFixed(2);
   }
 
-  renderStars = () => {
-    //get rating from GET /reviews/meta param: product_id
-    //send result obj to calculateRating, get average
-    //assign that result to starts
-    const average = 0;
+  ///will share star component with other widgets
+  //need to link common utility folder
+
+  const renderStars = () => {
     let stars = [];
     let maxRating = 5;
-
     for (let i = 0; i < maxRating; i++) {
       stars.push(
         <Star
@@ -60,16 +58,14 @@ class StarRating extends Component {
   };
 
 
-  render() {
-    return (
-      <div>
-        {/* <h4>Average rating</h4> */}
+  return (
+    <div>
+      <h4>Average rating: {rating}</h4>
       <ul className={StarCSS.item_stars}>
-        {this.renderStars()}
+        {renderStars()}
       </ul>
-      </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default StarRating;
