@@ -19,15 +19,13 @@ const Buttons = (props) => {
       {showQuestionForm ?
           <div className={styles.modal_background}>
             <div className={styles.model_content}>
-              <AddQuestionForm product_id={props.product_id} showModal={showModal} />
+              <AddQuestionForm product_id={props.product_id} reload={props.reload} showModal={showModal} />
             </div>
           </div> :
           <button onClick={() => { showModal() }} className={styles.qa_button}>
           ADD A QUESTION &nbsp; +
           </button>
           }
-
-
     </div>
   )
 };

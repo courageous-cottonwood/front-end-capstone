@@ -11,6 +11,7 @@ const AddAnswerForm = (props) => {
     photos: [],
     question_id: props.question_id
   });
+
   const [allowSubmit, setAllowSubmit] = useState(false);
 
   let updateForm = (e) => {
