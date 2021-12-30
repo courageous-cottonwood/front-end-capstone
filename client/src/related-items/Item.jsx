@@ -13,16 +13,39 @@ import React from 'react';
 import StarRating from './StarRating.jsx';
 import RelatedCSS from './cssModules/Related.module.css';
 
-//>
+//pass down rating prop
 const Item = (props) => {
-  console.log(props);
+  //thubnail call
+  //GET /products/:product_id/styles
+  // --> results [] --> photos [] --> "thumbnail_url"
+
+  
+  // useEffect(() => {
+  //   console.log('hello useEffect in Item');
+  //   //1. axios.get(/id/related)
+  //   axios.get('/products/related', { params: { product_id: productId } })
+  //     .then((res) => {
+  //       //console.log(res.data);
+  //       getEachItem(res.data);
+  //       //setItems(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     })
+
+  // }, []);
+
+
+
   return (
     <div className={RelatedCSS.card}>
-      <h4>{props.category}</h4>
-      <h2>{props.name}</h2>
-      <h4>Placeholder for image</h4>
-      <p>{'$' + props.price}</p>
-      <StarRating />
+      <div>
+        <h4>{props.category || 'Still loading'}</h4>
+        <h2>{props.name || 'Still loading'}</h2>
+        <h4>Image is loading</h4>
+        <p>{'$' + props.price}</p>
+        <StarRating />
+      </div>
     </div>
   );
 };

@@ -29,11 +29,11 @@
 .item_stars .star {
   width: auto;
   height: 100%;
-  fill: #3658a25f;
+  fill: #280c3c5f;
 }
 
 .item_stars .selected .star {
-  fill: #2d4f9a;
+  fill: #2f1c5b;
 }
 
 .item-reviews--form .item_stars {

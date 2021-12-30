@@ -1,3 +1,5 @@
+/* eslint-disable padded-blocks */
+/* eslint-disable lines-between-class-members */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-named-as-default */
 /* eslint-disable import/no-named-as-default-member */
@@ -6,21 +8,22 @@
 /* eslint-disable react/prefer-stateless-function */
 /* eslint-disable no-useless-constructor */
 import React from 'react';
-import AppOutfit from './your-outfit/outfit-app.jsx';
+//import AppOutfit from './your-outfit/outfit-app.jsx';
 import AppRelated from './related-items/related-items-app.jsx';
-import dummyData from './related-items/dummy_data.js';
+//import dummyData from './related-items/dummy_data.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-  }
 
+  }
   render() {
     return (
       <div>
-        <h1>Hello World</h1>
-        <AppRelated items = {dummyData} />
-        <AppOutfit />
+
+        {/* <h1>Hello World</h1> */}
+        <AppRelated product_id={63630} />
+        {/* <AppOutfit /> */}
       </div>
 
     );
