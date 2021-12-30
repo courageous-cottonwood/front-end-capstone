@@ -9,19 +9,28 @@ class Reviews extends React.Component {
     super(props);
     this.state = {
       reviews: DummyReviews,
+      count: 2,
     }
     this.getReviews = this.getReviews.bind(this);
+    this.handleMoreQuestions = this.handleMoreQuestions.bind(this);
   }
 
-  getReviews (productID = 63612) {
+  getReviews (productID = 63610) {
     axios.get('/reviews', {
       params: {
-        product_id: productID
+        product_id: productID, page : 1, count: this.state.count
       }
     })
     .then( (response) => {
       // console.log(response.data);
       this.setState({reviews: response.data});
+    });
+  }
+
+  handleMoreQuestions () {
+    let count = this.state.count + 2;
+    this.setState({count: count}, () => {
+      this.getReviews();
     });
   }
 
@@ -31,14 +40,13 @@ class Reviews extends React.Component {
 
   render () {
     // console.log(this.state.reviews);
-    var mappedReviews = this.state.reviews.results.map( (review) =>
-      <Review review={review} />
-    );
     // console.log(mappedReviews);
     return (
       <div className={styles.ReviewsContainer}>
-        {mappedReviews}
-        <button className={styles.button}> More Reviews</button>
+        {this.state.reviews.results.map( (review) =>
+          <Review review={review} />
+        )}
+        <button onClick={this.handleMoreQuestions} className={styles.button}> More Reviews</button>
         <button className={styles.button}> Add Review </button>
       </div>
 

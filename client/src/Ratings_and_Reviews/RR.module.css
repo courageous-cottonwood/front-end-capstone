@@ -20,18 +20,44 @@
   margin-bottom: 20px;
 }
 
+.ReviewStarAndDateContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.ReviewRating {
+  font-weight: bold;
+}
+
+.ReviewSummary {
+  margin-bottom: 20px;
+}
+.ReviewSummarySpan {
+  font-size: larger;
+  font-weight: bold;
+}
+.ReviewBody {
+  margin-bottom: 20px;
+}
+
+.ReviewUserSpan {
+  font-size: smaller;
+  font-weight: 200;
+}
+
 .ratingsNumberAndStarsContainer {
   display: flex;
   flex-direction: row;
 }
 
-.ratingsNumber {
-  font-weight: bold;
+/* .ratingsNumber {
+
 }
 
 .stars {
-  font-weight: bold;
-}
+
+} */
 
 .button {
   background-color: white;

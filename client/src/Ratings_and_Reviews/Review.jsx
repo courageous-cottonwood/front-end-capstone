@@ -5,11 +5,17 @@ const Review = ({review}) => {
   // console.log(review);
   return (
     <div className={styles.ReviewContainer}>
-      <div>{review.rating}</div>
-      <div>{review.date}</div>
-      <div>{review.summary}</div>
-      <div>{review.body}</div>
-      <div>{review.reviewer_name}</div>
+      <div className={styles.ReviewStarAndDateContainer}>
+        <div className={styles.ReviewRating}>{review.rating}</div>
+        <div>{review.date}</div>
+      </div>
+      <div className={styles.ReviewSummary}>
+        <span className={styles.ReviewSummarySpan}>{review.summary}</span>
+        </div>
+      <div className={styles.ReviewBody}>{review.body}</div>
+      <div>
+      <span className={styles.ReviewUserSpan}>{review.reviewer_name}</span>
+      </div>
 
     </div>
 
