@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './RR.module.css';
 import dayjs from 'dayjs';
-import Stars from './Stars.jsx';
+import Stars from '../Utilities/Stars.jsx';
 
 
 
