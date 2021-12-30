@@ -13,14 +13,15 @@ class Reviews extends React.Component {
     this.getReviews = this.getReviews.bind(this);
   }
 
-  getReviews (productID = 63610) {
+  getReviews (productID = 63612) {
     axios.get('/reviews', {
-      query: {
+      params: {
         product_id: productID
       }
     })
     .then( (response) => {
-      console.log(response);
+      // console.log(response.data);
+      this.setState({reviews: response.data});
     });
   }
 
