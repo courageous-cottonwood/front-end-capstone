@@ -11,8 +11,7 @@ const Stars = ({rating}) => {
       <use href="#star"></use>
     </svg>);
     }
-    let numberOfInactiveStars = 5-rating;
-    for(let i = 0; i < numberOfInactiveStars; i++) {
+    for(let i = 0; i < (5-rating); i++) {
       inactiveStars.push(<svg className={styles.star} width="24" height="24">
       <use href="#star"></use>
     </svg>);
