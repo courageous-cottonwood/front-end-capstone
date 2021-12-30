@@ -5,9 +5,41 @@
 }
 
 .ratingsContainer {
+  display: flex;
   flex-grow: 1;
+  flex-direction: column;
 }
 
 .ReviewsContainer {
   flex-grow: 2;
+}
+
+.ReviewContainer {
+  border-bottom: 1px solid #000000;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.ratingsNumberAndStarsContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.ratingsNumber {
+  font-weight: bold;
+}
+
+.stars {
+  font-weight: bold;
+}
+
+.button {
+  background-color: white;
+  border: 1px solid #818181;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #3D424A;
+  font-size: medium;
+  padding: 20px;
+  margin-right: 15px;
 }

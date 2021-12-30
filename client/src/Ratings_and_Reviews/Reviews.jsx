@@ -2,6 +2,7 @@ import React from 'react';
 import DummyReviews from './DummyReviews.js';
 import Review from './Review.jsx';
 import styles from './RR.module.css';
+import axios from 'axios';
 
 class Reviews extends React.Component {
   constructor (props) {
@@ -9,6 +10,22 @@ class Reviews extends React.Component {
     this.state = {
       reviews: DummyReviews,
     }
+    this.getReviews = this.getReviews.bind(this);
+  }
+
+  getReviews (productID = 63610) {
+    axios.get('/reviews', {
+      query: {
+        product_id: productID
+      }
+    })
+    .then( (response) => {
+      console.log(response);
+    });
+  }
+
+  componentDidMount () {
+    this.getReviews();
   }
 
   render () {
@@ -19,9 +36,9 @@ class Reviews extends React.Component {
     // console.log(mappedReviews);
     return (
       <div className={styles.ReviewsContainer}>
-        <div>{mappedReviews}</div>
-        <button> More Reviews</button>
-        <button> Add Review </button>
+        {mappedReviews}
+        <button className={styles.button}> More Reviews</button>
+        <button className={styles.button}> Add Review </button>
       </div>
 
     );

@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './RR.module.css';
 
 const Review = ({review}) => {
-  console.log(review);
+  // console.log(review);
   return (
-    <div> Review
+    <div className={styles.ReviewContainer}>
       <div>{review.rating}</div>
       <div>{review.date}</div>
       <div>{review.summary}</div>

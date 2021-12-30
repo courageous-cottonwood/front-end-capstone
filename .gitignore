@@ -1,3 +1,5 @@
 node_modules
 
 client/src/config/config.js
+
+client/dist/bundle.js
