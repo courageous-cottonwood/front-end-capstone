@@ -42,7 +42,7 @@ const AppRelated = (props) => {
       .then((res) => {
         //console.log(res.data);
         getEachItem(res.data);
-        //setItems(res.data);
+        setItems(res.data);
       })
       .catch((err) => {
         console.log(err);

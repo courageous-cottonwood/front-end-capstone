@@ -9,7 +9,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable arrow-body-style */
 
-import React from 'react';
+import React, { useState } from 'react';
 import StarRating from './StarRating.jsx';
 import RelatedCSS from './cssModules/Related.module.css';
 
@@ -17,17 +17,18 @@ import RelatedCSS from './cssModules/Related.module.css';
 const Item = (props) => {
   //thubnail call
   //GET /products/:product_id/styles
-  // --> results [] --> photos [] --> "thumbnail_url"
 
-  
+  const [image, setImage] = useState([])
+
   // useEffect(() => {
   //   console.log('hello useEffect in Item');
-  //   //1. axios.get(/id/related)
-  //   axios.get('/products/related', { params: { product_id: productId } })
+
+  //   axios.get('/products/styles', { params: { product_id: props.key } })
   //     .then((res) => {
+  //       //get the item data,find results array and photos
   //       //console.log(res.data);
-  //       getEachItem(res.data);
-  //       //setItems(res.data);
+  //       // --> results [] --> photos [] --> "thumbnail_url"
+  //       //setImage()
   //     })
   //     .catch((err) => {
   //       console.log(err);
@@ -43,8 +44,8 @@ const Item = (props) => {
         <h4>{props.category || 'Still loading'}</h4>
         <h2>{props.name || 'Still loading'}</h2>
         <h4>Image is loading</h4>
-        <p>{'$' + props.price}</p>
-        <StarRating />
+        <p>{'$' + (props.price || 'Still loading')}</p>
+        <StarRating id = {props.id}/>
       </div>
     </div>
   );
