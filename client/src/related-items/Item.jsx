@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -10,18 +11,18 @@ const Item = (props) => {
   const [image, setImage] = useState('');
 
   useEffect(() => {
-    //GET /products/:product_id/styles
+    // GET /products/:product_id/styles
     axios.get('/products/styles', { params: { product_id: props.id } })
       .then((res) => {
         // --> results [] --> photos [] --> "thumbnail_url"
-        //console.log(res.data);
+        // console.log(res.data);
         const item = res.data;
-        //console.log(item.results[0].photos[0].thumbnail_url);
-        setImage(item.results[0].photos[0].thumbnail_url)
+        // console.log(item.results[0].photos[0].thumbnail_url);
+        setImage(item.results[0].photos[0].thumbnail_url);
       })
       .catch((err) => {
         console.log(err);
-      })
+      });
   }, []);
 
   return (
