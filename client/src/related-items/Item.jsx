@@ -18,7 +18,6 @@ const Item = (props) => {
     axios.get('/products/styles', { params: { product_id: props.id } })
       .then((res) => {
         // --> results [] --> photos [] --> "thumbnail_url"
-       console.log(res.data);
         const item = res.data;
         // console.log(item.results[0].photos[0].thumbnail_url);
         setImage(item.results[0].photos[0].thumbnail_url);
@@ -30,9 +29,7 @@ const Item = (props) => {
 
   //need a click event to re-render the site with new item
  const handleClickedOnItem = () => {
-   return (
-    <ProductDetail id = {props.id}/>
-   )
+   console.log('You clicked on an item, this will re-render the page with that item as main');
  }
 
   return (

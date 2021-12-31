@@ -10,7 +10,7 @@ const App = () =>  {
   return (
       <div>
         <ProductDetail product_id={63609} />
-        <AppRelated product_id={63609}/>
+        <AppRelated product_id={63624}/>
         <QuestionsAnswers product_id={63609} />
         <Ratings_and_Reviews/>
       </div>

@@ -22,7 +22,6 @@ const AppRelated = (props) => {
   const [items, setItems] = useState([]);
   const [isLoading, setLoading] = useState(true); //set true for loader to appear
 
-  //grab product id from the props or 63630 for now
   const productId = props.product_id || 63609;
 
   useEffect(() => {

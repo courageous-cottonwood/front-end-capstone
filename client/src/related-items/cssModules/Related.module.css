@@ -22,10 +22,14 @@ body {
 
 .container {
   width: 90%;
-  max-width: 1500px;
+  /* max-width: 1500px; */
   margin: 1.1em auto;
   display: flex;
   flex-direction: row;
+  flex-wrap: nonwrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
   row-gap: 10px;
   gap: 10px 20px;
   /* grid-gap: 15px;
@@ -33,6 +37,7 @@ body {
 }
 
 .card {
+  flex: 0 0 auto;
   box-sizing: border-box;
   display: flex;
   justify-content: space-evenly;
@@ -79,6 +84,7 @@ h2 {
   line-height: 1.2;
   margin-top: 5px;
   height: 71px;
+  cursor: pointer;
 }
 
 h3 {
