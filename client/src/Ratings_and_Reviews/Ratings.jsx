@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './RR.module.css';
 import axios from 'axios';
+import Stars from '../Utilities/Stars.jsx';
+
 
 class Ratings extends React.Component {
   constructor(props) {
@@ -19,7 +21,7 @@ class Ratings extends React.Component {
       }
     })
     .then( (response) => {
-      console.log(response.data);
+      // console.log(response.data);
       this.setState({review_meta: response.data});
     });
   }
@@ -56,7 +58,9 @@ class Ratings extends React.Component {
       <div className={styles.ratingsContainer}>
         <div className={styles.ratingsNumberAndStarsContainer}>
           <span className={styles.ratingsNumber}>{this.getAverageRating()}</span>
-          <div className={styles.stars}> Stars</div>
+          <div className={styles.stars}>
+            <Stars rating={this.getAverageRating()} size={24}/>
+          </div>
         </div>
         <div className={styles.ratingBreakdown}>
           <div> 1 star: {this.getRatingCount(1)}</div>

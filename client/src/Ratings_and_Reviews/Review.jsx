@@ -13,7 +13,7 @@ const Review = ({review}) => {
     <div className={styles.ReviewContainer}>
       <div className={styles.ReviewStarAndDateContainer}>
         <div className={styles.ReviewRating}>
-          <Stars rating={review.rating}/>
+          <Stars rating={review.rating} size={16}/>
         </div>
         <div>{date}</div>
       </div>
