@@ -40,13 +40,13 @@ const Answer = (props) => {
         </div>
 
 
-      <div>
-        <div className={styles.square_button}>
-        <p>Helpful? <a href="#" onClick={ () => {markHelpful()} }>Yes</a> ({helpful})</p>
-        </div>
-        <div className={styles.square_button}>
-        { reportIsLink ? <p><a href="#" onClick={() => { report() }}>Report</a></p> : <p>Reported</p> }
-        </div>
+        <div>
+        <a className={styles.square_button} href="#" onClick={ () => {markHelpful()} }>
+          <h2 style={{ marginTop: 0 }}>{helpful}</h2>
+          <p>Found This Helpful</p>
+          </a>
+          { reportIsLink ? <a href="#" className={styles.square_button} onClick={() => { report() }}><p>
+          <strong>Report</strong><br />This Answer</p></a> : <div className={styles.square_button}>Reported</div> }
       </div>
     </div>
     );
@@ -58,13 +58,13 @@ const Answer = (props) => {
         <p style={{ margin: 0 }}>{props.data.body}</p>
         <p className={styles.subdetail_small}> by {props.data.answerer_name}, {dayjs(props.data.date).format("MMMM D YYYY")} </p>
         </div>
-      <div >
-        <div className={styles.square_button}>
-        <p>Helpful? <a href="#" onClick={ () => {markHelpful()} }>Yes</a> ({helpful})</p>
-        </div>
-        <div className={styles.square_button}>
-        { reportIsLink ? <p><a href="#" onClick={() => { report() }}>Report</a></p> : <p>Reported</p> }
-        </div>
+      <div>
+        <a className={styles.square_button} href="#" onClick={ () => {markHelpful()} }>
+          <h2 style={{ marginTop: 0 }}>{helpful}</h2>
+          <p>Found This Helpful</p>
+          </a>
+          { reportIsLink ? <a href="#" className={styles.square_button} onClick={() => { report() }}><p>
+          <strong>Report</strong><br />This Answer</p></a> : <div className={styles.square_button}>Reported</div> }
       </div>
     </div>
     );

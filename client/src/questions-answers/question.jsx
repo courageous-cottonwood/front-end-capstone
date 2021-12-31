@@ -66,25 +66,30 @@ const Question = (props) => {
 
 
           <div className={styles.helpful_addAnswer}>
-          { showLoadMore ?
-          <div className={styles.bottom_button}>
-             <a onClick={() => {loadMoreAnswers()}} className={styles.small_link}>Load More Answers</a>
-          </div>
-         : <p></p> }
+            {/* 1 */}
 
-            <div className={styles.bottom_button}>
-              <p>Helpful? <a href="#" onClick={ () => {markHelpful()} }>Yes</a> ({helpful})</p>
+            { showLoadMore ?
+             <a className={styles.bottom_button} onClick={() => {loadMoreAnswers()}} >Load More Answers</a> : <p></p> }
+
+            {/* 2 */}
+              <a href="#" className={styles.bottom_button} onClick={ () => {markHelpful()} }>
+              <strong className={styles.small_squareNumber}>{helpful}</strong>Found This Question Helpful
+              </a>
+
+            {/* 3 */}
+
+
+          {showAnswerForm ?
+            <div className={styles.modal_background}>
+              <div className={styles.model_content}>
+                <AddAnswerForm question_id={props.questionData.question_id} showModal={showModal} />
+              </div>
             </div>
-            <div className={styles.bottom_button}>
-            {showAnswerForm ?
-          <div className={styles.modal_background}>
-            <div className={styles.model_content}>
-              <AddAnswerForm question_id={props.questionData.question_id} showModal={showModal} />
-            </div>
-          </div> :
-          <p><button onClick={() => { showModal() }}>Add Answer</button></p>
+          :
+            <a className={styles.bottom_button} onClick={() => { showModal() }}>Add Answer</a>
           }
-            </div>
+
+
 
       </div>
         </div>
