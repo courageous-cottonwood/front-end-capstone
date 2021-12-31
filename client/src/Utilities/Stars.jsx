@@ -2,6 +2,10 @@ import React from 'react';
 
 const Stars = ({rating, size, color}) => {
 
+  // to set the same size and color
+  // size = size || 40;
+  // color = color || '#2f1c5b';
+
     var activeStars = [];
     var inactiveStars = [];
     var partialStars = [];

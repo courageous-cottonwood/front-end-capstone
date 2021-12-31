@@ -14,7 +14,7 @@
 import RelatedCSS from './cssModules/Related.module.css';
 import React from 'react';
 import { useEffect, useState } from 'react';
-import Item from './Item';
+import Item from './Item.jsx';
 import axios from 'axios';
 
 //remove dummy data props
