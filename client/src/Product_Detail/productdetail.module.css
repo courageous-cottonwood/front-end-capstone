@@ -1,0 +1,50 @@
+.productDetailContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.leftPanel {
+  display: inline-flex;
+  flex-direction: row;
+  max-width: 500px;
+  max-height: 800px;
+
+}
+
+.styleThumbnails {
+  display: flex;
+  flex-direction: column;
+}
+
+.defaultViewImage {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.productInfoContainer {
+
+}
+
+.styleSelector {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.styleItem {
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.overview {
+  display: flex;
+  flex-direction: row;
+}
