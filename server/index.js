@@ -132,4 +132,6 @@ app.get('/cart', controllers.getCart);
 // }
 app.post('/cart', controllers.addToCart);
 
-app.listen(port);
+app.listen(port, () => {
+  console.log('Listening at http://localhost:' + port);
+});
