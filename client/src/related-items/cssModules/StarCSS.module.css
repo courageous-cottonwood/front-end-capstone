@@ -1,0 +1,41 @@
+
+.item_stars {
+  border: 0;
+  margin: 20px 0 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+.item_stars li {
+  float: left;
+  list-style: none;
+  width: 20%;
+  max-width: 40px;
+  line-height: 0;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+.item_stars li:first-child {
+  margin-left: -2px;
+}
+
+.item_stars li:hover {
+  cursor: pointer;
+}
+
+.item_stars .star {
+  width: auto;
+  height: 100%;
+  fill: #280c3c5f;
+}
+
+.item_stars .selected .star {
+  fill: #2f1c5b;
+}
+
+.item-reviews--form .item_stars {
+  margin-bottom: 10px;
+}
