@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState, Component } from 'react';
-import Star from './Star.jsx';
+// import Star from './Star.jsx';
+import Stars from '../Utilities/Stars.jsx';
 import StarCSS from './cssModules/StarCSS.module.css';
 import axios from 'axios';
 
@@ -9,19 +10,26 @@ const StarRating = (props) => {
 
   useEffect(() => {
     const promises = [];
-    const avg= []
+    const avg = []
     promises.push(axios.get('/reviews/meta', { params: { product_id: props.id } })
       .then((res) => {
-        console.log(res.data.ratings);
         var ratingsObj = res.data.ratings;
-        avg.push(calculateAverage(ratingsObj));
+        //console.log(res.data);
+        // console.log(res.data.ratings);
+        if (Object.keys(ratingsObj).length === 0) {
+          avg.push(0);
+          //console.log(avg);
+        } else {
+          avg.push(calculateAverage(ratingsObj));
+        }
+
       })
       .catch((err) => {
         console.log(err);
       })
     );
     Promise.all(promises).then(() => {
-      console.log(avg);
+      //console.log(avg);
       setRating(avg);
     });
   }, [])
@@ -41,44 +49,23 @@ const StarRating = (props) => {
     return average.toFixed(2);
   }
 
-  ///will share star component with other widgets
-  //need to link common utility folder
-
-  const renderStars = () => {
-    let stars = [];
-    let maxRating = 5;
-    for (let i = 0; i < maxRating; i++) {
-      stars.push(
-        <Star
-          key={i}
-        />
-      );
-    }
-    return stars;
-  };
-
 
   return (
-    <div>
-      <h4>Average rating: {rating}</h4>
-      <ul className={StarCSS.item_stars}>
-        {renderStars()}
-      </ul>
-    </div>
+    <span className={StarCSS.rating}>
+      {rating[0] === 0 ?
+        <span>
+          <h4>No rating yet </h4>
+          <Stars rating={rating[0]} size={30} color={'#2f1c5b'} />
+        </span>
+        :
+        <span>
+          <h4>Average rating: {rating}</h4>
+          <Stars rating={rating[0]} size={30} color={'#2f1c5b'} />
+        </span>
+      }
+    </span>
   );
 }
 
 export default StarRating;
 
-
-// isSelected={this.state.rating > i}
-          // setRating={() => this.handleSetRating(i + 1)}
-
-
-  // handleSetRating = (rating) => {
-  //   if (this.state.rating === rating) {
-  //     this.setState({ rating: 0 });
-  //   } else {
-  //     this.setState({ rating });
-  //   }
-  // };

@@ -14,23 +14,17 @@
 import RelatedCSS from './cssModules/Related.module.css';
 import React from 'react';
 import { useEffect, useState } from 'react';
-import Item from './Item';
+import Item from './Item.jsx';
 import axios from 'axios';
 
-//remove dummy data props
 const AppRelated = (props) => {
   //const [state, setState] = useState(initialState);
   const [items, setItems] = useState([]);
   const [isLoading, setLoading] = useState(true); //set true for loader to appear
 
-
-  //grab product id from the props or 63630 for now
   const productId = props.product_id || 63609;
 
-  //to load items initally with [] in the end
   useEffect(() => {
-    console.log('hello useEffect');
-    //1. axios.get(/id/related)
     axios.get('/products/related', { params: { product_id: productId } })
       .then((res) => {
         //console.log(res.data);
@@ -94,50 +88,4 @@ const AppRelated = (props) => {
 }
 
 export default AppRelated;
-
-
-
-
-  // const array = [{ id: 'asdf' }, { id: 'foo' }, { id: 'bar' }];
-  // let users = [];
-  // let promises = [];
-  // for (i = 0; i < array.length; i++) {
-  //   promises.push(
-  //     axios.get('/user/' + array[i].id).then(response => {
-  //       // do something with response
-  //       users.push(response);
-  //     })
-  //   )
-  // }
-
-  // Promise.all(promises).then(() => console.log(users));
-
-
-
-
-  // useEffect(() => (
-  //   items.map((item) => {
-  //     console.log(item);
-  //     return (
-  //       <Item
-  //         name={item.name}
-  //         category={item.category}
-  //         price={item.default_price}
-  //         key={item.id}
-  //       />
-  //     )
-  //   }
-  //   )
-  // ), [items]);
-
-
-    // useEffect(() => {
-    //   fakeRequest().then(() => {
-    //     const el = document.querySelector(".loader-container");
-    //     if (el) {
-    //       el.remove();
-    //       setLoading(!isLoading);
-    //     }
-    //   });
-    // }, []);
 

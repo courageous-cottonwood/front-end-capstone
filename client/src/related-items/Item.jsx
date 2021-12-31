@@ -4,8 +4,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import StarRating from './StarRating';
+import StarRating from './StarRating.jsx';
 import RelatedCSS from './cssModules/Related.module.css';
+import ProductDetail from '../Product_Detail/index.jsx';
 
 // pass down rating prop
 const Item = (props) => {
@@ -17,7 +18,6 @@ const Item = (props) => {
     axios.get('/products/styles', { params: { product_id: props.id } })
       .then((res) => {
         // --> results [] --> photos [] --> "thumbnail_url"
-        // console.log(res.data);
         const item = res.data;
         // console.log(item.results[0].photos[0].thumbnail_url);
         setImage(item.results[0].photos[0].thumbnail_url);
@@ -27,11 +27,16 @@ const Item = (props) => {
       });
   }, []);
 
+  //need a click event to re-render the site with new item
+ const handleClickedOnItem = () => {
+   console.log('You clicked on an item, this will re-render the page with that item as main');
+ }
+
   return (
     <div className={RelatedCSS.card}>
-      <div>
+      <div className = {RelatedCSS.inner}>
         <h4>{props.category || 'Still loading'}</h4>
-        <h2>{props.name || 'Still loading'}</h2>
+        <h2 onClick = {handleClickedOnItem}>{props.name || 'Still loading'}</h2>
         <img src={image} alt={props.name} />
         <p>{`$${props.price || 'Still loading'}`}</p>
         <StarRating id={props.id} />
