@@ -44,10 +44,14 @@
 }
 
 .styleSelector {
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  width: calc(33%);
+  height: 70px;
   margin-top: 5px;
   margin-bottom: 5px;
+  overflow-x: auto;
 }
 
 .styleItem {
