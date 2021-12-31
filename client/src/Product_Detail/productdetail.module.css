@@ -8,32 +8,46 @@
   flex-direction: row;
   max-width: 500px;
   max-height: 800px;
-
 }
 
 .styleThumbnails {
   display: flex;
   flex-direction: column;
+  width: 70px;
+  max-height: 405px;
+  overflow-x: auto;
+}
+
+.styleThumbnail {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
 }
 
 .defaultViewImage {
-  width: 400px;
+  width: 350px;
   height: 400px;
   object-fit: cover;
+  margin: 5px;
+  border-color: black;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
+  margin-left: 10px;
 }
 
 .productInfoContainer {
-
+  display: flex;
+  flex-direction: column;
 }
 
 .styleSelector {
   display: inline-flex;
   flex-direction: row;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .styleItem {
