@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import axios from "axios";
 import styles from '../qa.module.css';
 
 const AddQuestionForm = (props) => {
 
   const [newQuestion, setNewQuestion] = useState({
-    question: '',
+    body: '',
     name: '',
     email: '',
     product_id: props.product_id
@@ -28,13 +29,14 @@ const AddQuestionForm = (props) => {
     return true;
   };
 
-    let submitForm = () => {
+  let submitForm = () => {
     axios.post('/qa/questions', newQuestion)
-    .then((res) => {
-      if (res.data === 'Created') {
-        props.showModal();
-      }
-    })
+      .then((res) => {
+        if (res.data === 'Created') {
+          props.showModal();
+          props.reload()
+        }
+      })
   }
 
   return (
@@ -43,13 +45,13 @@ const AddQuestionForm = (props) => {
         <h3>Add Question</h3>
         <span className={styles.close_button} onClick={() => { props.showModal() }}>X</span>
       </div>
-      <input name="question" />
+      <input name="body" />
       <label>Your Question</label>
       <input name="email" />
       <label>Email</label>
       <input name="name" />
       <label>Name</label>
-      {allowSubmit ? <button onClick={() => {submitForm()}}>Submit Question</button> : <button disabled>Submit Question</button>}
+      {allowSubmit ? <button onClick={() => { submitForm() }}>Submit Question</button> : <button disabled>Submit Question</button>}
 
     </div>
   )

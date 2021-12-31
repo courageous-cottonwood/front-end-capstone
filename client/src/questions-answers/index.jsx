@@ -28,7 +28,11 @@ const QuestionsAnswers = function (props) {
   };
 
   useEffect(() => {
-    getQADataForItem(props.product_id);
+    getQADataForItem(props.product_id || 63609);
+    axios.get('products/related', { params: { product_id: 63609 }} ).
+    then((res) => {
+      console.log(res.data);
+    })
   }, [numQuestions]);
 
   return (
@@ -36,7 +40,7 @@ const QuestionsAnswers = function (props) {
       <h4 onClick={() => { loadMoreQuestions() }}>QUESTIONS AND ANSWERS</h4>
       <QASearchBar />
       {questions.map((question, i) => { return <Question questionData={question} key={i} /> })}
-      <Buttons product_id={props.product_id} loadMore={loadMoreQuestions} />
+      <Buttons product_id={props.product_id} reload={getQADataForItem} loadMore={loadMoreQuestions} />
     </div>
   );
 };

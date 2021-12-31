@@ -13,21 +13,19 @@ const Buttons = (props) => {
   return (
     <div className={styles.button_holder}>
       <button onClick={() => { props.loadMore() }} className={styles.qa_button}>
-        MORE ANSWERED QUESTIONS
+        Load More Questions
       </button>
 
       {showQuestionForm ?
           <div className={styles.modal_background}>
             <div className={styles.model_content}>
-              <AddQuestionForm product_id={props.product_id} showModal={showModal} />
+              <AddQuestionForm product_id={props.product_id} reload={props.reload} showModal={showModal} />
             </div>
           </div> :
           <button onClick={() => { showModal() }} className={styles.qa_button}>
-          ADD A QUESTION &nbsp; +
+          Add a Question &nbsp; +
           </button>
           }
-
-
     </div>
   )
 };
