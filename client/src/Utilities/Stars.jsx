@@ -1,7 +1,6 @@
 import React from 'react';
-import styles from './Stars.module.css';
 
-const Stars = ({rating, size}) => {
+const Stars = ({rating, size, color}) => {
 
     var activeStars = [];
     var inactiveStars = [];
@@ -12,36 +11,34 @@ const Stars = ({rating, size}) => {
 
     if(roundedRatingToQuarters % 1 === 0) {
       for( let i = 0; i < rating; i++) {
-        activeStars.push(<svg className={styles.starActive} width={`${size}`} height={`${size}`}>
-        <use href="#star" fill="yellow"></use>
-        <use href="#star" fill="none" stroke="grey"></use>
+        activeStars.push(<svg  width={`${size}`} height={`${size}`}>
+        <use href="#star" fill={`${color}`}></use>
+        <use href="#star" fill="none" stroke="black"></use>
       </svg>);
       }
       for(let i = 0; i < (5-rating); i++) {
-        inactiveStars.push(<svg className={styles.star} width={`${size}`} height={`${size}`}>
+        inactiveStars.push(<svg  width={`${size}`} height={`${size}`}>
         <use href="#star" fill="none" stroke="black"></use>
       </svg>);
       }
     } else {
       let percent = decimal * 100;
       let wholeNumber = roundedRatingToQuarters - decimal;
-      console.log(roundedRatingToQuarters);
-      console.log(decimal);
-      console.log(wholeNumber);
+
 
       for( let i = 0; i < wholeNumber; i++) {
-        activeStars.push(<svg className={styles.starActive} width={`${size}`} height={`${size}`}>
-        <use href="#star" fill="yellow"></use>
+        activeStars.push(<svg  width={`${size}`} height={`${size}`}>
+        <use href="#star" fill={`${color}`}></use>
         <use href="#star" fill="none" stroke="black"></use>
       </svg>);
       }
-      partialStars.push(<svg className={styles.starActive} width={`${size}`} height={`${size}`}>
-      <use href="#star" mask="url(#mask)" fill="yellow"></use>
+      partialStars.push(<svg width={`${size}`} height={`${size}`}>
+      <use href="#star" mask="url(#mask)" fill={`${color}`}></use>
       <use href="#star" fill="none" stroke="black"></use>
       </svg>);
 
       for(let i = 0; i < (4-wholeNumber); i++) {
-        inactiveStars.push(<svg className={styles.star} width={`${size}`} height={`${size}`}>
+        inactiveStars.push(<svg  width={`${size}`} height={`${size}`}>
         <use href="#star" fill="none" stroke="black"></use>
         </svg>);
       }

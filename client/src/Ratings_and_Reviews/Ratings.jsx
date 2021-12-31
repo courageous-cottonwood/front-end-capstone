@@ -59,7 +59,7 @@ class Ratings extends React.Component {
         <div className={styles.ratingsNumberAndStarsContainer}>
           <span className={styles.ratingsNumber}>{this.getAverageRating()}</span>
           <div className={styles.stars}>
-            <Stars rating={this.getAverageRating()} size={24}/>
+            <Stars rating={this.getAverageRating()} size={24} color="yellow"/>
           </div>
         </div>
         <div className={styles.ratingBreakdown}>
