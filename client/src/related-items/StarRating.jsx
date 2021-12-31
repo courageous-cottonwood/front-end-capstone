@@ -69,33 +69,3 @@ const StarRating = (props) => {
 
 export default StarRating;
 
-
-// isSelected={this.state.rating > i}
-          // setRating={() => this.handleSetRating(i + 1)}
-
-
-  // handleSetRating = (rating) => {
-  //   if (this.state.rating === rating) {
-  //     this.setState({ rating: 0 });
-  //   } else {
-  //     this.setState({ rating });
-  //   }
-  // };
-
-
-
-  ///will share star component with other widgets
-  //need to link common utility folder
-
-  // const renderStars = () => {
-  //   let stars = [];
-  //   let maxRating = 5;
-  //   for (let i = 0; i < maxRating; i++) {
-  //     stars.push(
-  //       <Star
-  //         key={i}
-  //       />
-  //     );
-  //   }
-  //   return stars;
-  // };
