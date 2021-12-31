@@ -83,35 +83,35 @@ module.exports = {
     },
   ),
   postAnswer: (req) => axios.post(
-    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${req.query.question_id}/answers`,
+    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${req.body.question_id}/answers`,
     req.body,
     {
       headers: { Authorization: config.API_KEY },
     },
   ),
   markQuestionHelpful: (req) => axios.put(
-    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${req.query.question_id}/helpful`,
+    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${req.body.question_id}/helpful`,
     {},
     {
       headers: { Authorization: config.API_KEY },
     },
   ),
   reportQuestion: (req) => axios.put(
-    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${req.query.question_id}/report`,
+    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${req.body.question_id}/report`,
     {},
     {
       headers: { Authorization: config.API_KEY },
     },
   ),
   markAnswerHelpful: (req) => axios.put(
-    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/answers/${req.query.answer_id}/helpful`,
+    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/answers/${req.body.answer_id}/helpful`,
     {},
     {
       headers: { Authorization: config.API_KEY },
     },
   ),
   reportAnswer: (req) => axios.put(
-    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/answers/${req.query.answer_id}/report`,
+    `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/answers/${req.body.answer_id}/report`,
     {},
     {
       headers: { Authorization: config.API_KEY },
