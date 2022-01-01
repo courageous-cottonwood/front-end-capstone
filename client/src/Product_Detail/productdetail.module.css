@@ -1,6 +1,7 @@
 .productDetailContainer {
   display: flex;
   flex-direction: row;
+  margin: 30px;
 }
 
 .leftPanel {
@@ -22,6 +23,10 @@
   width: 70px;
   height: 70px;
   object-fit: cover;
+}
+
+.styleThumbnail:hover {
+  cursor: pointer;
 }
 
 .defaultViewImage {
@@ -62,7 +67,45 @@
   margin-right: 10px;
 }
 
-.overview {
+.styleItem:hover {
+  cursor: pointer;
+}
+
+.addToCart {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.selectors {
+  margin-bottom: 10px;
+}
+
+.quantitySelector {
+  max-width: 30px;
+}
+
+.cartButton {
+  max-width: 20%;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 55px;
+  border-radius: 10px;
+  border-right: 1px solid #516885;
+  background-color: var(--color-primary-darker);
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.cartButton:hover {
+  cursor: pointer;
+}
+
+.cartWrapper {
   display: flex;
   flex-direction: row;
 }

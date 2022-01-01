@@ -75,7 +75,9 @@ const ProductDetail = (props) => {
           currentStyle={currentStyle}
           product={product}
         />
-        <AddToCart />
+        <AddToCart
+          currentStyle={currentStyle}
+        />
         <SocialMedia />
       </div>
     </div>
