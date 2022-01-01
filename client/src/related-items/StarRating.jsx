@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState, Component } from 'react';
 // import Star from './Star.jsx';
 import Stars from '../Utilities/Stars.jsx';
-import StarCSS from './cssModules/StarCSS.module.css';
+import StarCSS from './cssModules/StarRating.module.css';
 import axios from 'axios';
 
 const StarRating = (props) => {
@@ -29,7 +29,7 @@ const StarRating = (props) => {
       })
     );
     Promise.all(promises).then(() => {
-      //console.log(avg);
+      console.log(avg);
       setRating(avg);
     });
   }, [])
@@ -59,8 +59,8 @@ const StarRating = (props) => {
         </span>
         :
         <span>
-          <h4>Average rating: {rating}</h4>
-          <Stars rating={rating[0]} size={30} color={'#2f1c5b'} />
+          <h4 className = {StarCSS.h4}>Average rating: {rating}</h4>
+          <Stars rating={rating[0]} size={32} color={'#29283ee9'} />
         </span>
       }
     </span>
