@@ -32,7 +32,7 @@ const Stars = ({rating, size, color}) => {
       </svg>);
       }
       partialStars.push(<svg width={`${size}`} height={`${size}`} viewBox="0 0 24 24">
-      <use href="#star" mask="url(#mask)" fill={`${color}`}></use>
+      <use href="#star" mask={`url(#mask${rating}${size})`} fill={`${color}`}></use>
       <use href="#star" fill="none" stroke="black"></use>
       </svg>);
 
@@ -49,7 +49,7 @@ const Stars = ({rating, size, color}) => {
     <div>
       <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="0" height="0" >
         <defs>
-          <mask id="mask">
+          <mask id={`mask${rating}${size}`}>
             <rect x="0" y="0" width={`${size}`} height={`${size}`} viewBox={`0 0 24 24`} fill="white" />
             <rect x={`${24 * decimal}`} y="0" width={`${size}`} height={`${size}`} viewBox={`0 0 24 24`} fill="black" />
           </mask>
