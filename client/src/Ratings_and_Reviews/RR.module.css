@@ -62,7 +62,45 @@
   margin-bottom: 20px;
 }
 
+.helpfulContainer {
+  display: flex;
+  justify-content: space-between;
+}
 
+.helpfulSpan {
+  margin: 2px;
+}
+
+.reviewRecommendContainer {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+
+
+.usernameAndHelpful {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.square_button {
+  color: #3D424A;
+  margin: 5px;
+  background-color: white;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #dddddd;
+  text-align: center;
+  text-decoration: none;
+}
 
 
 
