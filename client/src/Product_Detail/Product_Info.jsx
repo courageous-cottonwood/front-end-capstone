@@ -6,7 +6,7 @@ const ProductInfo = (props) => {
   return (
     <div className={css.productInfoContainer}>
       <h3>{props.product.category}</h3>
-      <h1>{props.product.name}</h1>
+      <h2>{props.product.name}</h2>
       <div>{props.product.description}</div>
       <h3>
         ${
