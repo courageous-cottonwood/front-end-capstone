@@ -25,7 +25,7 @@ const Ratings = ({product_id}) => {
       }
     })
     .then( (response) => {
-      // console.log(response.data);
+      console.log(response.data);
       // this.setState({review_meta: response.data});
       setReviewMeta(response.data);
 
@@ -65,6 +65,7 @@ const Ratings = ({product_id}) => {
     return 0;
   }
 
+
   // render () {
     // console.log(this.state.review_meta.ratings);
 
@@ -76,6 +77,9 @@ const Ratings = ({product_id}) => {
             <Stars rating={getAverageRating()} size={24} color="pink"/>
           </div>
         </div>
+        <div className={styles.ratingsRecommend} >
+          <span> {review_meta !== 0 ? review_meta.recommended.true : 0}% Recommend this product </span>
+        </div>
         <div className={styles.ratingBreakdown}>
           <div> 1 star: {getRatingCount(1)}</div>
           <div> 2 star: {getRatingCount(2)}</div>
@@ -83,6 +87,7 @@ const Ratings = ({product_id}) => {
           <div> 4 star: {getRatingCount(4)}</div>
           <div> 5 star: {getRatingCount(5)}</div>
         </div>
+
       </div>
     );
   // }
