@@ -1,0 +1,11 @@
+.rating {
+  text-align: center;
+  min-height: fit-content;
+}
+
+.h4 {
+  color: #29283ee9;
+  margin-top: auto;
+  margin-bottom: 0;
+  padding: 5px;
+}

@@ -20,7 +20,8 @@ const ProductDetail = (props) => {
         thumbnail_url: 'https://images.wondershare.com/mockitt/ux-beginner/loading-time-tips.jpeg'
       }
     ]
-  })
+  });
+  const [currentStyleIndex, setCurrentStyleIndex] = useState(0);
 
   useEffect(() => {
     // get current product info
@@ -54,10 +55,18 @@ const ProductDetail = (props) => {
     setCurrentStyle(selectedStyle);
   }
 
+  const selectStyleIndex = (selectedIndex) => {
+    setCurrentStyleIndex(selectedIndex);
+  }
+
   return (
     <div className={css.productDetailContainer}>
       <div>
-        <ProductView currentStyle={currentStyle}/>
+        <ProductView
+          currentStyle={currentStyle}
+          currentStyleIndex={currentStyleIndex}
+          selectStyleIndex={selectStyleIndex}
+        />
       </div>
       <div className={css.sidebar}>
         <ProductInfo
@@ -66,7 +75,9 @@ const ProductDetail = (props) => {
           currentStyle={currentStyle}
           product={product}
         />
-        <AddToCart />
+        <AddToCart
+          currentStyle={currentStyle}
+        />
         <SocialMedia />
       </div>
     </div>

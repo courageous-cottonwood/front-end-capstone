@@ -60,7 +60,7 @@ const AppRelated = (props) => {
   if (isLoading) {
     return (
       <div className={RelatedCSS.container}>
-        <h3>FETCHING DATA</h3>
+        <h3 className= {RelatedCSS.h3}>FETCHING DATA</h3>
         <div className={RelatedCSS.loader_container}>
           <div className={RelatedCSS.loader}></div>
         </div>
