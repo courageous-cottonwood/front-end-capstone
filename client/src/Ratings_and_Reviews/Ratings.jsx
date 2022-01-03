@@ -25,7 +25,7 @@ const Ratings = ({product_id}) => {
       }
     })
     .then( (response) => {
-      console.log(response.data);
+      // console.log(response.data);
       // this.setState({review_meta: response.data});
       setReviewMeta(response.data);
 
@@ -78,7 +78,7 @@ const Ratings = ({product_id}) => {
           </div>
         </div>
         <div className={styles.ratingsRecommend} >
-          <span> {review_meta !== 0 ? review_meta.recommended.true : 0}% Recommend this product </span>
+          <span> {review_meta !== 0 ? review_meta.recommended.true : 0}% of reviews recommend this product </span>
         </div>
         <div className={styles.ratingBreakdown}>
           <div> 1 star: {getRatingCount(1)}</div>

@@ -117,3 +117,14 @@
   padding: 20px;
   margin-right: 15px;
 }
+
+.addReview {
+  display: flex;
+  flex-direction: column;
+}
+
+.addReviewHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

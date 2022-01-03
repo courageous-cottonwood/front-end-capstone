@@ -3,6 +3,7 @@ import Reviews from './Reviews.jsx';
 import Ratings from './Ratings.jsx';
 import styles from './RR.module.css';
 
+
 const Ratings_and_Reviews = ({product_id}) => {
 
 
@@ -11,6 +12,7 @@ const Ratings_and_Reviews = ({product_id}) => {
     <div className={styles.ratingsAndReviewsContainer}>
       <Ratings product_id={product_id}/>
       <Reviews product_id={product_id}/>
+
     </div>
 
   );
