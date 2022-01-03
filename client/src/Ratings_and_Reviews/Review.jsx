@@ -7,7 +7,7 @@ import Stars from '../Utilities/Stars.jsx';
 
 const Review = ({review}) => {
 
-  console.log(review);
+  // console.log(review);
 
   let date = dayjs(review.date).format('MMM DD, YYYY');
   return (
