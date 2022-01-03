@@ -25,10 +25,14 @@ const AppRelated = (props) => {
   const [features, setFeatures] = useState([]);
   const productId = props.product_id || 63624;
 
-
+  //add use effect when props.product_id changes
   useEffect(() => {
     getAllItems();
   }, []);
+
+  useEffect(() => {
+    getAllItems();
+  }, [props.product_id]);
 
   const getAllItems = () => {
     axios.get('/products/related', { params: { product_id: productId } })
@@ -46,13 +50,12 @@ const AppRelated = (props) => {
   const getEachItem = (dataArr) => {
     let promises = [];
     var itemsFull = []
+    var featuresArr = []
     for (var i = 0; i < dataArr.length; i++) {
       promises.push(axios.get('/products/get', { params: { product_id: dataArr[i] } })
         .then((res) => {
          // console.log();
           itemsFull.push(res.data);
-          var featuresArr = res.data.features;
-          setFeatures(featuresArr);
         })
         .catch((err) => {
           console.log(err);
@@ -85,8 +88,8 @@ const AppRelated = (props) => {
             category={item.category}
             price={item.default_price}
             key={item.id}
+            id={item.id}
             parentId = {props.product_id}
-            features = {features}
             id = {item.id}
             setProduct={props.setProduct}
           />

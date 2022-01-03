@@ -1,1 +1,53 @@
 /*add css for popup*/
+.container {
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  min-width: fit-content;
+  max-width: 601px;
+  min-height: 300px;
+  max-height: fit-content;
+  flex-direction: row;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
+  z-index: 20;
+  position: fixed;
+}
+
+.item {
+  /* display: flex; */
+  justify-content: center;
+  padding: 10px;
+  /* text-align: center; */
+  min-width: 200px;
+  max-width: fit-content;
+}
+
+.h3 {
+  color: #384047e9;
+  margin-top: auto;
+  margin-bottom: 0;
+  padding-bottom: 7px;
+  border-bottom: solid 1px #e0e0e0;
+  height: 40px;
+}
+
+
+.list {
+  list-style: none;
+  padding-inline-start: 10px;
+}
+
+.list li:before {
+  content: '✓ ';
+}
+.list li {
+  margin-top: 1em;
+  /* padding: 5px; */
+  color: #222;
+  font-size: 1em;
+  margin-bottom: 1em;
+  line-height: 1.4;
+}

@@ -5,14 +5,17 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import StarRating from './StarRating.jsx';
+import Compare from './Compare.jsx';
 import RelatedCSS from './cssModules/Related.module.css';
 import ItemCSS from './cssModules/Item.module.css';
-//import ProductDetail from '../Product_Detail/index.jsx';
+//import NotImage from './cssModules/image_not_available.png';
 
 // pass down rating prop
 const Item = (props) => {
   // thubnail call
   const [image, setImage] = useState('');
+  const [noImage, setReplacement] = useState('https://www.budget101.com/images/image-not-available.png?14867')
+  const [showCompare, setCompare] = useState(false);
 
   useEffect(() => {
     // GET /products/:product_id/styles
@@ -20,8 +23,9 @@ const Item = (props) => {
       .then((res) => {
         // --> results [] --> photos [] --> "thumbnail_url"
         const item = res.data;
-        // console.log(item.results[0].photos[0].thumbnail_url);
-        setImage(item.results[0].photos[0].thumbnail_url);
+        //console.log(item.results[0].photos[0].thumbnail_url);
+        var thumbnail = item.results[0].photos[0].thumbnail_url;
+        setImage(thumbnail);
       })
       .catch((err) => {
         console.log(err);
@@ -29,29 +33,46 @@ const Item = (props) => {
   }, []);
 
   //need a click event to re-render the site with new item
+  const handleClickedOnItem = () => {
+    props.setProduct(props.id);
+  }
+  const handleCompareButton = () => {
+    setCompare(!showCompare)
+  }
+  const handleCloseModal = () => {
+    setCompare(!showCompare)
+  }
 
- const handleClickedOnItem = () => {
-   props.setProduct(props.id);
- }
-
- return (
-  <div className={ItemCSS.card}>
-    <div className={ItemCSS.inner}>
-      <h4 className={ItemCSS.h4}>{props.category}</h4>
-      <h2 className={ItemCSS.item_title} onClick={() => {handleClickedOnItem()}}>{props.name}</h2>
-      {image === undefined
-        ?
-        <div className={RelatedCSS.loader_container}>
-          <div className={RelatedCSS.loader}></div>
-        </div>
-        :
-        <img className={ItemCSS.image} src={image} />
+  return (
+    <div className={ItemCSS.card}>
+      {showCompare ?
+        <Compare
+          id={props.id}
+          parentId={props.parentId}
+          closeModal={handleCloseModal}
+          name = {props.name}
+        /> : null
       }
-      <p className={ItemCSS.par}>{`$${props.price}`}</p>
-      <StarRating id={props.id} />
+      <div className={ItemCSS.inner}>
+        <h4 className={ItemCSS.h4}>{props.category}</h4>
+        <h2 className={ItemCSS.item_title} onClick={() => { handleClickedOnItem() }}>{props.name}</h2>
+        {image === undefined
+          ?
+          <div className={RelatedCSS.loader_container}>
+            <div className={RelatedCSS.loader}></div>
+          </div>
+          :
+          <img className={ItemCSS.image} src={image === null ? noImage : image} />
+        }
+        <p className={ItemCSS.par}>{`$${props.price}`}</p>
+        <StarRating
+          id={props.id}
+          parentId={props.parentId}
+           />
+        <button className={ItemCSS.button_compare} onClick={handleCompareButton}>Compare Me</button>
+      </div>
     </div>
-  </div>
-);
+  );
 };
 
 export default Item;

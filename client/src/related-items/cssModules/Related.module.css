@@ -27,7 +27,7 @@ body {
   flex-wrap: nonwrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -ms-overflow-style: scrollbar;
   row-gap: 10px;
   gap: 10px 20px;
   /* max-width: 1500px; */
