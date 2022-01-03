@@ -55,12 +55,12 @@ const StarRating = (props) => {
       {rating[0] === 0 ?
         <span>
           <h4>No rating yet </h4>
-          <Stars rating={rating[0]} size={30} color={'#2f1c5b'} />
+          <Stars rating={rating[0]} size={30} color={'#29283ee9'} />
         </span>
         :
         <span>
           <h4 className = {StarCSS.h4}>Average rating: {rating}</h4>
-          <Stars rating={rating[0]} size={32} color={'#29283ee9'} />
+          <Stars rating={rating[0]} size={30} color={'#29283ee9'} />
         </span>
       }
     </span>

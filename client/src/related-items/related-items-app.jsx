@@ -24,7 +24,12 @@ const AppRelated = (props) => {
 
   const productId = props.product_id || 63609;
 
+
   useEffect(() => {
+    getAllItems();
+  }, []);
+
+  const getAllItems = () => {
     axios.get('/products/related', { params: { product_id: productId } })
       .then((res) => {
         //console.log(res.data);
@@ -34,9 +39,10 @@ const AppRelated = (props) => {
         console.log(err);
       })
 
-  }, []);
+  }
 
-    const getEachItem = (dataArr) => {
+
+  const getEachItem = (dataArr) => {
     let promises = [];
     var itemsFull = []
     for (var i = 0; i < dataArr.length; i++) {
@@ -60,7 +66,7 @@ const AppRelated = (props) => {
   if (isLoading) {
     return (
       <div className={RelatedCSS.container}>
-        <h3 className= {RelatedCSS.h3}>FETCHING DATA</h3>
+        <h3 className={RelatedCSS.h3}>FETCHING DATA</h3>
         <div className={RelatedCSS.loader_container}>
           <div className={RelatedCSS.loader}></div>
         </div>
@@ -77,7 +83,7 @@ const AppRelated = (props) => {
             category={item.category}
             price={item.default_price}
             key={item.id}
-            id = {item.id}
+            id={item.id}
           />
         )
       }
