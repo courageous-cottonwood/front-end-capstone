@@ -7,7 +7,7 @@ import axios from 'axios';
 import StarRating from './StarRating.jsx';
 import RelatedCSS from './cssModules/Related.module.css';
 import ItemCSS from './cssModules/Item.module.css';
-// import ProductDetail from '../Product_Detail/index.jsx';
+//import ProductDetail from '../Product_Detail/index.jsx';
 
 // pass down rating prop
 const Item = (props) => {
@@ -30,7 +30,8 @@ const Item = (props) => {
 
   //need a click event to re-render the site with new item
   const handleClickedOnItem = () => {
-    console.log('You clicked on an item, this will re-render the page with that item as main');
+    console.log('this will show comparison pop-up');
+    //add compare button maybe?
   }
 
   return (
@@ -47,7 +48,7 @@ const Item = (props) => {
           <img className={ItemCSS.image} src={image} />
         }
         <p className={ItemCSS.par}>{`$${props.price}`}</p>
-        <StarRating id={props.id} />
+        <StarRating parentId = {props.parentId} id={props.id} price = {props.price} features = {props.features} />
       </div>
     </div>
   );

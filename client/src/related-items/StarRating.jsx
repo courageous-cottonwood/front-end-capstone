@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState, Component } from 'react';
 // import Star from './Star.jsx';
 import Stars from '../Utilities/Stars.jsx';
+import Compare from './Compare.jsx';
 import StarCSS from './cssModules/StarRating.module.css';
 import axios from 'axios';
 
@@ -49,6 +50,14 @@ const StarRating = (props) => {
     return average.toFixed(2);
   }
 
+  const handleCompareButton = () => {
+    return (
+      <Compare
+      id = {props.id}
+      parentId = {props.parentId}
+      features = {props.features}/>
+    )
+  }
 
   return (
     <span className={StarCSS.rating}>
@@ -63,6 +72,7 @@ const StarRating = (props) => {
           <Stars rating={rating[0]} size={30} color={'#29283ee9'} />
         </span>
       }
+       <button className={StarCSS.button_compare}onClick = {handleCompareButton}>Compare Me</button>
     </span>
   );
 }

@@ -21,8 +21,9 @@ const AppRelated = (props) => {
   //const [state, setState] = useState(initialState);
   const [items, setItems] = useState([]);
   const [isLoading, setLoading] = useState(true); //set true for loader to appear
-
-  const productId = props.product_id || 63609;
+  //fetures array to hold item specific features
+  const [features, setFeatures] = useState([]);
+  const productId = props.product_id || 63624;
 
 
   useEffect(() => {
@@ -48,8 +49,10 @@ const AppRelated = (props) => {
     for (var i = 0; i < dataArr.length; i++) {
       promises.push(axios.get('/products/get', { params: { product_id: dataArr[i] } })
         .then((res) => {
-          //console.log(res.data);
+         // console.log();
           itemsFull.push(res.data);
+          var featuresArr = res.data.features;
+          setFeatures(featuresArr);
         })
         .catch((err) => {
           console.log(err);
@@ -84,6 +87,8 @@ const AppRelated = (props) => {
             price={item.default_price}
             key={item.id}
             id={item.id}
+            parentId = {props.product_id}
+            features = {features}
           />
         )
       }
