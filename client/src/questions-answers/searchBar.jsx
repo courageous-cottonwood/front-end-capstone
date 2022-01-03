@@ -7,12 +7,15 @@ const QASearchBar = (props) => {
   const [searchText, setSearchText] = useState('HAVE A QUESTION? SEARCH FOR ANSWERS');
 
   let onChange = (e) => {
-    setSearchText(e.target.value)
+    props.search(e.target.value);
+    setSearchText(e.target.value);
   }
 
   let onClick = () => {
-    if (searchText === 'HAVE A QUESTION? SEARCH FOR ANSWERS')
-    setSearchText('')
+    if (searchText === 'HAVE A QUESTION? SEARCH FOR ANSWERS') {
+      setSearchText('');
+      props.load(props.product_id);
+    }
   };
 
   return (

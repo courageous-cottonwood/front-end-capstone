@@ -21,6 +21,12 @@
     "url": "https://github.com/courageous-cottonwood/front-end-capstone/issues"
   },
   "homepage": "https://github.com/courageous-cottonwood/front-end-capstone#readme",
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/client/cssstub.js",
+      "\\.(css|less)$": "<rootDir>/client/cssstub.js"
+    }
+  },
   "dependencies": {
     "axios": "^0.24.0",
     "babel-loader": "^8.2.3",
