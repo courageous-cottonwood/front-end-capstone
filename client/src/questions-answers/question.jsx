@@ -52,7 +52,7 @@ const Question = (props) => {
     <div className={styles.question_container}>
       <div className={styles.questionAnswertext}>
         <div className={styles.questionText}>
-          <span className={styles.largeQA}>{props.questionData.question_body}</span>
+          <span className={styles.largeQA}>Q: {props.questionData.question_body}</span>
         </div>
         <div className={styles.answerText}>
           <div className={styles.answers_detail}>
