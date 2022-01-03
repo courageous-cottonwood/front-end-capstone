@@ -21,10 +21,16 @@ const AppRelated = (props) => {
   //const [state, setState] = useState(initialState);
   const [items, setItems] = useState([]);
   const [isLoading, setLoading] = useState(true); //set true for loader to appear
+  //fetures array to hold item specific features
+  const [features, setFeatures] = useState([]);
+  const productId = props.product_id || 63624;
 
-  const productId = props.product_id || 63609;
 
   useEffect(() => {
+    getAllItems();
+  }, []);
+
+  const getAllItems = () => {
     axios.get('/products/related', { params: { product_id: productId } })
       .then((res) => {
         //console.log(res.data);
@@ -34,16 +40,19 @@ const AppRelated = (props) => {
         console.log(err);
       })
 
-  }, []);
+  }
 
-    const getEachItem = (dataArr) => {
+
+  const getEachItem = (dataArr) => {
     let promises = [];
     var itemsFull = []
     for (var i = 0; i < dataArr.length; i++) {
       promises.push(axios.get('/products/get', { params: { product_id: dataArr[i] } })
         .then((res) => {
-          //console.log(res.data);
+         // console.log();
           itemsFull.push(res.data);
+          var featuresArr = res.data.features;
+          setFeatures(featuresArr);
         })
         .catch((err) => {
           console.log(err);
@@ -60,7 +69,7 @@ const AppRelated = (props) => {
   if (isLoading) {
     return (
       <div className={RelatedCSS.container}>
-        <h3 className= {RelatedCSS.h3}>FETCHING DATA</h3>
+        <h3 className={RelatedCSS.h3}>FETCHING DATA</h3>
         <div className={RelatedCSS.loader_container}>
           <div className={RelatedCSS.loader}></div>
         </div>
@@ -76,6 +85,8 @@ const AppRelated = (props) => {
             category={item.category}
             price={item.default_price}
             key={item.id}
+            parentId = {props.product_id}
+            features = {features}
             id = {item.id}
             setProduct={props.setProduct}
           />

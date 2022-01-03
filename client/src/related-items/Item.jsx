@@ -7,7 +7,7 @@ import axios from 'axios';
 import StarRating from './StarRating.jsx';
 import RelatedCSS from './cssModules/Related.module.css';
 import ItemCSS from './cssModules/Item.module.css';
-// import ProductDetail from '../Product_Detail/index.jsx';
+//import ProductDetail from '../Product_Detail/index.jsx';
 
 // pass down rating prop
 const Item = (props) => {
@@ -29,6 +29,7 @@ const Item = (props) => {
   }, []);
 
   //need a click event to re-render the site with new item
+
  const handleClickedOnItem = () => {
    props.setProduct(props.id);
  }

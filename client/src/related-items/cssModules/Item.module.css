@@ -13,15 +13,16 @@
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
 }
 
 .inner {
   text-align: center;
   min-height: 485px;
-  max-height: 500px;
+  max-height: 530px;
   padding: 1em 1em 0.65em;
   background-color: #9484cd;
-  /* margin-bottom: 1.5em; */
+  /* margin-bottom: 1em; */
 }
 
  .image {
@@ -29,7 +30,8 @@
   min-height: 199px;
   height: 200px; /* height of container */
   object-fit: cover;
-  border: 2px solid rgb(238, 225, 225);
+  border: 3px solid rgb(238, 225, 225);
+  border-radius: 5px;
 }
 
 .item_title {
@@ -54,3 +56,4 @@
   margin-bottom: 1.85em;
   line-height: 1.4;
 }
+
