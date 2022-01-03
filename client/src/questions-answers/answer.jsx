@@ -30,7 +30,7 @@ const Answer = (props) => {
     return (
       <div className={styles.answer_textDetail}>
         <div style={{ width: '100%' }}>
-        <p style={{ margin: 0 }}>{props.data.body}</p>
+        <p style={{ margin: 0 }}><strong>A: &nbsp;</strong>{props.data.body}</p>
         <p className={styles.subdetail_small}> by {props.data.answerer_name}, {dayjs(props.data.date).format("MMMM D YYYY")} </p>
           <ul className={styles.answer_images}>
           {props.data.photos.map((photo, i) => {
@@ -55,7 +55,7 @@ const Answer = (props) => {
     return (
       <div className={styles.answer_textDetail}>
         <div style={{ width: '100%' }}>
-        <p style={{ margin: 0 }}>{props.data.body}</p>
+        <p style={{ margin: 0 }}><strong>A: &nbsp;</strong>{props.data.body}</p>
         <p className={styles.subdetail_small}> by {props.data.answerer_name}, {dayjs(props.data.date).format("MMMM D YYYY")} </p>
         </div>
       <div>
@@ -64,7 +64,7 @@ const Answer = (props) => {
           <p>Found This Helpful</p>
           </a>
           { reportIsLink ? <a href="#" className={styles.square_button} onClick={() => { report() }}><p>
-          <strong>Report</strong><br />This Answer</p></a> : <div className={styles.square_button}>Reported</div> }
+          <strong>Report</strong><br />This Answer</p></a> : <div className={styles.square_button}><p>Reported</p></div> }
       </div>
     </div>
     );

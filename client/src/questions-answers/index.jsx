@@ -28,12 +28,13 @@ const QuestionsAnswers = function (props) {
   };
 
   useEffect(() => {
-    getQADataForItem(props.product_id || 63609);
-    axios.get('products/related', { params: { product_id: 63609 }} ).
-    then((res) => {
-      console.log(res.data);
-    })
+    getQADataForItem(props.product_id);
   }, [numQuestions]);
+
+  useEffect(() => {
+    setNumQuestions(2);
+    getQADataForItem(props.product_id);
+  }, [props.product_id]);
 
   return (
     <div className={styles.questionAnswerContainer}>
