@@ -29,29 +29,29 @@ const Item = (props) => {
   }, []);
 
   //need a click event to re-render the site with new item
-  const handleClickedOnItem = () => {
-    console.log('this will show comparison pop-up');
-    //add compare button maybe?
-  }
 
-  return (
-    <div className={ItemCSS.card}>
-      <div className={ItemCSS.inner}>
-        <h4 className={ItemCSS.h4}>{props.category}</h4>
-        <h2 className={ItemCSS.item_title} onClick={handleClickedOnItem}>{props.name}</h2>
-        {image[0] === undefined
-          ?
-          <div className={RelatedCSS.loader_container}>
-            <div className={RelatedCSS.loader}></div>
-          </div>
-          :
-          <img className={ItemCSS.image} src={image} />
-        }
-        <p className={ItemCSS.par}>{`$${props.price}`}</p>
-        <StarRating parentId = {props.parentId} id={props.id} price = {props.price} features = {props.features} />
-      </div>
+ const handleClickedOnItem = () => {
+   props.setProduct(props.id);
+ }
+
+ return (
+  <div className={ItemCSS.card}>
+    <div className={ItemCSS.inner}>
+      <h4 className={ItemCSS.h4}>{props.category}</h4>
+      <h2 className={ItemCSS.item_title} onClick={() => {handleClickedOnItem()}}>{props.name}</h2>
+      {image === undefined
+        ?
+        <div className={RelatedCSS.loader_container}>
+          <div className={RelatedCSS.loader}></div>
+        </div>
+        :
+        <img className={ItemCSS.image} src={image} />
+      }
+      <p className={ItemCSS.par}>{`$${props.price}`}</p>
+      <StarRating id={props.id} />
     </div>
-  );
+  </div>
+);
 };
 
 export default Item;

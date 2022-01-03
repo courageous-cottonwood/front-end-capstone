@@ -45,11 +45,11 @@ const AddQuestionForm = (props) => {
         <h3>Add Question</h3>
         <span className={styles.close_button} onClick={() => { props.showModal() }}>X</span>
       </div>
-      <input name="body" />
+      <input name="body" required/>
       <label>Your Question</label>
-      <input name="email" />
+      <input name="email" type="email" required/>
       <label>Email</label>
-      <input name="name" />
+      <input name="name" required/>
       <label>Name</label>
       {allowSubmit ? <button onClick={() => { submitForm() }}>Submit Question</button> : <button disabled>Submit Question</button>}
 

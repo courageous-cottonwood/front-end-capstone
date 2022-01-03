@@ -263,6 +263,12 @@ border: 1px solid #ffffff;
   margin-bottom: 5px;
 }
 
+.addForm_question input:invalid, .addForm_answer input:invalid, .addForm_answer textarea:invalid, .addForm_question input:invalid:required, .addForm_answer input:invalid:required, .addForm_answer textarea:invalid:required  {
+  border: 1px solid red;
+  background-color: rgb(250, 192, 190);
+}
+
+
 .addForm_answer textarea {
   min-height: 75px;
 }

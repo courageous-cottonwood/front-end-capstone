@@ -78,7 +78,6 @@ const AppRelated = (props) => {
   }
   return (
     <div className={RelatedCSS.container}>
-      {console.log(items)}
       {items.map((item) => {
         return (
           <Item
@@ -86,9 +85,10 @@ const AppRelated = (props) => {
             category={item.category}
             price={item.default_price}
             key={item.id}
-            id={item.id}
             parentId = {props.product_id}
             features = {features}
+            id = {item.id}
+            setProduct={props.setProduct}
           />
         )
       }

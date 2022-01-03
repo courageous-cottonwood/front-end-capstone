@@ -49,11 +49,11 @@ const AddAnswerForm = (props) => {
         <h3>Add Answer</h3>
         <span className={styles.close_button} onClick={() => { props.showModal() }}>X</span>
       </div>
-      <textarea name="body" />
+      <textarea name="body" maxlength="1000" required/>
       <label>Your Answer</label>
-      <input name="email" />
+      <input type="email" name="email" required/>
       <label>Email</label>
-      <input name="name" />
+      <input name="name" maxLength="60" required/>
       <label>Name</label>
 
       <input name="photo" id="0" />
