@@ -53,20 +53,21 @@ const Compare = (props) => {
     < div className={CompareCSS.container}
       onClick={props.closeModal} >
       <div className={CompareCSS.item}>
-        <ul className={CompareCSS.list}>
-          <h3 className = {CompareCSS.h3}>{itemName}</h3>
-          {itemFeatures.map((element) => (
-            <li>{element.feature}: {element.value}</li>
-          ))}
-        </ul>
+        <h3 className={CompareCSS.h3}>{itemName}</h3>
+        {itemFeatures.map((element) => (
+          <ul className={CompareCSS.list}>
+            <li>{element.feature} - {element.value}</li>
+          </ul>
+        ))}
+
       </div>
       <div className={CompareCSS.item}>
-        <ul className={CompareCSS.list}>
-          <h3 className = {CompareCSS.h3}>{parentItemName}</h3>
-          {parentFeatures.map((element) => (
-            <li>{element.feature}: {element.value}</li>
-          ))}
-        </ul>
+        <h3 className={CompareCSS.h3}>{parentItemName}</h3>
+        {parentFeatures.map((element) => (
+          <ul className={CompareCSS.list}>
+            <li>{element.feature} - {element.value}</li>
+          </ul>
+        ))}
       </div>
     </div >
   )
