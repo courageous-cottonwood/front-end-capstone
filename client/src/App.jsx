@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import QuestionsAnswers from './questions-answers/index.jsx';
 import Ratings_and_Reviews from './Ratings_and_Reviews/Ratings_and_Reviews.jsx';
@@ -7,12 +7,18 @@ import AppRelated from './related-items/related-items-app.jsx';
 
 const App = () =>  {
 
+  const [productId, setProductId] = useState(63609);
+
+  const setProduct = (id) => {
+    setProductId(id);
+  };
+
   return (
       <div>
-        <ProductDetail product_id={63609} />
-        <AppRelated product_id={63624}/>
-        <QuestionsAnswers product_id={63609} />
-        <Ratings_and_Reviews/>
+        <ProductDetail product_id={productId} />
+        <AppRelated setProduct={setProduct} product_id={productId}/>
+        <QuestionsAnswers product_id={productId} />
+        <Ratings_and_Reviews product_id={productId}/>
       </div>
     )
 }

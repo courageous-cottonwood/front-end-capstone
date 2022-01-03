@@ -29,14 +29,14 @@ const Item = (props) => {
 
   //need a click event to re-render the site with new item
  const handleClickedOnItem = () => {
-   console.log('You clicked on an item, this will re-render the page with that item as main');
+   props.setProduct(props.id);
  }
 
   return (
     <div className={RelatedCSS.card}>
       <div className = {RelatedCSS.inner}>
         <h4>{props.category || 'Still loading'}</h4>
-        <h2 onClick = {handleClickedOnItem}>{props.name || 'Still loading'}</h2>
+        <h2 onClick = {() => {handleClickedOnItem()}}>{props.name || 'Still loading'}</h2>
         <img src={image} alt={props.name} />
         <p>{`$${props.price || 'Still loading'}`}</p>
         <StarRating id={props.id} />

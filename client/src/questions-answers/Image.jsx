@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import styles from './qa.module.css';
 
-
 const Image = (props) => {
 
   const [modalShow, setModalShow] = useState(false);
