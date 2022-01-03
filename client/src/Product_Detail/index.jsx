@@ -45,6 +45,7 @@ const ProductDetail = (props) => {
     })
       .then((response) => {
         setStyles(response.data.results);
+        setCurrentStyle(response.data.results[0]);
       })
       .catch((error) => {
         console.log(error);
