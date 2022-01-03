@@ -16,7 +16,7 @@ const Question = (props) => {
   const [reportIsLink, setReportIsLink] = useState(true);
 
   let loadMoreAnswers = () => {
-      setNumAnswers(numAnswers + 2);
+    setNumAnswers(numAnswers + 2);
   };
 
   let showModal = () => {
@@ -45,8 +45,6 @@ const Question = (props) => {
     setAnswers(Object.values(props.questionData.answers).slice(0,numAnswers))
   },[numAnswers]);
 
-
-
   return (
 
     <div className={styles.question_container}>
@@ -56,14 +54,10 @@ const Question = (props) => {
         </div>
         <div className={styles.answerText}>
           <div className={styles.answers_detail}>
-
             {answers.map((answer, i) => {
                 return <Answer data={answer} key={i} />
             })}
-
-
           </div>
-
 
           <div className={styles.helpful_addAnswer}>
             {/* 1 */}
@@ -78,7 +72,6 @@ const Question = (props) => {
 
             {/* 3 */}
 
-
           {showAnswerForm ?
             <div className={styles.modal_background}>
               <div className={styles.model_content}>
@@ -88,15 +81,9 @@ const Question = (props) => {
           :
             <a className={styles.bottom_button} onClick={() => { showModal() }}>Add Answer</a>
           }
-
-
-
       </div>
         </div>
       </div>
-
-
-
 
     </div>
   );

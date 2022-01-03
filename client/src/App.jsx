@@ -7,7 +7,8 @@ import AppRelated from './related-items/related-items-app.jsx';
 //import RelatedCSS from './related-items/cssModules/Related.module.css';
 
 const App = () =>  {
-
+//default 63609
+//to test carousel 64220
   const [productId, setProductId] = useState(63609);
 
   const setProduct = (id) => {
