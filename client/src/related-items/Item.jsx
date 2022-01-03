@@ -33,24 +33,24 @@ const Item = (props) => {
    props.setProduct(props.id);
  }
 
-  return (
-    <div className={ItemCSS.card}>
-      <div className={ItemCSS.inner}>
-        <h4 className={ItemCSS.h4}>{props.category}</h4>
-        <h2 onClick = {() => {handleClickedOnItem()}}>{props.name || 'Still loading'}</h2>
-        {image[0] === undefined
-          ?
-          <div className={RelatedCSS.loader_container}>
-            <div className={RelatedCSS.loader}></div>
-          </div>
-          :
-          <img className={ItemCSS.image} src={image} />
-        }
-        <p className={ItemCSS.par}>{`$${props.price}`}</p>
-        <StarRating id={props.id} />
-      </div>
+ return (
+  <div className={ItemCSS.card}>
+    <div className={ItemCSS.inner}>
+      <h4 className={ItemCSS.h4}>{props.category}</h4>
+      <h2 className={ItemCSS.item_title} onClick={() => {handleClickedOnItem()}}>{props.name}</h2>
+      {image === undefined
+        ?
+        <div className={RelatedCSS.loader_container}>
+          <div className={RelatedCSS.loader}></div>
+        </div>
+        :
+        <img className={ItemCSS.image} src={image} />
+      }
+      <p className={ItemCSS.par}>{`$${props.price}`}</p>
+      <StarRating id={props.id} />
     </div>
-  );
+  </div>
+);
 };
 
 export default Item;
