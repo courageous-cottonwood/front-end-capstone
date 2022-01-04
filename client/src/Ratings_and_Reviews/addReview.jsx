@@ -12,7 +12,7 @@ const AddReview = ({product_id, review_meta}) => {
     body: '',
     name: '',
     email: '',
-    photos: '',
+    photos: [],
     product_id:product_id
   });
 
@@ -23,7 +23,7 @@ const AddReview = ({product_id, review_meta}) => {
     axios.post('/reviews', newReview)
     .then((res) => {
       if(res.data === 'Created') {
-
+        console.log('posted review');
       }
     })
   }
@@ -186,7 +186,7 @@ const AddReview = ({product_id, review_meta}) => {
       <label> Email </label>
       <label> For authentication reasons, you will not be emailed</label>
       <input name="email" type="email" maxLength="60" required onChange={updateForm}/>
-      <button> Submit Review</button>
+      <button onClick={submitForm}> Submit Review</button>
     </div>
   )
 

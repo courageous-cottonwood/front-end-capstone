@@ -28,7 +28,7 @@ const Ratings_and_Reviews = ({product_id}) => {
   const getReviews = (productID) => {
     axios.get('/reviews', {
       params: {
-        product_id: productID, page : 1, count: count, sort: sort,
+        product_id: productID, page:1, count:10000, sort:sort
       }
     })
     .then( (response) => {
@@ -41,17 +41,30 @@ const Ratings_and_Reviews = ({product_id}) => {
     setCount(updatedCount);
   }
 
+  const handleHelpfulness = (id) => {
+    console.log(id);
+    axios.put('/reviews/helpful', {
+      params: {
+        review_id:id
+      }
+    })
+    .then( (response) => {
+      getReviews(product_id);
+    });
+  }
+
   const handleSort = (e) => {
     setSort(e.target.value);
+    setCount(2);
   }
 
   useEffect( () => {
     getReviews(product_id);
   }, [sort]);
 
-  useEffect( () => {
-    getReviews(product_id);
-  }, [count]);
+  // useEffect( () => {
+  //   getReviews(product_id);
+  // }, [count]);
 
   useEffect ( () => {
     getReviews(product_id);
@@ -68,13 +81,17 @@ const Ratings_and_Reviews = ({product_id}) => {
   useEffect( () => {
     getReviewMeta(product_id);
   }, [product_id]);
+
+  // useEffect( () => {
+  //   getReviewMeta(product_id);
+  // }, [sort]);
 
 
 
   return (
     <div className={styles.ratingsAndReviewsContainer}>
       <Ratings review_meta={review_meta} product_id={product_id}/>
-      <Reviews review_meta={review_meta} product_id={product_id} reviews={reviews} handleMoreQuestions={handleMoreQuestions} handleSort={handleSort}/>
+      <Reviews review_meta={review_meta} product_id={product_id} reviews={reviews.results.slice(0, count)} handleMoreQuestions={handleMoreQuestions} handleSort={handleSort} handleHelpfulness={handleHelpfulness}/>
 
     </div>
 

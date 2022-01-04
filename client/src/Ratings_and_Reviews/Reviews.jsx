@@ -5,7 +5,7 @@ import styles from './RR.module.css';
 import axios from 'axios';
 import AddReview from './addReview.jsx';
 
-const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleSort}) => {
+const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleSort, handleHelpfulness}) => {
 
     return (
       <div className={styles.ReviewsContainer}>
@@ -16,12 +16,12 @@ const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleS
           <option value="relevant">relevant</option>
         </select>
       </div>
-        {reviews.results.map( (review) =>
-          <Review review={review} />
+        {reviews.map( (review) =>
+          <Review review={review} handleHelpfulness={handleHelpfulness}/>
         )}
         <button onClick={handleMoreQuestions} className={styles.button}> More Reviews</button>
         <button className={styles.button}> Add Review </button>
-        {/* <AddReview product_id={product_id} review_meta={review_meta}/> */}
+        <AddReview product_id={product_id} review_meta={review_meta}/>
       </div>
     );
 }
