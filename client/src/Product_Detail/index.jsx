@@ -50,7 +50,7 @@ const ProductDetail = (props) => {
       .catch((error) => {
         console.log(error);
       })
-  }, [product]);
+  }, [props.product_id]);
 
   return (
     <div className={css.productDetailContainer}>
