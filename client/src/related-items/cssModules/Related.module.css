@@ -1,6 +1,6 @@
 .loader {
   border: 16px solid #f3f3f3;
-  border-top: 16px solid #09273a;
+  border-top: 16px solid #13032d;
   border-radius: 50%;
   width: 130px;
   height: 130px;
@@ -18,16 +18,17 @@ body {
 }
 
 .container {
-  color: #384047;
+  color: #3a3847;
+  justify-content: left;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  width: 90%;
+  width: 100%;
   margin: 1.1em auto;
   display: flex;
   flex-direction: row;
   flex-wrap: nonwrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: scrollbar;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
   row-gap: 10px;
   gap: 10px 20px;
   /* max-width: 1500px; */
