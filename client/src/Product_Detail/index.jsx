@@ -22,6 +22,7 @@ const ProductDetail = (props) => {
     ]
   });
   const [currentStyleIndex, setCurrentStyleIndex] = useState(0);
+  const [review_meta, setReviewMeta] = useState(0);
 
   useEffect(() => {
     // get current product info
@@ -49,7 +50,16 @@ const ProductDetail = (props) => {
       })
       .catch((error) => {
         console.log(error);
-      })
+      });
+
+    axios.get('/reviews/meta', {
+      params: {
+        product_id: props.product_id
+      }
+    })
+      .then( (response) => {
+        setReviewMeta(response.data);
+      });
   }, [props.product_id]);
 
   return (
@@ -68,6 +78,7 @@ const ProductDetail = (props) => {
           setCurrentStyle={setCurrentStyle}
           currentStyle={currentStyle}
           product={product}
+          review_meta={review_meta}
         />
         <AddToCart
           currentStyle={currentStyle}
