@@ -52,13 +52,34 @@ const ProductDetail = (props) => {
       })
   }, []);
 
-  const selectStyle = (selectedStyle) => {
-    setCurrentStyle(selectedStyle);
-  }
+  useEffect(() => {
+    // get current product info
+    axios.get('/products/get', {
+      params: {
+        product_id: props.product_id
+      }
+    })
+      .then((response) => {
+        setProduct(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-  const selectStyleIndex = (selectedIndex) => {
-    setCurrentStyleIndex(selectedIndex);
-  }
+    // get product styles
+    axios.get('/products/styles', {
+      params: {
+        product_id: props.product_id
+      }
+    })
+      .then((response) => {
+        setStyles(response.data.results);
+        setCurrentStyle(response.data.results[0]);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }, [product]);
 
   return (
     <div className={css.productDetailContainer}>
@@ -66,13 +87,14 @@ const ProductDetail = (props) => {
         <ProductView
           currentStyle={currentStyle}
           currentStyleIndex={currentStyleIndex}
-          selectStyleIndex={selectStyleIndex}
+          setCurrentStyleIndex={setCurrentStyleIndex}
+          styles={styles}
         />
       </div>
       <div className={css.sidebar}>
         <ProductInfo
           styles={styles}
-          selectStyle={selectStyle}
+          setCurrentStyle={setCurrentStyle}
           currentStyle={currentStyle}
           product={product}
         />

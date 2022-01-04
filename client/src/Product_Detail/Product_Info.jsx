@@ -5,7 +5,7 @@ import Style from './Style.jsx';
 const ProductInfo = (props) => {
   return (
     <div className={css.productInfoContainer}>
-      <h3>{props.product.category}</h3>
+      <div>{props.product.category}</div>
       <h2>{props.product.name}</h2>
       <div>{props.product.description}</div>
       <h3>
@@ -21,7 +21,7 @@ const ProductInfo = (props) => {
             <Style
               key={style.style_id}
               style={style}
-              selectStyle={props.selectStyle}
+              setCurrentStyle={props.setCurrentStyle}
             />
           )
         }
