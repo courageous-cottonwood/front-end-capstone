@@ -3,7 +3,7 @@ import css from './productdetail.module.css';
 
 const Style = (props) => {
   const handleClick = () => {
-    props.selectStyle(props.style);
+    props.setCurrentStyle(props.style);
   }
 
   return (

@@ -3,7 +3,7 @@ import css from './productdetail.module.css'
 
 const StyleThumbnail = (props) => {
   const handleClick = () => {
-    props.selectStyleIndex(props.styleIndex)
+    props.setCurrentStyleIndex(props.styleIndex)
   }
 
   return (

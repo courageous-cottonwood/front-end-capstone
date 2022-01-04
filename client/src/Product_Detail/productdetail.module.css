@@ -14,8 +14,9 @@
 .styleThumbnails {
   display: flex;
   flex-direction: column;
-  width: 70px;
+  max-width: 90px;
   max-height: 405px;
+  min-width: 90px;
   overflow-x: auto;
 }
 
@@ -30,7 +31,7 @@
 }
 
 .defaultViewImage {
-  width: 350px;
+  width: 300px;
   height: 400px;
   object-fit: cover;
   margin: 5px;
@@ -52,7 +53,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: calc(33%);
+  width: calc(35%);
   height: 70px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -99,6 +100,7 @@
   color: white;
   text-decoration: none;
   margin-right: 10px;
+  margin-top: 10px;
 }
 
 .cartButton:hover {
@@ -108,4 +110,20 @@
 .cartWrapper {
   display: flex;
   flex-direction: row;
+}
+
+.arrows {
+  width: 50px;
+  height: 50px;
+  align-self: center;
+}
+
+.arrowsNonClick {
+  width: 50px;
+  height: 50px;
+  align-self: center;
+}
+
+.arrows:hover {
+  cursor: pointer;
 }
