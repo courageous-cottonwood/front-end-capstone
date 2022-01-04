@@ -5,72 +5,28 @@ import styles from './RR.module.css';
 import axios from 'axios';
 import AddReview from './addReview.jsx';
 
-const Reviews = ({product_id}) => {
-  // constructor (props) {
-  //   super(props);
-  //   this.state = {
-  //     reviews: DummyReviews,
-  //     count: 2,
-  //   }
-  //   this.getReviews = this.getReviews.bind(this);
-  //   this.handleMoreQuestions = this.handleMoreQuestions.bind(this);
-  // }
+const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleSort}) => {
 
-  const [reviews, setReviews] = useState(DummyReviews);
-  const [count, setCount] = useState(2);
 
-  const getReviews = (productID) => {
-    axios.get('/reviews', {
-      params: {
-        product_id: productID, page : 1, count: count
-      }
-    })
-    .then( (response) => {
-      // console.log(response.data);
-      // this.setState({reviews: response.data});
-      setReviews(response.data);
-    });
-  }
-
-  const handleMoreQuestions = () => {
-    let updatedCount = count + 2;
-    // this.setState({count: count}, () => {
-    //   this.getReviews();
-    // });
-    setCount(updatedCount);
-  }
-
-  useEffect( () => {
-    getReviews(product_id);
-  }, [count]);
-
-  useEffect ( () => {
-    getReviews(product_id);
-  }, [product_id]);
-
-  useEffect ( () => {
-    getReviews(product_id);
-  }, []);
-
-  // componentDidMount () {
-  //   this.getReviews();
-  // }
-
-  // render () {
-    // console.log(this.state.reviews);
-    // console.log(mappedReviews);
     return (
+
       <div className={styles.ReviewsContainer}>
+        <div className={styles.sortContainer}>
+        <select onChange={handleSort}>
+          <option value="newest">newest</option>
+          <option value="helpful">helpful</option>
+          <option value="relevant">relevant</option>
+        </select>
+      </div>
         {reviews.results.map( (review) =>
           <Review review={review} />
         )}
         <button onClick={handleMoreQuestions} className={styles.button}> More Reviews</button>
         <button className={styles.button}> Add Review </button>
-        {/* <AddReview product_id={product_id}/> */}
+        <AddReview product_id={product_id} review_meta={review_meta}/>
       </div>
 
     );
-  // }
 
 }
 
