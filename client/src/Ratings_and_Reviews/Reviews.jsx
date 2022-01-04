@@ -7,9 +7,7 @@ import AddReview from './addReview.jsx';
 
 const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleSort}) => {
 
-
     return (
-
       <div className={styles.ReviewsContainer}>
         <div className={styles.sortContainer}>
         <select onChange={handleSort}>
@@ -23,11 +21,9 @@ const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleS
         )}
         <button onClick={handleMoreQuestions} className={styles.button}> More Reviews</button>
         <button className={styles.button}> Add Review </button>
-        <AddReview product_id={product_id} review_meta={review_meta}/>
+        {/* <AddReview product_id={product_id} review_meta={review_meta}/> */}
       </div>
-
     );
-
 }
 
 export default Reviews;
