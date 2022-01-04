@@ -65,6 +65,16 @@ const Ratings = ({product_id}) => {
     return 0;
   }
 
+  const getCharacteristics = () => {
+    let results = [];
+
+    for(let charact in review_meta.characteristics) {
+      let charactValue = review_meta.characteristics[charact].value;
+      results.push(`${charact}: ${charactValue.slice(0,4)}`);
+    }
+    return results;
+  }
+
 
   // render () {
     // console.log(this.state.review_meta.ratings);
@@ -87,7 +97,11 @@ const Ratings = ({product_id}) => {
           <div> 4 star: {getRatingCount(4)}</div>
           <div> 5 star: {getRatingCount(5)}</div>
         </div>
-
+        <div className={styles.characteristicBreakdown}>
+          {getCharacteristics().map( (text) => {
+            return <div>{text} </div>;
+          })}
+        </div>
       </div>
     );
   // }
