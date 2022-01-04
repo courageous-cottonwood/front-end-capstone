@@ -48,8 +48,8 @@ const AppRelated = (props) => {
     for (var i = 0; i < itemsArr.length; i++) {
       promises.push(axios.get('/products/get', { params: { product_id: itemsArr[i] } })
         .then((res) => {
-         // console.log();
-         var eachItem = res.data;
+          // console.log();
+          var eachItem = res.data;
           storeAllItems.push(eachItem);
         })
         .catch((err) => {
@@ -74,24 +74,43 @@ const AppRelated = (props) => {
       </div>
     )
   }
+
+  //on click on the image need to scroll to item at 4th index (item # 5)
+  const scrollRightCarousel = () => {
+    var carouselClass = '.TUAtEnPL7RRl0mcixyQn';
+    console.log('scrolling right');
+    document.querySelector(carouselClass).scrollLeft += 200;
+  }
+
+  const scrollLeftCarousel = () => {
+    var carouselClass = '.TUAtEnPL7RRl0mcixyQn';
+    console.log('scrolling left');
+    document.querySelector(carouselClass).scrollLeft += -200;
+  }
+
+
   return (
-    <div className={RelatedCSS.container}>
-      {items.map((item) => {
-        return (
-          <Item
-            name={item.name}
-            category={item.category}
-            price={item.default_price}
-            key={item.id}
-            id={item.id}
-            parentId = {props.product_id}
-            id = {item.id}
-            setProduct={props.setProduct}
-          />
+    <div className={RelatedCSS.app}>
+      <img className={RelatedCSS.arrowLeft} onClick={scrollLeftCarousel} src='https://img.icons8.com/ios/344/chevron-left.png' />
+      <div className={RelatedCSS.container}>
+        {items.map((item) => {
+          return (
+            <Item
+              name={item.name}
+              category={item.category}
+              price={item.default_price}
+              key={item.id}
+              id={item.id}
+              parentId={props.product_id}
+              id={item.id}
+              setProduct={props.setProduct}
+            />
+          )
+        }
         )
-      }
-      )
-      }
+        }
+      </div>
+      <img className={RelatedCSS.arrowRight} onClick={scrollRightCarousel} src='https://img.icons8.com/ios-filled/344/chevron-right.png' />
     </div>
   )
 }

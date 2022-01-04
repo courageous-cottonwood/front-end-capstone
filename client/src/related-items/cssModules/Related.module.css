@@ -17,18 +17,29 @@ body {
   margin: 0;
 }
 
+.app {
+  display: flex;
+  flex-direction: row;
+  width: 67%;
+  margin: 1em auto;
+  /* max-width: 1400px; */
+  justify-content: normal;
+}
 .container {
   color: #3a3847;
   justify-content: left;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  width: 100%;
-  margin: 1.1em auto;
+  /* width: 90%; */
+  width: calc(85%);
+  /* margin: 1.1em auto; */
   display: flex;
   flex-direction: row;
   flex-wrap: nonwrap;
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
+  /* -webkit-overflow-scrolling: touch; */
+  /* -ms-overflow-style: -ms-autohiding-scrollbar; */
+  overflow: scroll;
+  scroll-behavior: smooth;
   row-gap: 10px;
   gap: 10px 20px;
   /* max-width: 1500px; */
@@ -42,4 +53,20 @@ body {
   margin-bottom: 0;
   padding-bottom: 18px;
   border-bottom: solid 1px #e0e0e0;
+}
+
+.arrowRight {
+  z-index: 10;
+  position: relative;
+  height: 50px;
+  align-self: center;
+  cursor: pointer;
+}
+
+.arrowLeft {
+  z-index: 10;
+  position: relative;
+  height: 50px;
+  align-self: center;
+  cursor: pointer;
 }
