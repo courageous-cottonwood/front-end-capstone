@@ -16,6 +16,10 @@ const Compare = (props) => {
   const [itemName, setItemName] = useState([]);
   const [itemFeatures, setItemFeatures] = useState([]);
 
+  const [isLoading, setLoading] = useState(true); //set true
+
+  const [showCompare, setCompare] = useState(false);
+
   useEffect(() => {
     var idArr = [];
     idArr.push(props.id);
@@ -40,33 +44,46 @@ const Compare = (props) => {
       );
     }
     Promise.all(promises).then(() => {
-      console.log(itemName);
-      console.log(itemFeatures);
+      // console.log(itemName);
+      // console.log(itemFeatures);
       setItemFeatures(itemFeatures[0]);
       setItemName(itemName[0]);
       setParentFeatures(itemFeatures[1]);
       setParentItemName(itemName[1]);
+      setLoading(!isLoading);
     });
+  }
+  const handleCloseModal = () => {
+    setCompare(!showCompare)
+  }
+  if (isLoading) {
+    return (
+      <div className={CompareCSS.container}
+        onClick={props.closeModal}>
+        <h3>FETCHING DATA</h3>
+        <div className={CompareCSS.loader}></div>
+      </div>
+    )
   }
 
   return (
-    < div className={CompareCSS.container}
-      onClick={props.closeModal} >
+    <div className={CompareCSS.container}
+      onClick={() => { handleCloseModal() }} >
       <div className={CompareCSS.item}>
-        <ul className={CompareCSS.list}>
-          <h3 className = {CompareCSS.h3}>{itemName}</h3>
-          {itemFeatures.map((element) => (
-            <li>{element.feature}: {element.value}</li>
-          ))}
-        </ul>
+        <h3 className={CompareCSS.h3}>{itemName}</h3>
+        {itemFeatures.map((element) => (
+          <ul className={CompareCSS.list}>
+            <li>{element.feature} - {element.value}</li>
+          </ul>
+        ))}
       </div>
       <div className={CompareCSS.item}>
-        <ul className={CompareCSS.list}>
-          <h3 className = {CompareCSS.h3}>{parentItemName}</h3>
-          {parentFeatures.map((element) => (
-            <li>{element.feature}: {element.value}</li>
-          ))}
-        </ul>
+        <h3 className={CompareCSS.h3}>{parentItemName}</h3>
+        {parentFeatures.map((element) => (
+          <ul className={CompareCSS.list}>
+            <li>{element.feature} - {element.value}</li>
+          </ul>
+        ))}
       </div>
     </div >
   )

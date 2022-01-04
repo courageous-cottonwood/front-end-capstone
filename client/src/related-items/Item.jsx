@@ -34,14 +34,13 @@ const Item = (props) => {
 
   //need a click event to re-render the site with new item
   const handleClickedOnItem = () => {
+    console.log(props.id);
     props.setProduct(props.id);
   }
   const handleCompareButton = () => {
     setCompare(!showCompare)
   }
-  const handleCloseModal = () => {
-    setCompare(!showCompare)
-  }
+
 
   return (
     <div className={ItemCSS.card}>
@@ -49,7 +48,6 @@ const Item = (props) => {
         <Compare
           id={props.id}
           parentId={props.parentId}
-          closeModal={handleCloseModal}
           name = {props.name}
         /> : null
       }
@@ -69,7 +67,7 @@ const Item = (props) => {
           id={props.id}
           parentId={props.parentId}
            />
-        <button className={ItemCSS.button_compare} onClick={handleCompareButton}>Compare Me</button>
+        <button className={ItemCSS.button_compare} onClick={() => {handleCompareButton()}}>Compare Me</button>
       </div>
     </div>
   );
