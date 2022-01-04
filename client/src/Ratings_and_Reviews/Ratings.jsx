@@ -18,17 +18,13 @@ const Ratings = ({product_id}) => {
 
 
   const getReviewMeta = (productID) => {
-    // console.log('get review meta running');
     axios.get('/reviews/meta', {
       params: {
         product_id: productID
       }
     })
     .then( (response) => {
-      // console.log(response.data);
-      // this.setState({review_meta: response.data});
       setReviewMeta(response.data);
-
     });
   }
 

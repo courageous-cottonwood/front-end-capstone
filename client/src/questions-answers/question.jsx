@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import dayjs from 'dayjs';
 import Answer from './answer.jsx';
 import AddAnswerForm from './forms/addAnswer.jsx';
 import styles from './qa.module.css';
@@ -12,7 +12,7 @@ const Question = (props) => {
   const [showLoadMore, setShowLoadMore] = useState(true);
   const [showAnswerForm, setShowAnswerForm] = useState(false);
 
-  const [helpful, setHelpful] = useState(props.questionData.question_helpfulness);
+  const [helpful, setHelpful] = useState(props.questionData.question_helpfulness || 0);
   const [reportIsLink, setReportIsLink] = useState(true);
 
   let loadMoreAnswers = () => {
@@ -51,6 +51,7 @@ const Question = (props) => {
       <div className={styles.questionAnswertext}>
         <div className={styles.questionText}>
           <span className={styles.largeQA}>Q: {props.questionData.question_body}</span>
+          <p className={styles.subQuestion}>by {props.questionData.asker_name}, {dayjs(props.questionData.question_date).format("MMMM D YYYY")}</p>
         </div>
         <div className={styles.answerText}>
           <div className={styles.answers_detail}>
@@ -66,7 +67,7 @@ const Question = (props) => {
              <a className={styles.bottom_button} onClick={() => {loadMoreAnswers()}} >Load More Answers</a> : <p></p> }
 
             {/* 2 */}
-              <a href="#" className={styles.bottom_button} onClick={ () => {markHelpful()} }>
+              <a className={styles.bottom_button} onClick={ () => {markHelpful()} }>
               <strong className={styles.small_squareNumber}>{helpful}</strong>Found This Question Helpful
               </a>
 

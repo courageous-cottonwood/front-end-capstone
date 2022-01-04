@@ -11,11 +11,11 @@ import { useEffect } from 'react/cjs/react.development';
 const App = (props) =>  {
 //default 63609
 //to test carousel 64220
-  const [productId, setProductId] = useState(63609);
+  const [productId, setProductId] = useState('');
 
   const loadFromURL = () => {
-    let product_id = window.location.pathname.replace('/', '');
-    return productId;
+    let url = window.location.pathname.replace('/', '');
+    return url;
   }
 
   const setProduct = (id) => {
@@ -23,8 +23,17 @@ const App = (props) =>  {
   };
 
   useEffect(() => {
-    // setProductId(loadFromURL());
+    if (loadFromURL() !== '') {
+      setProductId(loadFromURL());
+    } else {
+      setProductId(63609);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.history.pushState("", "", `/${productId}`);
   }, [productId])
+
 
   return (
       <div>

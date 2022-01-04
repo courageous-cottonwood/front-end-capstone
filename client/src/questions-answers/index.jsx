@@ -24,7 +24,7 @@ const QuestionsAnswers = function (props) {
   const getQADataForItem = (product_id) => {
     axios.get('/qa/questions', { params: { product_id: product_id, page: 1, count: numQuestions + 2 } })
     .then((response) => {
-      console.log(response.data.results)
+      console.log(response.data.results);
       setQuestions(response.data.results);
     });
   };
@@ -36,7 +36,7 @@ const QuestionsAnswers = function (props) {
 
   //response to product id changes
   useEffect(() => {
-    setNumQuestions(2);
+    setNumQuestions(0);
     getQADataForItem(props.product_id);
   }, [props.product_id]);
 
@@ -68,7 +68,7 @@ const QuestionsAnswers = function (props) {
       <QASearchBar search={searchForAnswers} load={loadAllQuestions} product_id={props.product_id}/>
       {isSearching ?
         allQuestions.filter((question) => { return question.question_body.includes(searchTerm) })
-        .map((question, i) => { return <Question questionData={question} key={i} /> })
+        .map((question, i) => { return <Question data-testid="question" questionData={question} key={i} /> })
         :
         questions.map((question, i) => { return <Question questionData={question} key={i} /> })
       }

@@ -1,6 +1,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: white !important;
+  padding-top: 80px;
 }
 
 :root {
@@ -329,3 +330,7 @@ border: 1px solid #ffffff;
   color: var(--color-primary-darker);
 }
 
+.subQuestion {
+  font-size: 12px;
+  margin-bottom: 0px;
+}
