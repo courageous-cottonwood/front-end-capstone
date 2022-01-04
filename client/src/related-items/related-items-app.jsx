@@ -21,41 +21,36 @@ const AppRelated = (props) => {
   //const [state, setState] = useState(initialState);
   const [items, setItems] = useState([]);
   const [isLoading, setLoading] = useState(true); //set true for loader to appear
-  //fetures array to hold item specific features
-  const [features, setFeatures] = useState([]);
   const productId = props.product_id || 63624;
 
-  //add use effect when props.product_id changes
   useEffect(() => {
-    getAllItems();
+    getAllRelatedItems();
   }, []);
 
   useEffect(() => {
-    getAllItems();
+    getAllRelatedItems();
   }, [props.product_id]);
 
-  const getAllItems = () => {
+  const getAllRelatedItems = () => {
     axios.get('/products/related', { params: { product_id: productId } })
       .then((res) => {
-        //console.log(res.data);
-        getEachItem(res.data);
+        var relatedItemsArray = res.data;
+        getEachItem(relatedItemsArray);
       })
       .catch((err) => {
         console.log(err);
       })
-
   }
 
-
-  const getEachItem = (dataArr) => {
+  const getEachItem = (itemsArr) => {
     let promises = [];
-    var itemsFull = []
-    var featuresArr = []
-    for (var i = 0; i < dataArr.length; i++) {
-      promises.push(axios.get('/products/get', { params: { product_id: dataArr[i] } })
+    var storeAllItems = []
+    for (var i = 0; i < itemsArr.length; i++) {
+      promises.push(axios.get('/products/get', { params: { product_id: itemsArr[i] } })
         .then((res) => {
          // console.log();
-          itemsFull.push(res.data);
+         var eachItem = res.data;
+          storeAllItems.push(eachItem);
         })
         .catch((err) => {
           console.log(err);
@@ -63,8 +58,8 @@ const AppRelated = (props) => {
       )
     }
     Promise.all(promises).then(() => {
-      setItems(itemsFull);
-      setLoading(!isLoading);
+      setItems(storeAllItems);
+      setLoading(false);
     });
 
   }
@@ -72,7 +67,7 @@ const AppRelated = (props) => {
   if (isLoading) {
     return (
       <div className={RelatedCSS.container}>
-        <h3 className={RelatedCSS.h3}>FETCHING DATA</h3>
+        <h3>FETCHING RELATED ITEMS</h3>
         <div className={RelatedCSS.loader_container}>
           <div className={RelatedCSS.loader}></div>
         </div>
