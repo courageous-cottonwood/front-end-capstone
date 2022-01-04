@@ -4,7 +4,7 @@ import axios from 'axios';
 // import StarRating from './StarRating.jsx';
 // import RelatedCSS from './cssModules/Related.module.css';
 import CompareCSS from './cssModules/Compare.module.css';
-
+import CompareCard from './CompareCard';
 
 const Compare = (props) => {
 
@@ -18,13 +18,15 @@ const Compare = (props) => {
 
   const [isLoading, setLoading] = useState(true); //set true
 
-  const [showCompare, setCompare] = useState(false);
+  //const [showCompare, setCompare] = useState(false);
 
   useEffect(() => {
-    var idArr = [];
-    idArr.push(props.id);
-    idArr.push(props.parentId)
+    var idArr = [props.id, props.parentId];
+    // const [id, parentId] = idArr;
+    // idArr.push(props.id);
+    // idArr.push(props.parentId);
     getFeatures(idArr);
+
   }, []);
 
   const getFeatures = (dataArr) => {
@@ -50,12 +52,10 @@ const Compare = (props) => {
       setItemName(itemName[0]);
       setParentFeatures(itemFeatures[1]);
       setParentItemName(itemName[1]);
-      setLoading(!isLoading);
+      setLoading(false);
     });
   }
-  const handleCloseModal = () => {
-    setCompare(!showCompare)
-  }
+
   if (isLoading) {
     return (
       <div className={CompareCSS.container}
@@ -68,23 +68,12 @@ const Compare = (props) => {
 
   return (
     <div className={CompareCSS.container}
-      onClick={() => { handleCloseModal() }} >
-      <div className={CompareCSS.item}>
-        <h3 className={CompareCSS.h3}>{itemName}</h3>
-        {itemFeatures.map((element) => (
-          <ul className={CompareCSS.list}>
-            <li>{element.feature} - {element.value}</li>
-          </ul>
-        ))}
-      </div>
-      <div className={CompareCSS.item}>
-        <h3 className={CompareCSS.h3}>{parentItemName}</h3>
-        {parentFeatures.map((element) => (
-          <ul className={CompareCSS.list}>
-            <li>{element.feature} - {element.value}</li>
-          </ul>
-        ))}
-      </div>
+      onClick={props.showModal}>
+        <CompareCard
+        itemName = {itemName}
+        itemFeatures ={itemFeatures}
+        parentItemName={parentItemName}
+        parentFeatures={parentFeatures}/>
     </div >
   )
 };
