@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './RR.module.css';
 
-const AddReview = ({product_id}) => {
+const AddReview = ({product_id, review_meta}) => {
 
   const [newReview, setNewReview] = useState({
-    rating: 0,
+    rating: '',
     recommend: '',
     characteristics: {},
     summary: '',
@@ -17,35 +17,16 @@ const AddReview = ({product_id}) => {
   });
 
   const [allowSubmit, setAllowSubmit] = useState(false);
-  const [review_meta, setReviewMeta] = useState(0);
 
 
-  const getReviewMeta = (productID) => {
-    // console.log('get review meta running');
-    axios.get('/reviews/meta', {
-      params: {
-        product_id: productID
+  const submitForm = () => {
+    axios.post('/reviews', newReview)
+    .then((res) => {
+      if(res.data === 'Created') {
+
       }
     })
-    .then( (response) => {
-      // console.log(response.data);
-      // this.setState({review_meta: response.data});
-      setReviewMeta(response.data);
-
-    });
   }
-
-  // componentDidMount() {
-  //   this.getReviewMeta();
-  // }
-    useEffect( () => {
-      getReviewMeta(product_id);
-    }, [product_id]);
-
-    useEffect( () => {
-      getReviewMeta(product_id);
-    }, []);
-
 
   const updateForm = (e) => {
     let newObject = { ...newReview };
@@ -77,7 +58,7 @@ const AddReview = ({product_id}) => {
     if(e.target.value !== 'Size') {
       let newObject = { ...newReview};
       let characteristic_id = review_meta.characteristics.Size.id;
-      newObject.characteristics[characteristic_id] = e.target.value;
+      newObject.characteristics[characteristic_id] = parseInt(e.target.value);
       setNewReview(newObject);
     }
   }
@@ -85,7 +66,7 @@ const AddReview = ({product_id}) => {
     if(e.target.value !== 'Width') {
       let newObject = { ...newReview};
       let characteristic_id = review_meta.characteristics.Width.id;
-      newObject.characteristics[characteristic_id] = e.target.value;
+      newObject.characteristics[characteristic_id] = parseInt(e.target.value);
       setNewReview(newObject);
     }
   }
@@ -93,7 +74,7 @@ const AddReview = ({product_id}) => {
     if(e.target.value !== 'Comfort') {
       let newObject = { ...newReview};
       let characteristic_id = review_meta.characteristics.Comfort.id;
-      newObject.characteristics[characteristic_id] = e.target.value;
+      newObject.characteristics[characteristic_id] = parseInt(e.target.value);
       setNewReview(newObject);
     }
   }
@@ -101,7 +82,7 @@ const AddReview = ({product_id}) => {
     if(e.target.value !== 'Quality') {
       let newObject = { ...newReview};
       let characteristic_id = review_meta.characteristics.Quality.id;
-      newObject.characteristics[characteristic_id] = e.target.value;
+      newObject.characteristics[characteristic_id] = parseInt(e.target.value);
       setNewReview(newObject);
     }
   }
@@ -109,7 +90,7 @@ const AddReview = ({product_id}) => {
     if(e.target.value !== 'Length') {
       let newObject = { ...newReview};
       let characteristic_id = review_meta.characteristics.Length.id;
-      newObject.characteristics[characteristic_id] = e.target.value;
+      newObject.characteristics[characteristic_id] = parseInt(e.target.value);
       setNewReview(newObject);
     }
   }
@@ -118,7 +99,7 @@ const AddReview = ({product_id}) => {
     if(e.target.value !== 'Fit') {
       let newObject = { ...newReview};
       let characteristic_id = review_meta.characteristics.Fit.id;
-      newObject.characteristics[characteristic_id] = e.target.value;
+      newObject.characteristics[characteristic_id] = parseInt(e.target.value);
       setNewReview(newObject);
     }
   }
@@ -132,7 +113,7 @@ const AddReview = ({product_id}) => {
       </div>
       {/* <input name="rating" required/> */}
       <label> Overall Rating</label>
-      <select onChange={handleStarRatingSelect}>
+      <select onChange={handleStarRatingSelect} required>
         <option value="Select Star Rating">Select Star Rating</option>
         <option value="1">1 star - Poor </option>
         <option value="2">2 stars - Fair</option>
@@ -141,13 +122,13 @@ const AddReview = ({product_id}) => {
         <option value="5">5 stars - Great</option>
       </select>
       <label> Do you Recommend this product?</label>
-      <select onChange={handleRecommendSelect}>
+      <select onChange={handleRecommendSelect} required>
         <option value ="Select Recommendation">Select Recommendation</option>
         <option value ="true">I recommend this product</option>
         <option value="false">I don't recommend this product</option>
       </select>
       <label> Characteristics</label>
-      {review_meta !== 0 && review_meta.characteristics.Size ? <select name="Size" onChange={handleSizeSelect}>
+      {review_meta !== 0 && review_meta.characteristics.Size ? <select name="Size" onChange={handleSizeSelect} required>
 
         <option value="Size">Size</option>
         <option value="1">A size too small </option>
@@ -156,7 +137,7 @@ const AddReview = ({product_id}) => {
         <option value="4">Half a size too big</option>
         <option value="5">A size too wide</option>
       </select> : <div></div>}
-      {review_meta !== 0 && review_meta.characteristics.Width ? <select name="width" onChange={handleWidthSelect}>
+      {review_meta !== 0 && review_meta.characteristics.Width ? <select name="width" onChange={handleWidthSelect} required>
         <option value="Width">Width</option>
         <option value="1">Too narrow </option>
         <option value="2">Slightly narrow</option>
@@ -164,7 +145,7 @@ const AddReview = ({product_id}) => {
         <option value="4">Slightly wide</option>
         <option value="5">Too wide</option>
       </select> : <div></div>}
-      {review_meta !== 0 && review_meta.characteristics.Comfort ? <select name="Comfort" onChange={handleComfortSelect}>
+      {review_meta !== 0 && review_meta.characteristics.Comfort ? <select name="Comfort" onChange={handleComfortSelect} required>
         <option value="Comfort">Comfort</option>
         <option value="1">Uncomfortable </option>
         <option value="2">Slightly Uncomfortable</option>
@@ -172,14 +153,14 @@ const AddReview = ({product_id}) => {
         <option value="4">Comfortable</option>
         <option value="5">Perfect</option>
       </select> : <div></div>}
-      {review_meta !== 0 && review_meta.characteristics.Quality ? <select name="Quality" onChange={handleQualitySelect}>
+      {review_meta !== 0 && review_meta.characteristics.Quality ? <select name="Quality" onChange={handleQualitySelect} required>
         <option value="Quality">Quality</option>
         <option value="1">Below Average</option>
         <option value="3">What I expected</option>
         <option value="4">Pretty great</option>
         <option value="5">Perfect</option>
       </select> : <div></div> }
-      {review_meta !== 0 && review_meta.characteristics.Length ? <select name="Length" onChange={handleLengthSelect}>
+      {review_meta !== 0 && review_meta.characteristics.Length ? <select name="Length" onChange={handleLengthSelect} required>
         <option value="Length">Length</option>
         <option value="1">Runs Short </option>
         <option value="2">Runs slightly short</option>
@@ -187,7 +168,7 @@ const AddReview = ({product_id}) => {
         <option value="4">Runs Slightly long</option>
         <option value="5">Runs long</option>
       </select> : <div></div>}
-      {review_meta !== 0 && review_meta.characteristics.Fit ? <select name="Fit" onChange={handleFitSelect}>
+      {review_meta !== 0 && review_meta.characteristics.Fit ? <select name="Fit" onChange={handleFitSelect} required>
         <option value="Fit">Fit</option>
         <option value="1">Runs Tight</option>
         <option value="2">Runs slightly tight</option>

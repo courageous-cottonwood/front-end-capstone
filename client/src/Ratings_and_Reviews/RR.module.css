@@ -128,3 +128,14 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
+.addReview input:invalid,  .addReview textarea:invalid, .addReview input:invalid:required, .addReview textarea:invalid:required  {
+  border: 1px solid red;
+  background-color: rgb(250, 192, 190);
+}
+
+.addReview {
+  margin: 5px;
+  padding: 5px;
+  background-color: #ffffff;
+}
