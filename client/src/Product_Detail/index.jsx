@@ -50,15 +50,7 @@ const ProductDetail = (props) => {
       .catch((error) => {
         console.log(error);
       })
-  }, []);
-
-  const selectStyle = (selectedStyle) => {
-    setCurrentStyle(selectedStyle);
-  }
-
-  const selectStyleIndex = (selectedIndex) => {
-    setCurrentStyleIndex(selectedIndex);
-  }
+  }, [props.product_id]);
 
   return (
     <div className={css.productDetailContainer}>
@@ -66,13 +58,14 @@ const ProductDetail = (props) => {
         <ProductView
           currentStyle={currentStyle}
           currentStyleIndex={currentStyleIndex}
-          selectStyleIndex={selectStyleIndex}
+          setCurrentStyleIndex={setCurrentStyleIndex}
+          styles={styles}
         />
       </div>
       <div className={css.sidebar}>
         <ProductInfo
           styles={styles}
-          selectStyle={selectStyle}
+          setCurrentStyle={setCurrentStyle}
           currentStyle={currentStyle}
           product={product}
         />
