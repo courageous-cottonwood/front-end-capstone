@@ -15,18 +15,18 @@ const ProductView = function (props) {
   }
 
   const renderDefaultView = () => {
-    if (props.currentStyle.photos[props.currentStyleIndex]) {
+    if (props.currentStyle.photos[props.currentStyleIndex].url === null || !props.currentStyle.photos[props.currentStyleIndex]) {
       return (
         <img
           className={css.defaultViewImage}
-          src={props.currentStyle.photos[props.currentStyleIndex].url}
+          src="https://www.budget101.com/images/image-not-available.png?14867"
         ></img>
       )
     } else {
       return (
         <img
           className={css.defaultViewImage}
-          src="https://www.budget101.com/images/image-not-available.png?14867"
+          src={props.currentStyle.photos[props.currentStyleIndex].url}
         ></img>
       )
     }
