@@ -1,3 +1,34 @@
+import React from 'react';
+import {render, fireEvent, waitForElement, screen} from '@testing-library/react';
+import AppRelated from '../src/related-items/related-items-app.jsx';
+var relatedAppData = require('../src/related-items/related_test_data/related-app-data.js')
+
+let product_id = 63609;
+
+
+//should see title 'related products' when renders
+
+test('should render with a product id passed as a prop', () => {
+  render(<AppRelated product_id={product_id}/>);
+  expect(screen.getByText("Related Items"));
+});
+
+//
+
+
+
+
+
+
+
+
+
+
+
+// it('renders related items section without crashing', () => {
+//   shallow(<AppRelated />);
+// });
+
 // import React from 'react';
 // import { configure, shallow } from 'enzyme';
 // import Adapter from '@wojtekmaj/enzyme-adapter-react-17';

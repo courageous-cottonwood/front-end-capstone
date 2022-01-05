@@ -22,9 +22,6 @@ const Compare = (props) => {
 
   useEffect(() => {
     var idArr = [props.id, props.parentId];
-    // const [id, parentId] = idArr;
-    // idArr.push(props.id);
-    // idArr.push(props.parentId);
     getFeatures(idArr);
 
   }, []);

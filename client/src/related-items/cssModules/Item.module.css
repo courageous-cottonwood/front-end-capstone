@@ -3,10 +3,12 @@
   flex: 0 0 auto;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-evenly;
-  min-width: 300px;
+  justify-content: center;
+  /* min-width: 300px;
   max-width: 301px;
-  min-height: 500px;
+  min-height: 500px; */
+  width: calc(24.5%);
+  height: calc(25%);
   max-height: fit-content;
   flex-direction: column;
   background: #edeff0;
@@ -25,7 +27,9 @@
 }
 
  .image {
-  width: 200px; /* width of container */
+  /*width: 200px;  width of container */
+  width: 80%;
+  height: 65%;
   min-height: 199px;
   height: 200px; /* height of container */
   object-fit: cover;
@@ -59,8 +63,11 @@
 
 
 .button_compare {
-  display: block;
-  margin: 10px 10px 10px 60px;
+  /* display: block; */
+  width: 60%;
+  height: 40%;
+  /* margin: 10px 10px 10px 60px; */
+  margin: 1% 1%;
   padding: 7px;
   background-color: #9484cd;
   border-radius: 5px;
