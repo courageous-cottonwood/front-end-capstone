@@ -14,6 +14,24 @@ const ProductView = function (props) {
     props.setCurrentStyleIndex(props.currentStyleIndex + 1);
   }
 
+  const renderDefaultView = () => {
+    if (props.currentStyle.photos[props.currentStyleIndex]) {
+      return (
+        <img
+          className={css.defaultViewImage}
+          src={props.currentStyle.photos[props.currentStyleIndex].url}
+        ></img>
+      )
+    } else {
+      return (
+        <img
+          className={css.defaultViewImage}
+          src="https://www.budget101.com/images/image-not-available.png?14867"
+        ></img>
+      )
+    }
+  }
+
   useEffect(() => {
     if (props.currentStyleIndex === 0) {
       setLeftArrowEnabled(false);
@@ -48,10 +66,7 @@ const ProductView = function (props) {
         <img onClick={handleLeftArrow} className={css.arrows} src="https://img.icons8.com/ios-filled/344/chevron-left.png"></img> :
         <img className={css.arrowsNonClick} src="https://img.icons8.com/ios/344/chevron-left.png"></img>
       }
-      <img
-        className={css.defaultViewImage}
-        src={props.currentStyle.photos[props.currentStyleIndex].url}>
-      </img>
+      {renderDefaultView()}
       {rightArrowEnabled ?
         <img onClick={handleRightArrow} className={css.arrows} src="https://img.icons8.com/ios-filled/344/chevron-right.png"></img> :
         <img className={css.arrowsNonClick} src="https://img.icons8.com/ios/344/chevron-right.png"></img>

@@ -50,6 +50,7 @@ const ProductInfo = (props) => {
               key={style.style_id}
               style={style}
               setCurrentStyle={props.setCurrentStyle}
+              setCurrentStyleIndex={props.setCurrentStyleIndex}
             />
           )
         }

@@ -76,6 +76,7 @@ const ProductDetail = (props) => {
         <ProductInfo
           styles={styles}
           setCurrentStyle={setCurrentStyle}
+          setCurrentStyleIndex={setCurrentStyleIndex}
           currentStyle={currentStyle}
           product={product}
           review_meta={review_meta}
