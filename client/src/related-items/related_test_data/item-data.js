@@ -1,12 +1,12 @@
 
 //each image is being fetched from
 //results[0].photos[0].thumbnail_url
-// const relatedItems = [
-//   63610,
-//   63611,
-//   63616,
-//   63615
-// ];
+const relatedItems = [
+  63610,
+  63611,
+  63616,
+  63615
+];
 
 
 
@@ -101,3 +101,5 @@ const itemFour = {
     }
   ]
 };
+
+module.exports.itemData = {relatedArray, itemOne, itemTwo, itemThree, itemFour}

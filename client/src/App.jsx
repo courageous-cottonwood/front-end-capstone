@@ -43,7 +43,7 @@ const App = (props) =>  {
         <ProductDetail product_id={productId} />
         <AppRelated setProduct={setProduct} product_id={productId}/>
         <QuestionsAnswers product_id={productId} />
-        {/* <Ratings_and_Reviews product_id={productId}/> */}
+        <Ratings_and_Reviews product_id={productId}/>
       </div>
     )
 

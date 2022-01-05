@@ -27,6 +27,7 @@
   /* max-width: fit-content; */
   justify-content: normal;
 }
+
 .container {
   color: #3a3847;
   justify-content: left;
@@ -72,7 +73,7 @@
 }
 
 .arrowRight {
-  z-index: 1;
+  z-index: -1;
   position: relative;
   background-color: #d2d3d3;
   height: 50px;
@@ -82,7 +83,7 @@
 }
 
 .arrowLeft {
-  z-index: 1;
+  z-index: -1;
   background-color: #d2d3d3;
   position: relative;
   height: 50px;

@@ -33,7 +33,7 @@ const itemOne = {
   ]
 };
 
-const itemTw0 = {
+const itemTwo = {
   "id": 63611,
   "campus": "hr-sfo",
   "name": "Morning Joggers",
@@ -106,3 +106,5 @@ const itemFour = {
       }
   ]
 };
+
+module.exports.relatedAppData = {relatedArray, itemOne, itemTwo, itemThree, itemFour}

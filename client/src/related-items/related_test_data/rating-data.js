@@ -1,10 +1,10 @@
 
-// const relatedArray = [
-//   63610,
-//   63611,
-//   63616,
-//   63615
-// ];
+const relatedArray = [
+  63610,
+  63611,
+  63616,
+  63615
+];
 
 // this is data for star rating component
 
@@ -107,3 +107,4 @@ const itemFour = {
       }
   }
 }
+module.exports.ratingData = {relatedArray, itemOne, itemTwo, itemThree, itemFour}
