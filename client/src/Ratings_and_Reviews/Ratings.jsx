@@ -4,47 +4,9 @@ import axios from 'axios';
 import Stars from '../Utilities/Stars.jsx';
 
 
-const Ratings = ({product_id}) => {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     review_meta: 0,
-  //   }
-  //   this.getReviewMeta = this.getReviewMeta.bind(this);
-  //   this.getRatingCount = this.getRatingCount.bind(this);
-  //   this.getAverageRating = this.getAverageRating.bind(this);
-  // }
-    const [review_meta, setReviewMeta] = useState(0);
-
-
-  const getReviewMeta = (productID) => {
-    // console.log('get review meta running');
-    axios.get('/reviews/meta', {
-      params: {
-        product_id: productID
-      }
-    })
-    .then( (response) => {
-      // console.log(response.data);
-      // this.setState({review_meta: response.data});
-      setReviewMeta(response.data);
-
-    });
-  }
-
-  // componentDidMount() {
-  //   this.getReviewMeta();
-  // }
-    useEffect( () => {
-      getReviewMeta(product_id);
-    }, [product_id]);
-
-    useEffect( () => {
-      getReviewMeta(product_id);
-    }, []);
+const Ratings = ({product_id, review_meta}) => {
 
   const getRatingCount = (star) => {
-    // console.log(review_meta);
     if(review_meta !== 0) {
       return review_meta.ratings[star] || 0;
     }
@@ -65,14 +27,19 @@ const Ratings = ({product_id}) => {
     return 0;
   }
 
-
-  // render () {
-    // console.log(this.state.review_meta.ratings);
+  const getCharacteristics = () => {
+    let results = [];
+    for(let charact in review_meta.characteristics) {
+      let charactValue = review_meta.characteristics[charact].value;
+      results.push(`${charact}: ${charactValue.slice(0,4)}`);
+    }
+    return results;
+  }
 
     return (
       <div className={styles.ratingsContainer}>
         <div className={styles.ratingsNumberAndStarsContainer}>
-          <span className={styles.ratingsNumber}>{getAverageRating()}</span>
+          <span className={styles.ratingsNumber}>{getAverageRating().toFixed(1)}</span>
           <div className={styles.stars}>
             <Stars rating={getAverageRating()} size={24} color="pink"/>
           </div>
@@ -87,10 +54,13 @@ const Ratings = ({product_id}) => {
           <div> 4 star: {getRatingCount(4)}</div>
           <div> 5 star: {getRatingCount(5)}</div>
         </div>
-
+        <div className={styles.characteristicBreakdown}>
+          {getCharacteristics().map( (text) => {
+            return <div key={text}>{text} </div>;
+          })}
+        </div>
       </div>
     );
-  // }
 }
 
 

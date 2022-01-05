@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  background-color: violet;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  justify-content: space-between;
+}
+
+.header h3 {
+  margin-left: 15px;
+}
+
+.header p {
+  margin-right: 40px;
+}

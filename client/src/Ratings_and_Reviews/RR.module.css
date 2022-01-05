@@ -118,13 +118,61 @@
   margin-right: 15px;
 }
 
-.addReview {
-  display: flex;
-  flex-direction: column;
-}
 
 .addReviewHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.addReview input:invalid,  .addReview textarea:invalid, .addReview input:invalid:required, .addReview textarea:invalid:required  {
+  border: 1px solid red;
+  background-color: rgb(250, 192, 190);
+}
+
+.addReview {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+  background-color: #ffffff;
+  gap: 10px;
+}
+
+.reviewForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewFormCharacteristics {
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal_background {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(49, 49, 49, 0.7);
+  transition: all 4s;
+}
+
+.modal_content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  border-radius: 5px;
 }
