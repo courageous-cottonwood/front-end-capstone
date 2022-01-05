@@ -6,7 +6,7 @@ const Header = () => {
 
   return (
     <div className={style.header}>
-      <h3>Cottonwood</h3>
+      <h3>Courageous Cottonwood</h3>
       <p>Cart</p>
     </div>
   )

@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './RR.module.css';
 import dayjs from 'dayjs';
 import Stars from '../Utilities/Stars.jsx';
 
 
 
-const Review = ({review}) => {
+const Review = ({review, handleHelpfulness, handleReport}) => {
+
 
   // console.log(review);
+
+
 
   let date = dayjs(review.date).format('MMM DD, YYYY');
   return (
@@ -29,9 +32,11 @@ const Review = ({review}) => {
         <span className={styles.ReviewUserSpan}>{review.reviewer_name}</span>
         <div className={styles.helpfulContainer}>
           <span className={styles.helpfulSpan}> Helpful? </span>
-          <a className={styles.helpfulSpan} href="#"> Yes </a>
+          <a className={styles.helpfulSpan} onClick={ () => {
+            handleHelpfulness(review.review_id); }} href="#/"> Yes </a>
           <span className={styles.helpfulSpan}> ({review.helpfulness})</span>
-          <a className={styles.helpfulSpan} href="#"> Report </a>
+          <a className={styles.helpfulSpan} onClick={ () => {
+            handleReport(review.review_id);} }href="#/"> Report </a>
         </div>
       </div>
 

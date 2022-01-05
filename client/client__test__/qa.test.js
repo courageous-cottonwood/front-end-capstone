@@ -13,32 +13,18 @@ test('should render with a product id passed as a prop', () => {
 });
 
 //should load two questions on load
-
-test('should load two questions on load', async () => {
-  render(<QA product_id={product_id}/>);
-  fireEvent.click(screen.getByText('Load More Questions'))
-  const question = waitForElement(screen.getByTestId("question"));
-  expect(question).toBeInTheDocument()
-});
-
-//each question should show 'Q:'
 test('each question should show Q:', () => {
-  //load the main module
-  render(<QA />);
-  //load data from API using useEffect
-
-  //wait for a question to be loaded
-  const question = waitForElement(screen.getByTestId("question"));
-  //then make sure
-  expect(question).toBeInTheDocument()
+  render(<Question questionData={sampleData.results[0]} />);
+  const question = screen.getByTestId('question-text');
+  expect(question).toBeTruthy();
 });
 
-//if answers, should load answers
-test('if answers, should load answers', () => {
-  render(<Question />);
-  //render a question with question data
-  //check to see if answers are loaded
+test('if answers, should load two answers', () => {
+  render(<Question questionData={sampleData.results[0]} />);
+  const answer = screen.getAllByText("A:");
+  expect(answer.length).toEqual(2);
 });
+
 
 //each answer should show 'A;'
 
