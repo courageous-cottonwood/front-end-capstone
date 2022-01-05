@@ -7,18 +7,18 @@ import Stars from '../Utilities/Stars.jsx';
 const Ratings = ({product_id, review_meta}) => {
 
   const getRatingCount = (star) => {
-    if(review_meta !== 0) {
+    if(review_meta !== 0 && review_meta !== null) {
       return review_meta.ratings[star] || 0;
     }
     return 0;
   }
 
   const getAverageRating = () => {
-    if(review_meta !== 0) {
+    if(review_meta !== 0 && review_meta !== null && Object.keys(review_meta.ratings).length !== 0) {
       let totalSum = 0;
       let totalReviews = 0;
       let ratings = review_meta.ratings;
-      for(let stars in ratings) {
+      for (let stars in ratings) {
         totalSum += (parseInt(stars) * parseInt(ratings[stars]));
         totalReviews += parseInt(ratings[stars]);
       }
@@ -28,12 +28,21 @@ const Ratings = ({product_id, review_meta}) => {
   }
 
   const getCharacteristics = () => {
-    let results = [];
-    for(let charact in review_meta.characteristics) {
-      let charactValue = review_meta.characteristics[charact].value;
-      results.push(`${charact}: ${charactValue.slice(0,4)}`);
-    }
+    if(review_meta !== 0 && review_meta !== null) {
+      let results = [];
+      for (let charact in review_meta.characteristics) {
+        let charactValue;
+        if(review_meta.characteristics[charact].value !== null) {
+          charactValue = review_meta.characteristics[charact].value.slice(0, 4);
+        } else {
+          charactValue = 'No data available';
+        }
+
+        results.push(`${charact}: ${charactValue}`);
+      }
     return results;
+    }
+
   }
 
     return (
@@ -45,7 +54,7 @@ const Ratings = ({product_id, review_meta}) => {
           </div>
         </div>
         <div className={styles.ratingsRecommend} >
-          <span> {review_meta !== 0 ? review_meta.recommended.true : 0}% of reviews recommend this product </span>
+          <span> {review_meta !== 0 && review_meta !== null ? review_meta.recommended.true : 0}% of reviews recommend this product </span>
         </div>
         <div className={styles.ratingBreakdown}>
           <div> 1 star: {getRatingCount(1)}</div>
@@ -55,9 +64,9 @@ const Ratings = ({product_id, review_meta}) => {
           <div> 5 star: {getRatingCount(5)}</div>
         </div>
         <div className={styles.characteristicBreakdown}>
-          {getCharacteristics().map( (text) => {
+          {review_meta !== 0 && review_meta !== null ? getCharacteristics().map( (text) => {
             return <div key={text}>{text} </div>;
-          })}
+          }) : <div></div>}
         </div>
       </div>
     );

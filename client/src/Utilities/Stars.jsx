@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Stars = ({rating, size, color}) => {
+const Stars = ({size, color, rating = 0}) => {
 
     var activeStars = [];
     var inactiveStars = [];
