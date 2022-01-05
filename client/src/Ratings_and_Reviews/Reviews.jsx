@@ -5,7 +5,7 @@ import styles from './RR.module.css';
 import axios from 'axios';
 import AddReview from './addReview.jsx';
 
-const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleSort, handleHelpfulness, handleReport}) => {
+const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleSort, handleHelpfulness, handleReport, reloadAll}) => {
 
   const [showReviewForm, setShowReviewForm] = useState(false);
 
@@ -34,7 +34,7 @@ const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleS
         {showReviewForm ?
           <div className={styles.modal_background}>
             <div className={styles.modal_content}>
-            <AddReview product_id={product_id} review_meta={review_meta} showModal={showModal}/>
+            <AddReview product_id={product_id} review_meta={review_meta} showModal={showModal} reloadAll={reloadAll}/>
             </div>
           </div>
           :

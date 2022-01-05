@@ -33,10 +33,10 @@ const Review = ({review, handleHelpfulness, handleReport}) => {
         <div className={styles.helpfulContainer}>
           <span className={styles.helpfulSpan}> Helpful? </span>
           <a className={styles.helpfulSpan} onClick={ () => {
-            handleHelpfulness(review.review_id); }} href="#"> Yes </a>
+            handleHelpfulness(review.review_id); }} href="#/"> Yes </a>
           <span className={styles.helpfulSpan}> ({review.helpfulness})</span>
           <a className={styles.helpfulSpan} onClick={ () => {
-            handleReport(review.review_id);} }href="#"> Report </a>
+            handleReport(review.review_id);} }href="#/"> Report </a>
         </div>
       </div>
 

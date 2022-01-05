@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './RR.module.css';
 
-const AddReview = ({product_id, review_meta, showModal}) => {
+const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
 
   const [newReview, setNewReview] = useState({
     rating: '',
@@ -24,6 +24,8 @@ const AddReview = ({product_id, review_meta, showModal}) => {
     .then((res) => {
       if(res.data === 'Created') {
         console.log('posted review');
+        showModal();
+        reloadAll();
       }
     })
   }
@@ -109,7 +111,7 @@ const AddReview = ({product_id, review_meta, showModal}) => {
         <h3> Write Your Review</h3>
         <span className={styles.closeReview} onClick={showModal}> X </span>
       </div>
-      <form className={styles.reviewForm}>
+      <div className={styles.reviewForm}>
         <div className={styles.starRatingSelect}>
           <div>
             <label> Overall Rating</label>
@@ -211,7 +213,7 @@ const AddReview = ({product_id, review_meta, showModal}) => {
         <label> For authentication reasons, you will not be emailed</label>
         <input name="email" type="email" maxLength="60" required onChange={updateForm}/>
         <button onClick={submitForm}> Submit Review</button>
-      </form>
+      </div>
     </div>
   )
 

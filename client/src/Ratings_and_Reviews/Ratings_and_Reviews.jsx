@@ -13,6 +13,11 @@ const Ratings_and_Reviews = ({product_id}) => {
   const [count, setCount] = useState(2);
   const [sort, setSort] = useState('newest');
 
+  const reloadAll = () => {
+    getReviewMeta(product_id);
+    getReviews(product_id);
+  }
+
   const getReviewMeta = (productID) => {
     // console.log('get review meta running');
     axios.get('/reviews/meta', {
@@ -102,7 +107,7 @@ const Ratings_and_Reviews = ({product_id}) => {
   return (
     <div className={styles.ratingsAndReviewsContainer}>
       <Ratings review_meta={review_meta} product_id={product_id}/>
-      <Reviews review_meta={review_meta} product_id={product_id} reviews={reviews.results.slice(0, count)} handleMoreQuestions={handleMoreQuestions} handleSort={handleSort} handleHelpfulness={handleHelpfulness} handleReport={handleReport}/>
+      <Reviews review_meta={review_meta} product_id={product_id} reviews={reviews.results.slice(0, count)} handleMoreQuestions={handleMoreQuestions} handleSort={handleSort} handleHelpfulness={handleHelpfulness} handleReport={handleReport} reloadAll={reloadAll}/>
 
     </div>
 
