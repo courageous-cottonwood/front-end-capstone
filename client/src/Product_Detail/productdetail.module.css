@@ -104,6 +104,12 @@
 }
 
 .cartButton:hover {
+  background-color: var(--color-primary-darkest);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.cartButton:hover {
   cursor: pointer;
 }
 
