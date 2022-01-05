@@ -22,6 +22,7 @@ it('renders related items section without crashing', () => {
 // mock.onGet("/users").reply(200, {
 //   users: [{ id: 1, name: "John Smith" }],
 // });
+//render the
 
 // axios.get("/users").then(function (response) {
 //   console.log(response.data);
