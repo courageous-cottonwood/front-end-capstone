@@ -4,10 +4,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import StarRating from './StarRating.jsx';
+
 import Compare from './Compare.jsx';
-import RelatedCSS from './cssModules/Related.module.css';
 import ItemCSS from './cssModules/Item.module.css';
+import ItemCard from './ItemCard.jsx';
 //import NotImage from './cssModules/image_not_available.png';
 
 // pass down rating prop
@@ -34,44 +34,40 @@ const Item = (props) => {
 
   //need a click event to re-render the site with new item
   const handleClickedOnItem = () => {
+    console.log(props.id);
     props.setProduct(props.id);
   }
+  //shows compare modal when button clicked
   const handleCompareButton = () => {
     setCompare(!showCompare)
   }
+  //hides the modal when clicked on itself
   const handleCloseModal = () => {
     setCompare(!showCompare)
   }
 
   return (
-    <div className={ItemCSS.card}>
-      {showCompare ?
-        <Compare
-          id={props.id}
-          parentId={props.parentId}
-          closeModal={handleCloseModal}
-          name = {props.name}
-        /> : null
-      }
-      <div className={ItemCSS.inner}>
-        <h4 className={ItemCSS.h4}>{props.category}</h4>
-        <h2 className={ItemCSS.item_title} onClick={() => { handleClickedOnItem() }}>{props.name}</h2>
-        {image === undefined
-          ?
-          <div className={RelatedCSS.loader_container}>
-            <div className={RelatedCSS.loader}></div>
-          </div>
-          :
-          <img className={ItemCSS.image} src={image === null ? noImage : image} />
+      <div className={ItemCSS.card}>
+        {showCompare ?
+          <Compare
+            id={props.id}
+            parentId={props.parentId}
+            name={props.name}
+            showModal={handleCloseModal}
+          /> : null
         }
-        <p className={ItemCSS.par}>{`$${props.price}`}</p>
-        <StarRating
+        <ItemCard
           id={props.id}
           parentId={props.parentId}
-           />
-        <button className={ItemCSS.button_compare} onClick={handleCompareButton}>Compare Me</button>
+          category={props.category}
+          name={props.name}
+          price={props.price}
+          image={image}
+          noImage={noImage}
+          clickOnTitle={handleClickedOnItem}
+          compareButton={handleCompareButton}
+        />
       </div>
-    </div>
   );
 };
 

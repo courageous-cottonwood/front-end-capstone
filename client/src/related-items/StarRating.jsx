@@ -62,7 +62,7 @@ const StarRating = (props) => {
         :
         <span>
           <h4 className={StarCSS.h4}>Average rating: {rating}</h4>
-          <Stars rating={rating[0]} size={30} color={'#29283ee9'} />
+          <Stars rating={rating[0]} size={30} color={'#3a3847'} />
         </span>
       }
     </span>
