@@ -12,13 +12,13 @@ const Stars = ({rating, size, color}) => {
 
     if(rating % 1 === 0) {
       for( let i = 0; i < rating; i++) {
-        activeStars.push(<svg  width={`${size}`} height={`${size}`} viewBox="0 0 24 24">
+        activeStars.push(<svg  width={`${size}`} height={`${size}`} key={i} viewBox="0 0 24 24">
         <use href="#star" fill={`${color}`}></use>
         <use href="#star" fill="none" stroke="black"></use>
       </svg>);
       }
       for(let i = 0; i < (5-rating); i++) {
-        inactiveStars.push(<svg  width={`${size}`} height={`${size}`} viewBox="0 0 24 24">
+        inactiveStars.push(<svg  width={`${size}`} height={`${size}`} key={activeStars.length + 1 + i} viewBox="0 0 24 24">
         <use href="#star" fill="none" stroke="black"></use>
       </svg>);
       }
@@ -26,18 +26,18 @@ const Stars = ({rating, size, color}) => {
 
 
       for( let i = 0; i < flooredRating; i++) {
-        activeStars.push(<svg  width={`${size}`} height={`${size}`} viewBox="0 0 24 24">
+        activeStars.push(<svg  width={`${size}`} height={`${size}`} key={i} viewBox="0 0 24 24">
         <use href="#star" fill={`${color}`}></use>
         <use href="#star" fill="none" stroke="black"></use>
       </svg>);
       }
-      partialStars.push(<svg width={`${size}`} height={`${size}`} viewBox="0 0 24 24">
+      partialStars.push(<svg width={`${size}`} height={`${size}`} key={activeStars.length + 1} viewBox="0 0 24 24">
       <use href="#star" mask={`url(#mask${rating}${size})`} fill={`${color}`}></use>
       <use href="#star" fill="none" stroke="black"></use>
       </svg>);
 
       for(let i = 0; i < (4-flooredRating); i++) {
-        inactiveStars.push(<svg  width={`${size}`} height={`${size}`} viewBox="0 0 24 24">
+        inactiveStars.push(<svg  width={`${size}`} height={`${size}`} key={activeStars.length + 2 + i} viewBox="0 0 24 24">
         <use href="#star" fill="none" stroke="black"></use>
         </svg>);
       }
