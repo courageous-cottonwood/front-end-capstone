@@ -91,6 +91,8 @@ const AppRelated = (props) => {
 
 
   return (
+    <div className = {RelatedCSS.outer}>
+      <h3 className = {RelatedCSS.title}>Related Products</h3>
     <div className={RelatedCSS.app}>
       <img className={RelatedCSS.arrowLeft} onClick={scrollLeftCarousel} src= "https://img.icons8.com/ios/50/ffffff/circled-chevron-left.png" />
       <div className={RelatedCSS.container}>
@@ -112,6 +114,7 @@ const AppRelated = (props) => {
         }
       </div>
       <img className={RelatedCSS.arrowRight} onClick={scrollRightCarousel} src = "https://img.icons8.com/ios/50/ffffff/circled-chevron-right.png"/>
+    </div>
     </div>
   )
 }

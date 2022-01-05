@@ -12,8 +12,8 @@
   100% { transform: rotate(360deg); }
 }
 
-body {
-  background: #edeff0;
+.outer {
+  /* background: #edeff0; */
   margin: 0;
 }
 
@@ -47,6 +47,20 @@ body {
   row-gap: calc(10%);
   /* gap: 10px 20px; */
   gap: calc(0.7%) calc(0.5%);
+}
+
+.title {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.25em;
+  /* margin-bottom: 0.15em; */
+  margin-inline-start: 0.15em;
+  line-height: 1.2;
+  margin-top: 5px;
+  margin-left: 10%;
+  height: auto;
+  cursor: pointer;
+  color: #384047e9;
+  text-transform: uppercase;
 }
 
 .h3 {
