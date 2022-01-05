@@ -66,7 +66,7 @@ module.exports = {
       });
   },
   markReviewHelpful: (req, res) => {
-    console.log(req.body.params);
+    // console.log(req.body.params);
     models.markReviewHelpful(req.body.params)
       .then((response) => {
         res.send(response.data);
@@ -76,7 +76,7 @@ module.exports = {
       });
   },
   reportReview: (req, res) => {
-    models.reportReview(req.query)
+    models.reportReview(req.body.params)
       .then((response) => {
         res.send(response.data);
       })

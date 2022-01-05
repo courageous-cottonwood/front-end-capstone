@@ -5,7 +5,13 @@ import styles from './RR.module.css';
 import axios from 'axios';
 import AddReview from './addReview.jsx';
 
-const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleSort, handleHelpfulness}) => {
+const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleSort, handleHelpfulness, handleReport}) => {
+
+  const [showReviewForm, setShowReviewForm] = useState(false);
+
+  const showModal = () => {
+    setShowReviewForm(!showReviewForm);
+  };
 
     return (
       <div className={styles.ReviewsContainer}>
@@ -17,11 +23,24 @@ const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleS
         </select>
       </div>
         {reviews.map( (review) =>
-          <Review review={review} handleHelpfulness={handleHelpfulness}/>
+          <Review review={review} handleHelpfulness={handleHelpfulness} handleReport={handleReport} key={review.review_id}/>
         )}
-        <button onClick={handleMoreQuestions} className={styles.button}> More Reviews</button>
-        <button className={styles.button}> Add Review </button>
-        <AddReview product_id={product_id} review_meta={review_meta}/>
+
+        <div className={styles.buttonContainer}>
+          <button onClick={handleMoreQuestions} className={styles.button}> More Reviews</button>
+          <button className={styles.button} onClick={showModal}> Add Review </button>
+
+        </div>
+        {showReviewForm ?
+          <div className={styles.modal_background}>
+            <div className={styles.modal_content}>
+            <AddReview product_id={product_id} review_meta={review_meta} showModal={showModal}/>
+            </div>
+          </div>
+          :
+          <div>
+          </div>
+          }
       </div>
     );
 }

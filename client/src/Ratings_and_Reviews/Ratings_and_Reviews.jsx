@@ -41,14 +41,25 @@ const Ratings_and_Reviews = ({product_id}) => {
     setCount(updatedCount);
   }
 
-  const handleHelpfulness = (id) => {
-    console.log(id);
+  const handleHelpfulness = (review_id) => {
     axios.put('/reviews/helpful', {
       params: {
-        review_id:id
+        review_id: review_id
       }
     })
     .then( (response) => {
+      getReviews(product_id);
+    });
+  }
+
+  const handleReport = (review_id) => {
+    axios.put('/reviews/report', {
+      params: {
+        review_id: review_id
+      }
+    })
+    .then( (response) => {
+      console.log(response);
       getReviews(product_id);
     });
   }
@@ -91,7 +102,7 @@ const Ratings_and_Reviews = ({product_id}) => {
   return (
     <div className={styles.ratingsAndReviewsContainer}>
       <Ratings review_meta={review_meta} product_id={product_id}/>
-      <Reviews review_meta={review_meta} product_id={product_id} reviews={reviews.results.slice(0, count)} handleMoreQuestions={handleMoreQuestions} handleSort={handleSort} handleHelpfulness={handleHelpfulness}/>
+      <Reviews review_meta={review_meta} product_id={product_id} reviews={reviews.results.slice(0, count)} handleMoreQuestions={handleMoreQuestions} handleSort={handleSort} handleHelpfulness={handleHelpfulness} handleReport={handleReport}/>
 
     </div>
 

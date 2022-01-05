@@ -5,10 +5,10 @@ import Stars from '../Utilities/Stars.jsx';
 
 
 
-const Review = ({review, handleHelpfulness}) => {
+const Review = ({review, handleHelpfulness, handleReport}) => {
 
 
-  console.log(review);
+  // console.log(review);
 
 
 
@@ -35,7 +35,8 @@ const Review = ({review, handleHelpfulness}) => {
           <a className={styles.helpfulSpan} onClick={ () => {
             handleHelpfulness(review.review_id); }} href="#"> Yes </a>
           <span className={styles.helpfulSpan}> ({review.helpfulness})</span>
-          <a className={styles.helpfulSpan} href="#"> Report </a>
+          <a className={styles.helpfulSpan} onClick={ () => {
+            handleReport(review.review_id);} }href="#"> Report </a>
         </div>
       </div>
 

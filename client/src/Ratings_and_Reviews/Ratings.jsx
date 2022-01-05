@@ -56,7 +56,7 @@ const Ratings = ({product_id, review_meta}) => {
         </div>
         <div className={styles.characteristicBreakdown}>
           {getCharacteristics().map( (text) => {
-            return <div>{text} </div>;
+            return <div key={text}>{text} </div>;
           })}
         </div>
       </div>
