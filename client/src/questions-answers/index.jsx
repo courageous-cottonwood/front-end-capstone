@@ -21,23 +21,24 @@ const QuestionsAnswers = function (props) {
     setNumQuestions(numQuestions + 2);
   };
 
-  const getQADataForItem = (product_id) => {
-    axios.get('/qa/questions', { params: { product_id: product_id, page: 1, count: numQuestions + 2 } })
+  const getQADataForItem = (number) => {
+    axios.get('/qa/questions', { params: { product_id: props.product_id, page: 1, count: numQuestions } })
     .then((response) => {
-      console.log(response.data.results)
       setQuestions(response.data.results);
     });
   };
 
+
   //load data
   useEffect(() => {
-    getQADataForItem(props.product_id);
+    getQADataForItem();
   }, [numQuestions]);
 
   //response to product id changes
   useEffect(() => {
+    setQuestions([]);
     setNumQuestions(2);
-    getQADataForItem(props.product_id);
+    getQADataForItem();
   }, [props.product_id]);
 
   //search
@@ -47,7 +48,7 @@ const QuestionsAnswers = function (props) {
   };
 
   const loadAllQuestions = (product_id) => {
-    axios.get('/qa/questions', { params: { product_id: product_id, page: 1, count: 99 } })
+    axios.get('/qa/questions', { params: { product_id: props.product_id, page: 1, count: 99 } })
     .then((response) => {
       setAllQuestions(response.data.results);
     });
@@ -63,7 +64,7 @@ const QuestionsAnswers = function (props) {
   }, [searchTerm]);
 
   return (
-    <div className={styles.questionAnswerContainer}>
+    <div data-testid="question" className={styles.questionAnswerContainer}>
       <h4 onClick={() => { loadMoreQuestions() }}>QUESTIONS AND ANSWERS</h4>
       <QASearchBar search={searchForAnswers} load={loadAllQuestions} product_id={props.product_id}/>
       {isSearching ?

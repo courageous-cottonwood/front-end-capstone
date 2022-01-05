@@ -8,13 +8,12 @@ const Answer = (props) => {
 
   const [helpful, setHelpful] = useState(props.data.helpfulness);
   const [reportIsLink, setReportIsLink] = useState(true);
+  const [helpfulIsLink, setHelpfulIsLink] = useState(true);
 
   let report = () => {
-    console.log(props.data.id);
     axios.put('/qa/answers/report', { answer_id: props.data.id })
     .then((res) => {
       setReportIsLink(false);
-      console.log(res.data);
     });
   };
 
@@ -22,9 +21,9 @@ const Answer = (props) => {
     axios.put('/qa/answers/helpful', { answer_id: props.data.id })
     .then((res) => {
       setHelpful(helpful + 1);
+      setHelpfulIsLink(false);
     });
   };
-
 
   if (props.data.photos.length > 0) {
     return (
@@ -41,11 +40,18 @@ const Answer = (props) => {
 
 
         <div>
-        <a className={styles.square_button} href="#" onClick={ () => {markHelpful()} }>
+          {helpfulIsLink ?
+          <a className={styles.square_button} onClick={ () => {markHelpful()} }>
+          <h2 style={{ marginTop: 0 }}>{helpful}</h2>
+          <p>Found This Helpful</p>
+          </a> :
+          <a className={styles.square_button}>
           <h2 style={{ marginTop: 0 }}>{helpful}</h2>
           <p>Found This Helpful</p>
           </a>
-          { reportIsLink ? <a href="#" className={styles.square_button} onClick={() => { report() }}><p>
+        }
+
+          { reportIsLink ? <a className={styles.square_button} onClick={() => { report() }}><p>
           <strong>Report</strong><br />This Answer</p></a> : <div className={styles.square_button}>Reported</div> }
       </div>
     </div>
@@ -59,11 +65,17 @@ const Answer = (props) => {
         <p className={styles.subdetail_small}> by {props.data.answerer_name}, {dayjs(props.data.date).format("MMMM D YYYY")} </p>
         </div>
       <div>
-        <a className={styles.square_button} href="#" onClick={ () => {markHelpful()} }>
+      {helpfulIsLink ?
+          <a className={styles.square_button} onClick={ () => {markHelpful()} }>
+          <h2 style={{ marginTop: 0 }}>{helpful}</h2>
+          <p>Found This Helpful</p>
+          </a> :
+          <a className={styles.square_button}>
           <h2 style={{ marginTop: 0 }}>{helpful}</h2>
           <p>Found This Helpful</p>
           </a>
-          { reportIsLink ? <a href="#" className={styles.square_button} onClick={() => { report() }}><p>
+        }
+          { reportIsLink ? <a className={styles.square_button} onClick={() => { report() }}><p>
           <strong>Report</strong><br />This Answer</p></a> : <div className={styles.square_button}><p>Reported</p></div> }
       </div>
     </div>
