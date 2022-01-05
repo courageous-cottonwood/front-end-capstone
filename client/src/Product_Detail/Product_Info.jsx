@@ -19,6 +19,18 @@ const ProductInfo = (props) => {
     return 0;
   }
 
+  const renderSale = () => {
+    if (props.currentStyle.sale_price) {
+      return <h3>
+        $<strike>{props.currentStyle.original_price}</strike>
+        &nbsp;{props.currentStyle.sale_price}
+        &nbsp;SALE
+      </h3>
+    } else {
+      return <h3>${props.currentStyle.original_price}</h3>
+    }
+  }
+
   return (
     <div className={css.productInfoContainer}>
       <div>{props.product.category}</div>
@@ -29,12 +41,7 @@ const ProductInfo = (props) => {
       />
       <h2>{props.product.name}</h2>
       <div>{props.product.description}</div>
-      <h3>
-        ${
-          props.currentStyle.sale_price ?
-          props.currentStyle.sale_price + " SALE" :
-          props.currentStyle.original_price
-        }</h3>
+      {renderSale()}
       <div><b>Style > </b>{props.currentStyle.name}</div>
       <div className={css.styleSelector}>
         {
