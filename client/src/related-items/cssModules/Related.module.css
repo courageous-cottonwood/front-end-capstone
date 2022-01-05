@@ -47,9 +47,6 @@ body {
   row-gap: calc(10%);
   /* gap: 10px 20px; */
   gap: calc(0.7%) calc(0.5%);
-  /* max-width: 1500px; */
-  /* grid-gap: 15px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
 }
 
 .h3 {
