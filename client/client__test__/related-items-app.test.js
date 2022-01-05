@@ -7,6 +7,15 @@ import AppRelated from '../src/related-items/related-items-app.jsx';
 it('renders related items section without crashing', () => {
   shallow(<AppRelated />);
 });
+// import React from 'react';
+// import { configure, shallow } from 'enzyme';
+// import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+// configure({ adapter: new Adapter() });
+// import AppRelated from '../related-items-app.jsx';
+
+// it('renders related items section without crashing', () => {
+//   shallow(<AppRelated />);
+// });
 
 // Mocking a GET request
 // for '/products/get in related-app component

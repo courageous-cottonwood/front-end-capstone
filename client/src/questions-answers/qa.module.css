@@ -1,14 +1,16 @@
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: white !important;
+  padding-top: 80px;
 }
 
 :root {
-  --color-light: #839de4;
+  --color-light: #9484cd;
   /*the base color*/
-  --color-primary: #516499;
-  --color-primary-darker: #2d4564;
-  --color-primary-darkest: #121f31;
+
+  --color-primary: #8374b8;
+  --color-primary-darker: #5b4d8d;
+  --color-primary-darkest: #2f2749;
   --border-radius-buttons: 10px;
   --answer-text-size: 14px;
 }
@@ -329,3 +331,7 @@ border: 1px solid #ffffff;
   color: var(--color-primary-darker);
 }
 
+.subQuestion {
+  font-size: 12px;
+  margin-bottom: 0px;
+}

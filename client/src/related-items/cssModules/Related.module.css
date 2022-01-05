@@ -20,9 +20,9 @@ body {
 .app {
   display: flex;
   flex-direction: row;
-  width: 1487px;
-  /* width: 68%; */
-  /* margin: 1em auto; */
+  /* width: 1487px; */
+  width: 90%;
+  margin: 1em auto;
   margin: 20px;
   /* max-width: fit-content; */
   justify-content: normal;
@@ -31,8 +31,9 @@ body {
   color: #3a3847;
   justify-content: left;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  /* width: 90%; */
-  width: calc(85%);
+  width: 100%;
+  height: 100%;
+  /* width: calc(85%); */
   /* width: calc(100%); */
   /* margin: 1.1em auto; */
   display: flex;
@@ -43,8 +44,9 @@ body {
   -ms-overflow-style: -ms-autohiding-scrollbar;
   overflow: scroll;
   scroll-behavior: smooth;
-  row-gap: 10px;
-  gap: 10px 20px;
+  row-gap: calc(10%);
+  /* gap: 10px 20px; */
+  gap: calc(0.7%) calc(0.5%);
   /* max-width: 1500px; */
   /* grid-gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
@@ -59,17 +61,21 @@ body {
 }
 
 .arrowRight {
-  z-index: 2;
+  z-index: 1;
   position: relative;
+  background-color: #d2d3d3;
   height: 50px;
   align-self: center;
   cursor: pointer;
+  border-radius: 30px;
 }
 
 .arrowLeft {
-  z-index: 2;
+  z-index: 1;
+  background-color: #d2d3d3;
   position: relative;
   height: 50px;
   align-self: center;
   cursor: pointer;
+  border-radius: 30px;
 }
