@@ -11,11 +11,12 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable semi */
 /* eslint-disable react/destructuring-assignment */
-import RelatedCSS from './cssModules/Related.module.css';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import Item from './Item.jsx';
 import axios from 'axios';
+import RelatedCSS from './cssModules/Related.module.css';
+//import arrows from './cssModules/arrows';
 
 const AppRelated = (props) => {
   //const [state, setState] = useState(initialState);
@@ -90,8 +91,10 @@ const AppRelated = (props) => {
 
 
   return (
+    <div className = {RelatedCSS.outer}>
+      <h3 className = {RelatedCSS.title}>Related Products</h3>
     <div className={RelatedCSS.app}>
-      <img className={RelatedCSS.arrowLeft} onClick={scrollLeftCarousel} src='https://img.icons8.com/ios/344/chevron-left.png' />
+      <img className={RelatedCSS.arrowLeft} onClick={scrollLeftCarousel} src= "https://img.icons8.com/ios/50/ffffff/circled-chevron-left.png" />
       <div className={RelatedCSS.container}>
         {items.map((item) => {
           return (
@@ -110,7 +113,8 @@ const AppRelated = (props) => {
         )
         }
       </div>
-      <img className={RelatedCSS.arrowRight} onClick={scrollRightCarousel} src='https://img.icons8.com/ios-filled/344/chevron-right.png' />
+      <img className={RelatedCSS.arrowRight} onClick={scrollRightCarousel} src = "https://img.icons8.com/ios/50/ffffff/circled-chevron-right.png"/>
+    </div>
     </div>
   )
 }

@@ -16,8 +16,6 @@ app.use(express.json());
 
 
 
-
-
 // PRODUCTS API
 
 // GET ALL PRODUCTS
