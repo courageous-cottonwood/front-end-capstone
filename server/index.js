@@ -14,10 +14,9 @@ const staticPath = path.join(__dirname, '..', '/client/dist/');
 app.use(express.static(staticPath));
 app.use(express.json());
 
-// ROUTES
-app.get('/', (req, res) => {
-  res.send('/index.html');
-});
+
+
+
 
 // PRODUCTS API
 
@@ -131,6 +130,15 @@ app.get('/cart', controllers.getCart);
 //   "sku_id": ???
 // }
 app.post('/cart', controllers.addToCart);
+
+// ROUTES
+app.get('/:productId', (req, res) => {
+  res.sendFile(staticPath + 'index.html');
+});
+
+app.get('/', (req, res) => {
+  res.sendFile('index.html');
+});
 
 app.listen(port, () => {
   console.log('Listening at http://localhost:' + port);
