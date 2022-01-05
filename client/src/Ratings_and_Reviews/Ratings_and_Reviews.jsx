@@ -3,13 +3,13 @@ import Reviews from './Reviews.jsx';
 import Ratings from './Ratings.jsx';
 import axios from 'axios';
 import styles from './RR.module.css';
-import DummyReviews from './DummyReviews.js';
+// import DummyReviews from './DummyReviews.js';
 
 
 const Ratings_and_Reviews = ({product_id}) => {
 
   const [review_meta, setReviewMeta] = useState(0);
-  const [reviews, setReviews] = useState(DummyReviews);
+  const [reviews, setReviews] = useState(0);
   const [count, setCount] = useState(2);
   const [sort, setSort] = useState('newest');
 
@@ -107,7 +107,7 @@ const Ratings_and_Reviews = ({product_id}) => {
   return (
     <div className={styles.ratingsAndReviewsContainer}>
       <Ratings review_meta={review_meta} product_id={product_id}/>
-      <Reviews review_meta={review_meta} product_id={product_id} reviews={reviews.results.slice(0, count)} handleMoreQuestions={handleMoreQuestions} handleSort={handleSort} handleHelpfulness={handleHelpfulness} handleReport={handleReport} reloadAll={reloadAll}/>
+      <Reviews review_meta={review_meta} product_id={product_id} reviews={reviews !== 0 && reviews !== null ? reviews.results.slice(0, count) : 0} handleMoreQuestions={handleMoreQuestions} handleSort={handleSort} handleHelpfulness={handleHelpfulness} handleReport={handleReport} reloadAll={reloadAll}/>
 
     </div>
 

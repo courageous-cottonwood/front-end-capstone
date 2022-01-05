@@ -13,6 +13,7 @@ const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleS
     setShowReviewForm(!showReviewForm);
   };
 
+  if(reviews !== 0 && reviews !== null && reviews.length > 0) {
     return (
       <div className={styles.ReviewsContainer}>
         <div className={styles.sortContainer}>
@@ -25,11 +26,9 @@ const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleS
         {reviews.map( (review) =>
           <Review review={review} handleHelpfulness={handleHelpfulness} handleReport={handleReport} key={review.review_id}/>
         )}
-
         <div className={styles.buttonContainer}>
           <button onClick={handleMoreQuestions} className={styles.button}> More Reviews</button>
           <button className={styles.button} onClick={showModal}> Add Review </button>
-
         </div>
         {showReviewForm ?
           <div className={styles.modal_background}>
@@ -43,6 +42,34 @@ const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleS
           }
       </div>
     );
+  } else {
+    return (
+      <div className={styles.ReviewsContainer}>
+        <div className={styles.sortContainer}>
+        <select onChange={handleSort}>
+          <option value="newest">newest</option>
+          <option value="helpful">helpful</option>
+          <option value="relevant">relevant</option>
+        </select>
+      </div>
+        <p> No Reviews found </p>
+        <div className={styles.buttonContainer}>
+          <button className={styles.button} onClick={showModal}> Add Review </button>
+        </div>
+        {showReviewForm ?
+          <div className={styles.modal_background}>
+            <div className={styles.modal_content}>
+            <AddReview product_id={product_id} review_meta={review_meta} showModal={showModal} reloadAll={reloadAll}/>
+            </div>
+          </div>
+          :
+          <div>
+          </div>
+          }
+      </div>
+    );
+  }
+
 }
 
 export default Reviews;
