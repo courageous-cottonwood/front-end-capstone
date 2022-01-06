@@ -33,7 +33,7 @@ const StarRating = (props) => {
       //console.log(avg);
       setRating(avg);
     });
-  }, [])
+  }, []);
 
 
 
@@ -48,7 +48,7 @@ const StarRating = (props) => {
     }
     average = totalScore / numOfReviews;
     return average.toFixed(2);
-  }
+  };
 
 
   return (
@@ -67,7 +67,7 @@ const StarRating = (props) => {
       }
     </span>
   );
-}
+};
 
 export default StarRating;
 

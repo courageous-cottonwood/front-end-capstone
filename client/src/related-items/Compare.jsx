@@ -67,6 +67,9 @@ const Compare = (props) => {
     <div className={CompareCSS.container}
       onClick={props.showModal}>
         <CompareCard
+        key ={props.id}
+        id = {props.id}
+        parentId = {props.parentId}
         itemName = {itemName}
         itemFeatures ={itemFeatures}
         parentItemName={parentItemName}
