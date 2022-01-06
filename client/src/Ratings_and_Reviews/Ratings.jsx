@@ -42,7 +42,20 @@ const Ratings = ({product_id, review_meta}) => {
       }
     return results;
     }
+  }
 
+  const getRecommendedPercent = () => {
+    if(review_meta !== 0 && review_meta !== null && Object.keys(review_meta.recommended).length !== 0) {
+      if(review_meta.recommended.true) {
+        if(review_meta.recommended.false) {
+          let totalRecommends = parseInt(review_meta.recommended.true) + parseInt(review_meta.recommended.false);
+          let totalPositiveRecommends = parseInt(review_meta.recommended.true);
+          return ((totalPositiveRecommends/totalRecommends) * 100).toFixed().toString();
+        }
+        return '100';
+      }
+    }
+    return '0';
   }
 
     return (
@@ -50,11 +63,11 @@ const Ratings = ({product_id, review_meta}) => {
         <div className={styles.ratingsNumberAndStarsContainer}>
           <span className={styles.ratingsNumber}>{getAverageRating().toFixed(1)}</span>
           <div className={styles.stars}>
-            <Stars rating={getAverageRating()} size={24} color="pink"/>
+            <Stars rating={getAverageRating()} size={24} color='#9484cd'/>
           </div>
         </div>
         <div className={styles.ratingsRecommend} >
-          <span> {review_meta !== 0 && review_meta !== null ? review_meta.recommended.true : 0}% of reviews recommend this product </span>
+          <span> {getRecommendedPercent()}% of reviews recommend this product </span>
         </div>
         <div className={styles.ratingBreakdown}>
           <div> 1 star: {getRatingCount(1)}</div>
