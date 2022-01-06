@@ -6,7 +6,6 @@ import ItemCSS from './cssModules/Item.module.css';
 import RelatedCSS from './cssModules/Related.module.css';
 
 const ItemCard = ({ category, image, name, noImage, id, parentId, price, clickOnTitle, compareButton}) => {
-    console.log({ category, image, name, id, parentId, price, });
   return (
     <>
       <div id = 'card' className={ItemCSS.inner}>
