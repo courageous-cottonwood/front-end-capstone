@@ -3,7 +3,7 @@ import React from 'react';
 import CompareCSS from './cssModules/Compare.module.css';
 
 
-const CompareCard = ({ itemName, itemFeatures, parentItemName, parentFeatures }) => {
+const CompareCard = ({ id, parentId, itemName, itemFeatures, parentItemName, parentFeatures }) => {
   return (
     <>
       <div className={CompareCSS.item}>

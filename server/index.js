@@ -12,8 +12,6 @@ const port = process.env.PORT || 3000;
 const staticPath = path.join(__dirname, '..', '/client/dist/');
 
 
-
-
 // Middleware
 app.use(express.static(staticPath));
 app.use(express.json());

@@ -78,12 +78,12 @@ const AppRelated = (props) => {
 
   //on click on the image need to scroll to item at 4th index (item # 5)
   const scrollRightCarousel = () => {
-    //console.log('scrolling right');
+    // console.log('scrolling right');
     document.querySelector('#carousel').scrollLeft += 200;
   };
 
   const scrollLeftCarousel = () => {
-    //console.log('scrolling left');
+    // console.log('scrolling left');
     document.querySelector('#carousel').scrollLeft += -200;
   };
 
@@ -103,7 +103,6 @@ const AppRelated = (props) => {
               key={item.id}
               id={item.id}
               parentId={props.product_id}
-              id={item.id}
               setProduct={props.setProduct}
             />
           )
