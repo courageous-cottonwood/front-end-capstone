@@ -109,14 +109,14 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
     <div className={styles.addReview}>
       <div className={styles.addReviewHeader}>
         <h3> Write Your Review</h3>
-        <span className={styles.closeReview} onClick={showModal}> X </span>
+        <button className={styles.button_small} onClick={showModal}> X </button>
       </div>
       <div className={styles.reviewForm}>
         <div className={styles.starRatingSelect}>
           <div>
-            <label> Overall Rating</label>
+            <label className={styles.label_bold}> Overall Rating</label>
           </div>
-          <select onChange={handleStarRatingSelect} required>
+          <select className={styles.select} onChange={handleStarRatingSelect} required>
             <option value="Select Star Rating">Select Star Rating</option>
             <option value="1">1 star - Poor </option>
             <option value="2">2 stars - Fair</option>
@@ -125,24 +125,28 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
             <option value="5">5 stars - Great</option>
           </select>
         </div>
-        <div className={styles.recommendSelect}>
-          <div>
-            <label> Do you Recommend this product?</label>
+
+
+          <label className={styles.label_bold}> Do you Recommend this product?</label>
+          <div className={styles.recommendSelectRadio}>
+            <div>
+              <input type="radio" name="recommendSelect" value="true" onChange={handleRecommendSelect} required></input>
+              <label> I recommend this product </label>
+            </div>
+            <div>
+              <input type="radio" name="recommendSelect" value="false" onChange={handleRecommendSelect} ></input>
+              <label> I don't recommend this product</label>
+            </div>
+
           </div>
-          <div>
-            <input type="radio" name="recommendSelect" value="true" onChange={handleRecommendSelect} required></input>
-            <label> I recommend this product </label>
-            <input type="radio" name="recommendSelect" value="false" onChange={handleRecommendSelect} ></input>
-            <label> I don't recommend this product</label>
-          </div>
-        </div>
+
         <div>
-          <label> Characteristics</label>
+          <label className={styles.label_bold}> Characteristics</label>
         </div>
         <div className={styles.reviewFormCharacteristics}>
           <div>
-            {review_meta !== 0 && review_meta.characteristics.Size ? <select name="Size" onChange={handleSizeSelect} required>
-            <option value="Size">Size</option>
+            {review_meta !== 0 && review_meta.characteristics.Size ? <select className={styles.select} name="Size" onChange={handleSizeSelect} required>
+            <option value="Size">--Size</option>
             <option value="1">A size too small </option>
             <option value="2">Half a size too small</option>
             <option value="3">Perfect</option>
@@ -151,8 +155,8 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
           </select> : <div></div>}
           </div>
           <div>
-            {review_meta !== 0 && review_meta.characteristics.Width ? <select name="width" onChange={handleWidthSelect} required>
-            <option value="Width">Width</option>
+            {review_meta !== 0 && review_meta.characteristics.Width ? <select className={styles.select} name="width" onChange={handleWidthSelect} required>
+            <option value="Width">--Width--</option>
             <option value="1">Too narrow </option>
             <option value="2">Slightly narrow</option>
             <option value="3">Perfect</option>
@@ -161,8 +165,8 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
           </select> : <div></div>}
           </div>
           <div>
-            {review_meta !== 0 && review_meta.characteristics.Comfort ? <select name="Comfort" onChange={handleComfortSelect} required>
-            <option value="Comfort">Comfort</option>
+            {review_meta !== 0 && review_meta.characteristics.Comfort ? <select className={styles.select} name="Comfort" onChange={handleComfortSelect} required>
+            <option value="Comfort">--Comfort--</option>
             <option value="1">Uncomfortable </option>
             <option value="2">Slightly Uncomfortable</option>
             <option value="3">Ok</option>
@@ -171,17 +175,18 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
           </select> : <div></div>}
           </div>
           <div>
-            {review_meta !== 0 && review_meta.characteristics.Quality ? <select name="Quality" onChange={handleQualitySelect} required>
-            <option value="Quality">Quality</option>
-            <option value="1">Below Average</option>
+            {review_meta !== 0 && review_meta.characteristics.Quality ? <select className={styles.select} name="Quality" onChange={handleQualitySelect} required>
+            <option value="Quality">--Quality--</option>
+            <option value="1">Poor</option>
+            <option value="2">Below Average</option>
             <option value="3">What I expected</option>
             <option value="4">Pretty great</option>
             <option value="5">Perfect</option>
           </select> : <div></div> }
           </div>
           <div>
-            {review_meta !== 0 && review_meta.characteristics.Length ? <select name="Length" onChange={handleLengthSelect} required>
-            <option value="Length">Length</option>
+            {review_meta !== 0 && review_meta.characteristics.Length ? <select className={styles.select} name="Length" onChange={handleLengthSelect} required>
+            <option value="Length">--Length--</option>
             <option value="1">Runs Short </option>
             <option value="2">Runs slightly short</option>
             <option value="3">Perfect</option>
@@ -190,8 +195,8 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
           </select> : <div></div>}
           </div>
           <div>
-            {review_meta !== 0 && review_meta.characteristics.Fit ? <select name="Fit" onChange={handleFitSelect} required>
-            <option value="Fit">Fit</option>
+            {review_meta !== 0 && review_meta.characteristics.Fit ? <select className={styles.select} name="Fit" onChange={handleFitSelect} required>
+            <option value="Fit">--Fit--</option>
             <option value="1">Runs Tight</option>
             <option value="2">Runs slightly tight</option>
             <option value="3">Perfect</option>
@@ -202,17 +207,17 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
         </div>
 
 
-        <label> Review Summary</label>
+        <label className={styles.label_bold}> Review Summary</label>
         <input name="summary" maxLength="60" onChange={updateForm}/>
-        <label> Review Body</label>
-        <input name="body" maxLength="1000" required onChange={updateForm}/>
-        <label> Display Name</label>
+        <label className={styles.label_bold}> Review Body</label>
+        <textarea name="body" maxLength="1000" required onChange={updateForm}/>
+        <label className={styles.label_bold}> Display Name</label>
         <label> For privacy reasons do not use your full name or email address</label>
         <input name="name"  maxLength="60" required onChange={updateForm}/>
-        <label> Email </label>
+        <label className={styles.label_bold}> Email </label>
         <label> For authentication reasons, you will not be emailed</label>
         <input name="email" type="email" maxLength="60" required onChange={updateForm}/>
-        <button onClick={submitForm}> Submit Review</button>
+        <button className={styles.button} onClick={submitForm}> Submit Review</button>
       </div>
     </div>
   )
