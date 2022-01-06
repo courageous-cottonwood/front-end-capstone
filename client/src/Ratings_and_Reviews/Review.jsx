@@ -19,7 +19,7 @@ const Review = ({review, handleHelpfulness, handleReport}) => {
         <div className={styles.ReviewRating}>
           <Stars rating={review.rating} size={16} color="#9484cd"/>
         </div>
-        <div>{date}</div>
+        <span className={styles.dateSpan}>{date}</span>
       </div>
       <div className={styles.ReviewSummary}>
         <span className={styles.ReviewSummarySpan}>{review.summary}</span>
