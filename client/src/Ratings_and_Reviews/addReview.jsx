@@ -205,7 +205,7 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
         <label> Review Summary</label>
         <input name="summary" maxLength="60" onChange={updateForm}/>
         <label> Review Body</label>
-        <input name="body" maxLength="1000" required onChange={updateForm}/>
+        <textarea name="body" maxLength="1000" required onChange={updateForm}/>
         <label> Display Name</label>
         <label> For privacy reasons do not use your full name or email address</label>
         <input name="name"  maxLength="60" required onChange={updateForm}/>

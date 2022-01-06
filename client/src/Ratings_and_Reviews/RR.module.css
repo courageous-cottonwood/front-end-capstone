@@ -1,3 +1,21 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: white !important;
+  padding-top: 80px;
+}
+
+:root {
+  --color-light: #9484cd;
+  /*the base color*/
+
+  --color-primary: #8374b8;
+  --color-primary-darker: #5b4d8d;
+  --color-primary-darkest: #2f2749;
+  --border-radius-buttons: 10px;
+  --answer-text-size: 14px;
+}
+
+
 .ratingsAndReviewsContainer {
   margin: 15px;
   font-family: Arial, Helvetica, sans-serif;
@@ -108,14 +126,19 @@
 
 
 .button {
-  background-color: white;
-  border: 1px solid #818181;
-  text-transform: uppercase;
+  background-color: var(--color-primary-darker);
+  border: none;
+  border-radius: var(--border-radius-buttons);
   font-weight: 700;
-  color: #3D424A;
+  color: white;
   font-size: medium;
   padding: 20px;
   margin-right: 15px;
+}
+
+.button:hover {
+  background-color: var(--color-primary-darkest);
+  transition: 0.5s;
 }
 
 
@@ -166,7 +189,6 @@
   align-items: center;
   justify-content: center;
   background: rgba(49, 49, 49, 0.7);
-  transition: all 4s;
 }
 
 .modal_content {
@@ -175,4 +197,8 @@
   justify-content: center;
   padding: 30px;
   border-radius: 5px;
+}
+
+a:link {
+  color: #9484cd;
 }
