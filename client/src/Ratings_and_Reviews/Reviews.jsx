@@ -17,7 +17,7 @@ const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleS
     return (
       <div className={styles.ReviewsContainer}>
         <div className={styles.sortContainer}>
-        <select onChange={handleSort}>
+        <select className={styles.select} onChange={handleSort}>
           <option value="newest">newest</option>
           <option value="helpful">helpful</option>
           <option value="relevant">relevant</option>
@@ -46,7 +46,7 @@ const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleS
     return (
       <div className={styles.ReviewsContainer}>
         <div className={styles.sortContainer}>
-        <select onChange={handleSort}>
+        <select className={styles.select} onChange={handleSort}>
           <option value="newest">newest</option>
           <option value="helpful">helpful</option>
           <option value="relevant">relevant</option>

@@ -86,8 +86,9 @@
   max-width: 30px;
 }
 
+/* Darya's proposed changes */
 .cartButton {
-  max-width: 20%;
+  max-width: 30%;
   font-family: 'Montserrat', sans-serif;
   display: flex;
   width: 100%;
@@ -96,11 +97,26 @@
   height: 55px;
   border-radius: 10px;
   border-right: 1px solid #516885;
+  border-radius: 15px;
   background-color: var(--color-primary-darker);
   color: white;
   text-decoration: none;
   margin-right: 10px;
   margin-top: 10px;
+  /* ---- */
+  /* text-transform: uppercase;
+  max-width: 15%;
+  height: 50px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 1% 1%;
+  padding: 15px;
+  border-radius: 7px;
+  border: 2.5px solid #d2d3d3;
+  color: #edeff0;
+   font-weight: bold;
+  background-color: #8374b8;
+  font-size: 1em;
+  cursor: pointer; */
 }
 
 .cartButton:hover {

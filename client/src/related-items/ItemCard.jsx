@@ -6,10 +6,9 @@ import ItemCSS from './cssModules/Item.module.css';
 import RelatedCSS from './cssModules/Related.module.css';
 
 const ItemCard = ({ category, image, name, noImage, id, parentId, price, clickOnTitle, compareButton}) => {
-
   return (
     <>
-      <div className={ItemCSS.inner}>
+      <div id = 'card' className={ItemCSS.inner}>
         <h4 className={ItemCSS.h4}>{category}</h4>
         <h2 className={ItemCSS.item_title} onClick={clickOnTitle}>{name}</h2>
         {image === undefined

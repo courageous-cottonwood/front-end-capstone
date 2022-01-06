@@ -22,7 +22,8 @@
   flex-direction: row;
   /* width: 1487px; */
   width: 90%;
-  margin: 1em auto;
+  margin: 1em 1em auto;
+  /* margin: 1em 1em 1em 1em; */
   margin: 20px;
   /* max-width: fit-content; */
   justify-content: normal;
@@ -73,7 +74,7 @@
 }
 
 .arrowRight {
-  z-index: -1;
+  z-index: 0;
   position: relative;
   background-color: #d2d3d3;
   height: 50px;
@@ -83,7 +84,7 @@
 }
 
 .arrowLeft {
-  z-index: -1;
+  z-index: 0;
   background-color: #d2d3d3;
   position: relative;
   height: 50px;

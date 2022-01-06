@@ -4,13 +4,18 @@ body {
   padding-top: 80px;
 }
 
+
+/* Darya's proposed changes */
 :root {
   --color-light: #9484cd;
   /*the base color*/
 
   --color-primary: #8374b8;
-  --color-primary-darker: #5b4d8d;
-  --color-primary-darkest: #2f2749;
+  /* --color-primary-darker: #5b4d8d; */
+  /* dont need 4 variations of the same color */
+  --color-primary-darker:#8374b8;
+  /* --color-primary-darkest: #2f2749; */
+  --color-primary-darkest: #705cb5;
   --border-radius-buttons: 10px;
   --answer-text-size: 14px;
 }
