@@ -79,13 +79,13 @@ const AppRelated = (props) => {
   //on click on the image need to scroll to item at 4th index (item # 5)
   const scrollRightCarousel = () => {
     var carouselClass = '.TUAtEnPL7RRl0mcixyQn';
-    console.log('scrolling right');
+    //console.log('scrolling right');
     document.querySelector(carouselClass).scrollLeft += 200;
   }
 
   const scrollLeftCarousel = () => {
     var carouselClass = '.TUAtEnPL7RRl0mcixyQn';
-    console.log('scrolling left');
+    //console.log('scrolling left');
     document.querySelector(carouselClass).scrollLeft += -200;
   }
 

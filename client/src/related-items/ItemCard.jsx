@@ -9,7 +9,7 @@ const ItemCard = ({ category, image, name, noImage, id, parentId, price, clickOn
 
   return (
     <>
-      <div className={ItemCSS.inner}>
+      <div id = 'card' className={ItemCSS.inner}>
         <h4 className={ItemCSS.h4}>{category}</h4>
         <h2 className={ItemCSS.item_title} onClick={clickOnTitle}>{name}</h2>
         {image === undefined

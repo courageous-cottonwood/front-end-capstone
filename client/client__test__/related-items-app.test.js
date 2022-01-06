@@ -5,15 +5,17 @@ var relatedAppData = require('../src/related-items/related_test_data/related-app
 
 let product_id = 63609;
 
+var relatedArray = relatedAppData.relatedArray;
 
 //should see title 'related products' when renders
 
 test('should render with a product id passed as a prop', () => {
-  render(<AppRelated product_id={product_id}/>);
-  expect(screen.getByText("Related Items"));
+  const {getByTestId, findAllByTestId} = render(<AppRelated product_id={product_id}/>);
+   const cards = findAllByTestId('card');
+   expect(cards).toHaveLength(4);
+    expect(screen.getByText("Related Items"));
 });
 
-//
 
 
 
@@ -23,6 +25,7 @@ test('should render with a product id passed as a prop', () => {
 
 
 
+//--------------MockAdapter------------
 
 
 // it('renders related items section without crashing', () => {
