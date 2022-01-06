@@ -109,10 +109,6 @@
   cursor: pointer;
 }
 
-.cartButton:hover {
-  cursor: pointer;
-}
-
 .cartWrapper {
   display: flex;
   flex-direction: row;
@@ -131,5 +127,42 @@
 }
 
 .arrows:hover {
+  cursor: pointer;
+}
+
+.modal_background {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(77, 77, 77, .7);
+}
+
+.model_content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.largeViewImage {
+  width: 800px;
+  height: 1000px;
+  object-fit: cover;
+  margin: 5px;
+  border-color: black;
+}
+
+.closeButton {
+  color: white;
+}
+
+.closeButton:hover {
   cursor: pointer;
 }
