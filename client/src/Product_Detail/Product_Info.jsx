@@ -37,7 +37,7 @@ const ProductInfo = (props) => {
       <Stars
         rating={getAverageRating()}
         size={20}
-        color='yellow'
+        color='#9484cd'
       />
       <h2>{props.product.name}</h2>
       <div>{props.product.description}</div>
