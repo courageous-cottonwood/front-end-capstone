@@ -47,27 +47,28 @@ const Item = (props) => {
   }
 
   return (
-      <div className={ItemCSS.card}>
-        {showCompare ?
-          <Compare
-            id={props.id}
-            parentId={props.parentId}
-            name={props.name}
-            showModal={handleCloseModal}
-          /> : null
-        }
-        <ItemCard
+    <div className={ItemCSS.card}>
+      {showCompare ?
+        <Compare
           id={props.id}
           parentId={props.parentId}
-          category={props.category}
           name={props.name}
-          price={props.price}
-          image={image}
-          noImage={noImage}
-          clickOnTitle={handleClickedOnItem}
-          compareButton={handleCompareButton}
-        />
-      </div>
+          showModal={handleCloseModal}
+        /> : null
+      }
+      <ItemCard
+        key={props.id}
+        id={props.id}
+        parentId={props.parentId}
+        category={props.category}
+        name={props.name}
+        price={props.price}
+        image={image}
+        noImage={noImage}
+        clickOnTitle={handleClickedOnItem}
+        compareButton={handleCompareButton}
+      />
+    </div>
   );
 };
 
