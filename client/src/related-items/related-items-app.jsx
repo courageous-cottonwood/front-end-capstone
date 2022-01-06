@@ -78,16 +78,14 @@ const AppRelated = (props) => {
 
   //on click on the image need to scroll to item at 4th index (item # 5)
   const scrollRightCarousel = () => {
-    var carouselClass = '.TUAtEnPL7RRl0mcixyQn';
-    console.log('scrolling right');
-    document.querySelector(carouselClass).scrollLeft += 200;
-  }
+    //console.log('scrolling right');
+    document.querySelector('#carousel').scrollLeft += 200;
+  };
 
   const scrollLeftCarousel = () => {
-    var carouselClass = '.TUAtEnPL7RRl0mcixyQn';
-    console.log('scrolling left');
-    document.querySelector(carouselClass).scrollLeft += -200;
-  }
+    //console.log('scrolling left');
+    document.querySelector('#carousel').scrollLeft += -200;
+  };
 
 
   return (
@@ -95,7 +93,7 @@ const AppRelated = (props) => {
       <h3 className = {RelatedCSS.title}>Related Products</h3>
     <div className={RelatedCSS.app}>
       <img className={RelatedCSS.arrowLeft} onClick={scrollLeftCarousel} src= "https://img.icons8.com/ios/50/ffffff/circled-chevron-left.png" />
-      <div className={RelatedCSS.container}>
+      <div id = 'carousel' className={RelatedCSS.container}>
         {items.map((item) => {
           return (
             <Item

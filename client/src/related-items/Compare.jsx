@@ -33,7 +33,7 @@ const Compare = (props) => {
     for (var i = 0; i < dataArr.length; i++) {
       promises.push(axios.get('/products/get', { params: { product_id: dataArr[i] } })
         .then((res) => {
-          console.log(res.data.features);
+          //console.log(res.data.features);
           itemFeatures.push(res.data.features);
           itemName.push(res.data.name);
         })

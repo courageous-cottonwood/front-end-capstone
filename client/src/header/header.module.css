@@ -8,6 +8,8 @@
   left: 0;
   justify-content: space-between;
   color: white;
+  /* Darya's changes */
+  z-index: 100;
 }
 
 .header h3 {
