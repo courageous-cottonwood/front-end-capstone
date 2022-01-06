@@ -8,7 +8,7 @@ const Style = (props) => {
   }
 
   const renderStyle = () => {
-    if (props.style.photos[0]) {
+    if (props.style.photos[0].thumbnail_url) {
       return (
         <img
           className={css.styleItem}
