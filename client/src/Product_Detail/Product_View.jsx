@@ -47,14 +47,14 @@ const ProductView = function (props) {
       setLeftArrowEnabled(true);
     }
 
-    if (props.currentStyleIndex >= props.styles.length - 1) {
+    if (props.currentStyleIndex === props.currentStyle.photos.length - 1) {
       setRightArrowEnabled(false);
     }
 
-    if (props.currentStyleIndex < props.styles.length - 1) {
+    if (props.currentStyleIndex < props.currentStyle.photos.length - 1) {
       setRightArrowEnabled(true);
     }
-  }, [props.currentStyleIndex])
+  }, [props.currentStyleIndex, props.currentStyle, props.product_id])
 
   return (
     <div className={css.leftPanel}>
