@@ -34,7 +34,7 @@ const Item = (props) => {
 
   //need a click event to re-render the site with new item
   const handleClickedOnItem = () => {
-    console.log(props.id);
+    //console.log(props.id);
     props.setProduct(props.id);
   }
   //shows compare modal when button clicked

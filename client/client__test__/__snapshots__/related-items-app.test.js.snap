@@ -1,0 +1,904 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    id="card"
+  >
+    <h4>
+      Accessories
+    </h4>
+    <h2>
+      Bright Future Sunglasses
+    </h2>
+    <img
+      src="https://www.budget101.com/images/image-not-available.png?14867"
+    />
+    <p>
+      $69.00
+    </p>
+    <span>
+      <span>
+        <h4>
+          Average rating: 
+        </h4>
+        <div>
+          <svg
+            height="0"
+            width="0"
+            x="0"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0"
+          >
+            <defs>
+              <mask
+                id="mask030"
+              >
+                <rect
+                  fill="white"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  x="0"
+                  y="0"
+                />
+                <rect
+                  fill="black"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  x="0"
+                  y="0"
+                />
+              </mask>
+              <symbol
+                id="star"
+                viewBox="0 0 24 24"
+                xlmns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+                />
+              </symbol>
+            </defs>
+          </svg>
+          <div>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+          </div>
+        </div>
+      </span>
+    </span>
+    <button>
+      Compare Me
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`matches snapshot 2`] = `
+<DocumentFragment>
+  <div
+    id="card"
+  >
+    <h4>
+      Pants
+    </h4>
+    <h2>
+      Morning Joggers
+    </h2>
+    <img
+      src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+    />
+    <p>
+      $40.00
+    </p>
+    <span>
+      <span>
+        <h4>
+          Average rating: 
+        </h4>
+        <div>
+          <svg
+            height="0"
+            width="0"
+            x="0"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0"
+          >
+            <defs>
+              <mask
+                id="mask030"
+              >
+                <rect
+                  fill="white"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  x="0"
+                  y="0"
+                />
+                <rect
+                  fill="black"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  x="0"
+                  y="0"
+                />
+              </mask>
+              <symbol
+                id="star"
+                viewBox="0 0 24 24"
+                xlmns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+                />
+              </symbol>
+            </defs>
+          </svg>
+          <div>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+          </div>
+        </div>
+      </span>
+    </span>
+    <button>
+      Compare Me
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`matches snapshot of Item Four 1`] = `
+<DocumentFragment>
+  <div
+    id="card"
+  >
+    <h4>
+      Dress Shoes
+    </h4>
+    <h2>
+      Blues Suede Shoes
+    </h2>
+    <img
+      src="https://images.unsplash.com/photo-1561861422-a549073e547a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+    />
+    <p>
+      $120.00
+    </p>
+    <span>
+      <span>
+        <h4>
+          Average rating: 
+        </h4>
+        <div>
+          <svg
+            height="0"
+            width="0"
+            x="0"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0"
+          >
+            <defs>
+              <mask
+                id="mask030"
+              >
+                <rect
+                  fill="white"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  x="0"
+                  y="0"
+                />
+                <rect
+                  fill="black"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  x="0"
+                  y="0"
+                />
+              </mask>
+              <symbol
+                id="star"
+                viewBox="0 0 24 24"
+                xlmns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+                />
+              </symbol>
+            </defs>
+          </svg>
+          <div>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+          </div>
+        </div>
+      </span>
+    </span>
+    <button>
+      Compare Me
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`matches snapshot of Item One 1`] = `
+<DocumentFragment>
+  <div
+    id="card"
+  >
+    <h4>
+      Accessories
+    </h4>
+    <h2>
+      Bright Future Sunglasses
+    </h2>
+    <img
+      src="https://www.budget101.com/images/image-not-available.png?14867"
+    />
+    <p>
+      $69.00
+    </p>
+    <span>
+      <span>
+        <h4>
+          Average rating: 
+        </h4>
+        <div>
+          <svg
+            height="0"
+            width="0"
+            x="0"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0"
+          >
+            <defs>
+              <mask
+                id="mask030"
+              >
+                <rect
+                  fill="white"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  x="0"
+                  y="0"
+                />
+                <rect
+                  fill="black"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  x="0"
+                  y="0"
+                />
+              </mask>
+              <symbol
+                id="star"
+                viewBox="0 0 24 24"
+                xlmns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+                />
+              </symbol>
+            </defs>
+          </svg>
+          <div>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+          </div>
+        </div>
+      </span>
+    </span>
+    <button>
+      Compare Me
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`matches snapshot of Item Three 1`] = `
+<DocumentFragment>
+  <div
+    id="card"
+  >
+    <h4>
+      Kicks
+    </h4>
+    <h2>
+      YEasy 350
+    </h2>
+    <img
+      src="https://images.unsplash.com/photo-1551489186-cf8726f514f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+    />
+    <p>
+      $450.00
+    </p>
+    <span>
+      <span>
+        <h4>
+          Average rating: 
+        </h4>
+        <div>
+          <svg
+            height="0"
+            width="0"
+            x="0"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0"
+          >
+            <defs>
+              <mask
+                id="mask030"
+              >
+                <rect
+                  fill="white"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  x="0"
+                  y="0"
+                />
+                <rect
+                  fill="black"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  x="0"
+                  y="0"
+                />
+              </mask>
+              <symbol
+                id="star"
+                viewBox="0 0 24 24"
+                xlmns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+                />
+              </symbol>
+            </defs>
+          </svg>
+          <div>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+          </div>
+        </div>
+      </span>
+    </span>
+    <button>
+      Compare Me
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`matches snapshot of Item Two 1`] = `
+<DocumentFragment>
+  <div
+    id="card"
+  >
+    <h4>
+      Pants
+    </h4>
+    <h2>
+      Morning Joggers
+    </h2>
+    <img
+      src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+    />
+    <p>
+      $40.00
+    </p>
+    <span>
+      <span>
+        <h4>
+          Average rating: 
+        </h4>
+        <div>
+          <svg
+            height="0"
+            width="0"
+            x="0"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0"
+          >
+            <defs>
+              <mask
+                id="mask030"
+              >
+                <rect
+                  fill="white"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  x="0"
+                  y="0"
+                />
+                <rect
+                  fill="black"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  x="0"
+                  y="0"
+                />
+              </mask>
+              <symbol
+                id="star"
+                viewBox="0 0 24 24"
+                xlmns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+                />
+              </symbol>
+            </defs>
+          </svg>
+          <div>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+          </div>
+        </div>
+      </span>
+    </span>
+    <button>
+      Compare Me
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`matches snapshot of Item two 1`] = `
+<DocumentFragment>
+  <div
+    id="card"
+  >
+    <h4>
+      Pants
+    </h4>
+    <h2>
+      Morning Joggers
+    </h2>
+    <img
+      src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+    />
+    <p>
+      $40.00
+    </p>
+    <span>
+      <span>
+        <h4>
+          Average rating: 
+        </h4>
+        <div>
+          <svg
+            height="0"
+            width="0"
+            x="0"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0"
+          >
+            <defs>
+              <mask
+                id="mask030"
+              >
+                <rect
+                  fill="white"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  x="0"
+                  y="0"
+                />
+                <rect
+                  fill="black"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  x="0"
+                  y="0"
+                />
+              </mask>
+              <symbol
+                id="star"
+                viewBox="0 0 24 24"
+                xlmns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+                />
+              </symbol>
+            </defs>
+          </svg>
+          <div>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+            <svg
+              height="30"
+              viewBox="0 0 24 24"
+              width="30"
+            >
+              <use
+                fill="none"
+                href="#star"
+                stroke="black"
+              />
+            </svg>
+          </div>
+        </div>
+      </span>
+    </span>
+    <button>
+      Compare Me
+    </button>
+  </div>
+</DocumentFragment>
+`;
