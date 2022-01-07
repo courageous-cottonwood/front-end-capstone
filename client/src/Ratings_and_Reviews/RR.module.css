@@ -25,10 +25,14 @@ body {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
+  padding: 10px;
+  margin: 10px;
 }
 
 .ReviewsContainer {
-  flex-grow: 3;
+  flex-grow: 6;
+  padding: 10px;
+  margin: 10px;
 }
 
 .ReviewContainer {
@@ -297,6 +301,8 @@ a:link {
 
 .characteristicSpanDescriptions {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 10px;
 }
 
@@ -305,6 +311,7 @@ a:link {
   flex-direction: column;
   gap: 5px;
   margin-bottom: 10px;
+  width: 400px;
 }
 
 .characteristicBarSpanContainer {
@@ -316,7 +323,7 @@ a:link {
   font-weight: 550;
 }
 
-.characteristicDescriptionContainer {
+/* .characteristicDescriptionContainer {
   display: flex;
   justify-content: space-between;
-}
+} */
