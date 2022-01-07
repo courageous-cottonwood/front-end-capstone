@@ -88,24 +88,20 @@ const Ratings = ({product_id, review_meta}) => {
         </div>
         <div className={styles.ratingBreakdown}>
           <div className={styles.starsAndBars}>
-            <span>  1: ({getRatingCount(1)}) </span>
+            <div className={styles.ratingStarText}>
+              <span> 1: ({getRatingCount(1)}) </span>
+              <span> 2: ({getRatingCount(2)}) </span>
+              <span> 3: ({getRatingCount(3)})</span>
+              <span> 4: ({getRatingCount(4)})</span>
+              <span> 5: ({getRatingCount(5)})</span>
+            </div>
+            <div className={styles.ratingBarsContainer}>
             <Bars rating={getRatingCount(1)} totalRatings={getTotalRating()} color="#8374b8" />
-          </div>
-          <div className={styles.starsAndBars}>
-            <span> 2: ({getRatingCount(2)}) </span>
             <Bars rating={getRatingCount(2)} totalRatings={getTotalRating()} color="#8374b8" />
-          </div>
-          <div className={styles.starsAndBars}>
-            <span> 3: ({getRatingCount(3)})</span>
             <Bars rating={getRatingCount(3)} totalRatings={getTotalRating()} color="#8374b8" />
-          </div>
-          <div className={styles.starsAndBars}>
-            <span> 4: ({getRatingCount(4)})</span>
             <Bars rating={getRatingCount(4)} totalRatings={getTotalRating()} color="#8374b8" />
-          </div>
-          <div className={styles.starsAndBars}>
-            <span> 5: ({getRatingCount(5)})</span>
             <Bars rating={getRatingCount(5)} totalRatings={getTotalRating()} color="#8374b8" />
+            </div>
           </div>
         </div>
         <div className={styles.characteristicBreakdown}>

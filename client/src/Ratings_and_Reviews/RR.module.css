@@ -28,7 +28,7 @@ body {
 }
 
 .ReviewsContainer {
-  flex-grow: 2;
+  flex-grow: 3;
 }
 
 .ReviewContainer {
@@ -133,7 +133,7 @@ body {
 
 .button {
   /* background-color: var(--color-primary-darker); */
-  background-color: #7c6eac;
+  background-color: var(--color-primary);
   border: none;
   border-radius: var(--border-radius-buttons);
   font-weight: 700;
@@ -147,23 +147,25 @@ body {
 }
 
 .button:hover {
-  background-color: var(--color-primary-darkest);
+  background-color: var(--color-primary-darker);
   transition: 0.5s;
 }
 
 .button_small {
-  background-color: var(--color-primary-darker);
+  background-color: var(--color-primary);
   border: none;
   border-radius: var(--border-radius-buttons);
-  font-weight: 300;
+  font-weight: 500;
   color: white;
-  font-size: smaller;
+  font-size: medium;
   padding: 15px;
-  margin: 15px;
+  margin: 7px;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .button_small:hover {
-  background-color: var(--color-primary-darkest);
+  background-color: var(--color-primary-darker);
   transition: 0.5s;
 }
 
@@ -183,9 +185,10 @@ body {
   display: flex;
   flex-direction: column;
   margin: 10px;
-  padding: 10px;
+  padding: 15px;
   background-color: #ffffff;
   gap: 10px;
+  border-radius: var(--border-radius-buttons);
 }
 
 .reviewForm {
@@ -285,4 +288,9 @@ a:link {
 .starsAndBars {
   display: flex;
   gap: 10px;
+}
+
+.ratingStarText {
+  display: flex;
+  flex-direction: column;
 }
