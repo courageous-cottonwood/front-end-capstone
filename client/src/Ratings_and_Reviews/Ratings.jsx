@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './RR.module.css';
 import axios from 'axios';
 import Stars from '../Utilities/Stars.jsx';
+import Bars from './Bars.jsx';
 
 
 const Ratings = ({product_id, review_meta}) => {
@@ -23,6 +24,18 @@ const Ratings = ({product_id, review_meta}) => {
         totalReviews += parseInt(ratings[stars]);
       }
       return totalSum/totalReviews;
+    }
+    return 0;
+  }
+
+  const getTotalRating = () => {
+    if(review_meta !== 0 && review_meta !== null && Object.keys(review_meta.ratings).length !== 0) {
+      let totalReviews = 0;
+      let ratings = review_meta.ratings;
+      for (let stars in ratings) {
+        totalReviews += parseInt(ratings[stars]);
+      }
+      return totalReviews;
     }
     return 0;
   }
@@ -66,15 +79,34 @@ const Ratings = ({product_id, review_meta}) => {
             <Stars rating={getAverageRating()} size={24} color='#9484cd'/>
           </div>
         </div>
+        <div className={styles.ratingsRecommend}>
+          <span> {getTotalRating()} total reviews </span>
+        </div>
+
         <div className={styles.ratingsRecommend} >
           <span> {getRecommendedPercent()}% of reviews recommend this product </span>
         </div>
         <div className={styles.ratingBreakdown}>
-          <div> 1 star: {getRatingCount(1)}</div>
-          <div> 2 star: {getRatingCount(2)}</div>
-          <div> 3 star: {getRatingCount(3)}</div>
-          <div> 4 star: {getRatingCount(4)}</div>
-          <div> 5 star: {getRatingCount(5)}</div>
+          <div className={styles.starsAndBars}>
+            <span>  1: ({getRatingCount(1)}) </span>
+            <Bars rating={getRatingCount(1)} totalRatings={getTotalRating()} color="#8374b8" />
+          </div>
+          <div className={styles.starsAndBars}>
+            <span> 2: ({getRatingCount(2)}) </span>
+            <Bars rating={getRatingCount(2)} totalRatings={getTotalRating()} color="#8374b8" />
+          </div>
+          <div className={styles.starsAndBars}>
+            <span> 3: ({getRatingCount(3)})</span>
+            <Bars rating={getRatingCount(3)} totalRatings={getTotalRating()} color="#8374b8" />
+          </div>
+          <div className={styles.starsAndBars}>
+            <span> 4: ({getRatingCount(4)})</span>
+            <Bars rating={getRatingCount(4)} totalRatings={getTotalRating()} color="#8374b8" />
+          </div>
+          <div className={styles.starsAndBars}>
+            <span> 5: ({getRatingCount(5)})</span>
+            <Bars rating={getRatingCount(5)} totalRatings={getTotalRating()} color="#8374b8" />
+          </div>
         </div>
         <div className={styles.characteristicBreakdown}>
           {review_meta !== 0 && review_meta !== null ? getCharacteristics().map( (text) => {

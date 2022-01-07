@@ -54,55 +54,22 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
       setNewReview(newObject);
   }
 
-  const handleSizeSelect = (e) => {
-    if(e.target.value !== 'Size') {
-      let newObject = { ...newReview};
-      let characteristic_id = review_meta.characteristics.Size.id;
-      newObject.characteristics[characteristic_id] = parseInt(e.target.value);
+  const handleCharacteristicSelect = (e) => {
+    if(e.target.value === e.target.name) {
+      let newObject = {...newReview};
+      let characteristic_id = review_meta.characteristics[e.target.name].id;
+      delete newObject.characteristics[characteristic_id];
       setNewReview(newObject);
     }
-  }
-  const handleWidthSelect = (e) => {
-    if(e.target.value !== 'Width') {
-      let newObject = { ...newReview};
-      let characteristic_id = review_meta.characteristics.Width.id;
-      newObject.characteristics[characteristic_id] = parseInt(e.target.value);
-      setNewReview(newObject);
-    }
-  }
-  const handleComfortSelect = (e) => {
-    if(e.target.value !== 'Comfort') {
-      let newObject = { ...newReview};
-      let characteristic_id = review_meta.characteristics.Comfort.id;
-      newObject.characteristics[characteristic_id] = parseInt(e.target.value);
-      setNewReview(newObject);
-    }
-  }
-  const handleQualitySelect = (e) => {
-    if(e.target.value !== 'Quality') {
-      let newObject = { ...newReview};
-      let characteristic_id = review_meta.characteristics.Quality.id;
-      newObject.characteristics[characteristic_id] = parseInt(e.target.value);
-      setNewReview(newObject);
-    }
-  }
-  const handleLengthSelect = (e) => {
-    if(e.target.value !== 'Length') {
-      let newObject = { ...newReview};
-      let characteristic_id = review_meta.characteristics.Length.id;
+
+    if(e.target.value !== e.target.name) {
+      let newObject = {...newReview};
+      let characteristic_id = review_meta.characteristics[e.target.name].id;
       newObject.characteristics[characteristic_id] = parseInt(e.target.value);
       setNewReview(newObject);
     }
   }
 
-  const handleFitSelect = (e) => {
-    if(e.target.value !== 'Fit') {
-      let newObject = { ...newReview};
-      let characteristic_id = review_meta.characteristics.Fit.id;
-      newObject.characteristics[characteristic_id] = parseInt(e.target.value);
-      setNewReview(newObject);
-    }
-  }
 
   return (
 
@@ -145,7 +112,7 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
         </div>
         <div className={styles.reviewFormCharacteristics}>
           <div>
-            {review_meta !== 0 && review_meta.characteristics.Size ? <select className={styles.select} name="Size" onChange={handleSizeSelect} required>
+            {review_meta !== 0 && review_meta.characteristics.Size ? <select className={styles.select} name="Size" onChange={handleCharacteristicSelect} required>
             <option value="Size">--Size</option>
             <option value="1">A size too small </option>
             <option value="2">Half a size too small</option>
@@ -155,7 +122,7 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
           </select> : <div></div>}
           </div>
           <div>
-            {review_meta !== 0 && review_meta.characteristics.Width ? <select className={styles.select} name="width" onChange={handleWidthSelect} required>
+            {review_meta !== 0 && review_meta.characteristics.Width ? <select className={styles.select} name="Width" onChange={handleCharacteristicSelect} required>
             <option value="Width">--Width--</option>
             <option value="1">Too narrow </option>
             <option value="2">Slightly narrow</option>
@@ -165,7 +132,7 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
           </select> : <div></div>}
           </div>
           <div>
-            {review_meta !== 0 && review_meta.characteristics.Comfort ? <select className={styles.select} name="Comfort" onChange={handleComfortSelect} required>
+            {review_meta !== 0 && review_meta.characteristics.Comfort ? <select className={styles.select} name="Comfort" onChange={handleCharacteristicSelect} required>
             <option value="Comfort">--Comfort--</option>
             <option value="1">Uncomfortable </option>
             <option value="2">Slightly Uncomfortable</option>
@@ -175,7 +142,7 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
           </select> : <div></div>}
           </div>
           <div>
-            {review_meta !== 0 && review_meta.characteristics.Quality ? <select className={styles.select} name="Quality" onChange={handleQualitySelect} required>
+            {review_meta !== 0 && review_meta.characteristics.Quality ? <select className={styles.select} name="Quality" onChange={handleCharacteristicSelect} required>
             <option value="Quality">--Quality--</option>
             <option value="1">Poor</option>
             <option value="2">Below Average</option>
@@ -185,7 +152,7 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
           </select> : <div></div> }
           </div>
           <div>
-            {review_meta !== 0 && review_meta.characteristics.Length ? <select className={styles.select} name="Length" onChange={handleLengthSelect} required>
+            {review_meta !== 0 && review_meta.characteristics.Length ? <select className={styles.select} name="Length" onChange={handleCharacteristicSelect} required>
             <option value="Length">--Length--</option>
             <option value="1">Runs Short </option>
             <option value="2">Runs slightly short</option>
@@ -195,7 +162,7 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
           </select> : <div></div>}
           </div>
           <div>
-            {review_meta !== 0 && review_meta.characteristics.Fit ? <select className={styles.select} name="Fit" onChange={handleFitSelect} required>
+            {review_meta !== 0 && review_meta.characteristics.Fit ? <select className={styles.select} name="Fit" onChange={handleCharacteristicSelect} required>
             <option value="Fit">--Fit--</option>
             <option value="1">Runs Tight</option>
             <option value="2">Runs slightly tight</option>
