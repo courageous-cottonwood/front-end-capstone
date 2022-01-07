@@ -16,6 +16,7 @@ const QuestionsAnswers = function (props) {
   const [numQuestions, setNumQuestions] = useState(2);
   const [isSearching, setIsSearching] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [firstLoad, setFirstLoad] = useState(true);
 
   let loadMoreQuestions = () => {
     setNumQuestions(numQuestions + 2);
@@ -24,22 +25,30 @@ const QuestionsAnswers = function (props) {
   const getQADataForItem = (number) => {
     axios.get('/qa/questions', { params: { product_id: props.product_id, page: 1, count: numQuestions } })
     .then((response) => {
+      console.log(response.data);
       setQuestions(response.data.results);
+
     });
   };
 
-
-  //load data
   useEffect(() => {
-    getQADataForItem();
-  }, [numQuestions]);
+    getQADataForItem(2);
+    setFirstLoad(false);
+  }, []);
 
   //response to product id changes
   useEffect(() => {
-    setQuestions([]);
-    setNumQuestions(2);
-    getQADataForItem();
+    if (!firstLoad) {
+      setQuestions([]);
+      setNumQuestions(2);
+    }
   }, [props.product_id]);
+
+  useEffect(() => {
+    if (!firstLoad) {
+      getQADataForItem(numQuestions);
+    }
+  }, [numQuestions]);
 
   //search
   const searchForAnswers = (searchText) => {
@@ -58,9 +67,9 @@ const QuestionsAnswers = function (props) {
   useEffect(() => {
     if (searchTerm.length > 1) {
       setIsSearching(true);
-    } else if (searchTerm.length === 0 || searchTerm === '')
-    setIsSearching(false);
-    setNumQuestions(2);
+    } else if (searchTerm.length === 0 || searchTerm === '') {
+      setIsSearching(false);
+    }
   }, [searchTerm]);
 
   return (
