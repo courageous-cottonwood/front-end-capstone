@@ -70,6 +70,7 @@ const ProductDetail = (props) => {
           currentStyleIndex={currentStyleIndex}
           setCurrentStyleIndex={setCurrentStyleIndex}
           styles={styles}
+          product_id={props.product_id}
         />
       </div>
       <div className={css.sidebar}>
