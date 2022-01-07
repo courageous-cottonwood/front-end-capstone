@@ -516,6 +516,46 @@ exports[`matches snapshot of Item Two 1`] = `
 </DocumentFragment>
 `;
 
+exports[`matches snapshot of features for Item Four 1`] = `
+<DocumentFragment>
+  <div>
+    <h3>
+      Blues Suede Shoes
+    </h3>
+    <ul>
+      <li>
+        Sole - Rubber
+      </li>
+    </ul>
+    <ul>
+      <li>
+        Material - FullControlSkin
+      </li>
+    </ul>
+    <ul>
+      <li>
+        Stitching - Double Stitch
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h3>
+      Camo Onesie
+    </h3>
+    <ul>
+      <li>
+        Fabric - Canvas
+      </li>
+    </ul>
+    <ul>
+      <li>
+        Buttons - Brass
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`matches snapshot of features for Item One 1`] = `
 <DocumentFragment>
   <div>
@@ -561,46 +601,6 @@ exports[`matches snapshot of features for Item Three 1`] = `
   <div>
     <h3>
       YEasy 350
-    </h3>
-    <ul>
-      <li>
-        Sole - Rubber
-      </li>
-    </ul>
-    <ul>
-      <li>
-        Material - FullControlSkin
-      </li>
-    </ul>
-    <ul>
-      <li>
-        Stitching - Double Stitch
-      </li>
-    </ul>
-  </div>
-  <div>
-    <h3>
-      Camo Onesie
-    </h3>
-    <ul>
-      <li>
-        Fabric - Canvas
-      </li>
-    </ul>
-    <ul>
-      <li>
-        Buttons - Brass
-      </li>
-    </ul>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`matches snapshot of features for Item Three 2`] = `
-<DocumentFragment>
-  <div>
-    <h3>
-      Blues Suede Shoes
     </h3>
     <ul>
       <li>

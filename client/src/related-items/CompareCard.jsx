@@ -1,9 +1,7 @@
 import React from 'react';
-
 import CompareCSS from './cssModules/Compare.module.css';
 
-
-const CompareCard = ({ id, parentId, itemName, itemFeatures, parentItemName, parentFeatures }) => {
+const CompareCard = ({ itemName, itemFeatures, parentItemName, parentFeatures }) => {
   return (
     <>
       <div className={CompareCSS.item}>
@@ -24,5 +22,5 @@ const CompareCard = ({ id, parentId, itemName, itemFeatures, parentItemName, par
       </div>
     </>
   )
-}
+};
 export default CompareCard;

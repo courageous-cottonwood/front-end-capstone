@@ -1,28 +1,13 @@
-/* eslint-disable import/no-duplicates */
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable arrow-body-style */
-/* eslint-disable react/jsx-equals-spacing */
-/* eslint-disable import/order */
-/* eslint-disable import/extensions */
-/* eslint-disable spaced-comment */
-/* eslint-disable react/jsx-wrap-multilines */
-/* eslint-disable react/function-component-definition */
-/* eslint-disable react/prop-types */
-/* eslint-disable semi */
-/* eslint-disable react/destructuring-assignment */
-import React from 'react';
-import { useEffect, useState } from 'react';
-import Item from './Item.jsx';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Item from './Item.jsx';
 import RelatedCSS from './cssModules/Related.module.css';
 import arrowLeft from './cssModules/arrows/left.png';
 import arrowRight from './cssModules/arrows/right.png';
 
 const AppRelated = (props) => {
-  //const [state, setState] = useState(initialState);
   const [items, setItems] = useState([]);
-  const [isLoading, setLoading] = useState(true); //set true for loader to appear
+  const [isLoading, setLoading] = useState(true);
   const productId = props.product_id || 63624;
 
   useEffect(() => {
@@ -50,7 +35,6 @@ const AppRelated = (props) => {
     for (var i = 0; i < itemsArr.length; i++) {
       promises.push(axios.get('/products/get', { params: { product_id: itemsArr[i] } })
         .then((res) => {
-          // console.log();
           var eachItem = res.data;
           storeAllItems.push(eachItem);
         })
@@ -77,44 +61,39 @@ const AppRelated = (props) => {
     )
   }
 
-  //on click on the image need to scroll to item at 4th index (item # 5)
+
   const scrollRightCarousel = () => {
-    // console.log('scrolling right');
     document.querySelector('#carousel').scrollLeft += 200;
   };
 
   const scrollLeftCarousel = () => {
-    // console.log('scrolling left');
     document.querySelector('#carousel').scrollLeft += -200;
   };
 
-//"https://img.icons8.com/ios/50/ffffff/circled-chevron-left.png"
-//"https://img.icons8.com/ios/50/ffffff/circled-chevron-right.png"
-
   return (
-    <div className = {RelatedCSS.outer}>
-      <h3 className = {RelatedCSS.title}>Related Products</h3>
-    <div className={RelatedCSS.app}>
-      <img className={RelatedCSS.arrowLeft} onClick={scrollLeftCarousel} src= {arrowLeft} />
-      <div id = 'carousel' className={RelatedCSS.container}>
-        {items.map((item) => {
-          return (
-            <Item
-              name={item.name}
-              category={item.category}
-              price={item.default_price}
-              key={item.id}
-              id={item.id}
-              parentId={props.product_id}
-              setProduct={props.setProduct}
-            />
+    <div className={RelatedCSS.outer}>
+      <h3 className={RelatedCSS.title}>Related Products</h3>
+      <div className={RelatedCSS.app}>
+        <img className={RelatedCSS.arrowLeft} onClick={scrollLeftCarousel} src={arrowLeft} />
+        <div id='carousel' className={RelatedCSS.container}>
+          {items.map((item) => {
+            return (
+              <Item
+                name={item.name}
+                category={item.category}
+                price={item.default_price}
+                key={item.id}
+                id={item.id}
+                parentId={props.product_id}
+                setProduct={props.setProduct}
+              />
+            )
+          }
           )
-        }
-        )
-        }
+          }
+        </div>
+        <img className={RelatedCSS.arrowRight} onClick={scrollRightCarousel} src={arrowRight} />
       </div>
-      <img className={RelatedCSS.arrowRight} onClick={scrollRightCarousel} src = {arrowRight}/>
-    </div>
     </div>
   )
 }
