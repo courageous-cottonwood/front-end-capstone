@@ -92,11 +92,11 @@ const Ratings = ({product_id, review_meta}) => {
         <div className={styles.ratingBreakdown}>
           <div className={styles.starsAndBars}>
             <div className={styles.ratingStarText}>
-              <span> 1: ({getRatingCount(1)}) </span>
-              <span> 2: ({getRatingCount(2)}) </span>
-              <span> 3: ({getRatingCount(3)})</span>
-              <span> 4: ({getRatingCount(4)})</span>
-              <span> 5: ({getRatingCount(5)})</span>
+              <span> 1 stars: ({getRatingCount(1)}) </span>
+              <span> 2 stars: ({getRatingCount(2)}) </span>
+              <span> 3 stars: ({getRatingCount(3)})</span>
+              <span> 4 stars: ({getRatingCount(4)})</span>
+              <span> 5 stars: ({getRatingCount(5)})</span>
             </div>
             <div className={styles.ratingBarsContainer}>
             <RatingBars rating={getRatingCount(1)} totalRatings={getTotalRating()} color="#8374b8" />
