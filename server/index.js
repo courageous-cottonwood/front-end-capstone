@@ -1,5 +1,6 @@
 const path = require('path');
 var cors = require('cors');
+var compression = require('compression')
 
 const express = require('express');
 
@@ -9,14 +10,19 @@ const controllers = require('./controllers/controllers');
 
 const port = process.env.PORT || 3000;
 
-const staticPath = path.join(__dirname, '..', '/client/dist/');
+app.get('*.js', (req, res, next) => {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
 
+const staticPath = path.join(__dirname, '..', '/client/dist/');
 
 // Middleware
 app.use(express.static(staticPath));
 app.use(express.json());
 app.use(cors());
-
+app.use(compression());
 
 // PRODUCTS API
 
@@ -139,6 +145,8 @@ app.get('/:productId', (req, res) => {
 app.get('/', (req, res) => {
   res.sendFile('index.html');
 });
+
+
 
 app.listen(port, () => {
   console.log('Listening at http://localhost:' + port);
