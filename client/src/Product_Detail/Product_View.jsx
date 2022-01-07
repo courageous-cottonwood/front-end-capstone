@@ -81,11 +81,11 @@ const ProductView = function (props) {
       {modalEnabled ?
         <div className={css.modal_background}>
           <div className={css.model_content}>
-            <div className={css.closeButton} onClick={handleModal}>Close</div>
             <img
             className={css.largeViewImage}
             src={props.currentStyle.photos[props.currentStyleIndex].url}
             ></img>
+            <div className={css.closeButton} onClick={handleModal}>Close</div>
           </div>
         </div> :
         <div></div>
