@@ -2,6 +2,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: white !important;
   padding-top: 80px;
+  color: #384047e9;
 }
 
 
@@ -13,9 +14,9 @@ body {
   --color-primary: #8374b8;
   /* --color-primary-darker: #5b4d8d; */
   /* dont need 4 variations of the same color */
-  --color-primary-darker:#8374b8;
+  --color-primary-darker:#6a5b9f;
   /* --color-primary-darkest: #2f2749; */
-  --color-primary-darkest: #705cb5;
+  --color-primary-darkest: #584796;
   --border-radius-buttons: 10px;
   --answer-text-size: 14px;
 }
@@ -114,6 +115,8 @@ body {
   border-radius: 10px;
   text-align: center;
   text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .square_button h2 {
@@ -134,9 +137,10 @@ body {
 .square_button:hover {
   transition: 0.3s;
   box-shadow: -1px 1px 13px 0px rgba(0,0,0,0.1);
--webkit-box-shadow: -1px 1px 13px 0px rgba(0,0,0,0.1);
+-webkit-box-shadow: -1px 1px 13px 0px rgba(48, 46, 46, 0.1);
 -moz-box-shadow: -1px 1px 13px 0px rgba(0,0,0,0.10);
 border: 1px solid #ffffff;
+cursor: pointer;
 }
 
 .qa_button {
@@ -146,15 +150,20 @@ border: 1px solid #ffffff;
   padding-right: 30px;
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: var(--color-primary-darker);
+  /* background-color: var(--color-primary-darker); */
+  background-color: #6a5b9f;
   border-radius: var(--border-radius-buttons);
   border: none;
   margin-right: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .qa_button:hover {
-  background-color: var(--color-primary-darkest);
+  /* background-color: var(--color-primary-darkest); */
+  background-color: #504674;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .button_holder {
@@ -174,6 +183,7 @@ border: 1px solid #ffffff;
 .small_link:hover {
   background-color: var(--color-primary-darker);
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .answer_images {
@@ -195,14 +205,19 @@ border: 1px solid #ffffff;
   justify-content: center;
   height: 55px;
   border-right: 1px solid #516885;
-  background-color: var(--color-primary-darker);
+  /* background-color: var(--color-primary-darker); */
+  background-color: #6a5b9f;
   color: white;
   text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .bottom_button:hover {
-  background-color: var(--color-primary-darkest);
+  /* background-color: var(--color-primary-darkest); */
+  background-color: #504674;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .bottom_button:last-child {
@@ -253,6 +268,7 @@ border: 1px solid #ffffff;
   -moz-box-shadow: -1px 19px 29px -21px rgba(0, 0, 0, 0.75);
   transform: scale(1.05);
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .addForm_question, .addForm_answer {
