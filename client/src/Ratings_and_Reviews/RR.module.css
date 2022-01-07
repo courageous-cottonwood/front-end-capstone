@@ -294,3 +294,29 @@ a:link {
   display: flex;
   flex-direction: column;
 }
+
+.characteristicSpanDescriptions {
+  display: flex;
+  gap: 10px;
+}
+
+.characteristicBarContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.characteristicBarSpanContainer {
+  display: flex;
+}
+
+.characteristicBarSpan {
+  font-size: 16px;
+  font-weight: 550;
+}
+
+.characteristicDescriptionContainer {
+  display: flex;
+  justify-content: space-between;
+}

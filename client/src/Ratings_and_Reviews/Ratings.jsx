@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styles from './RR.module.css';
 import axios from 'axios';
 import Stars from '../Utilities/Stars.jsx';
-import Bars from './Bars.jsx';
+import RatingBars from './RatingBars.jsx';
+import CharacteristicBars from './CharacteristicBars.jsx';
 
 
 const Ratings = ({product_id, review_meta}) => {
@@ -51,11 +52,13 @@ const Ratings = ({product_id, review_meta}) => {
           charactValue = 'No data available';
         }
 
-        results.push(`${charact}: ${charactValue}`);
+        results.push([charact, charactValue]);
       }
     return results;
     }
   }
+
+
 
   const getRecommendedPercent = () => {
     if(review_meta !== 0 && review_meta !== null && Object.keys(review_meta.recommended).length !== 0) {
@@ -96,18 +99,25 @@ const Ratings = ({product_id, review_meta}) => {
               <span> 5: ({getRatingCount(5)})</span>
             </div>
             <div className={styles.ratingBarsContainer}>
-            <Bars rating={getRatingCount(1)} totalRatings={getTotalRating()} color="#8374b8" />
-            <Bars rating={getRatingCount(2)} totalRatings={getTotalRating()} color="#8374b8" />
-            <Bars rating={getRatingCount(3)} totalRatings={getTotalRating()} color="#8374b8" />
-            <Bars rating={getRatingCount(4)} totalRatings={getTotalRating()} color="#8374b8" />
-            <Bars rating={getRatingCount(5)} totalRatings={getTotalRating()} color="#8374b8" />
+            <RatingBars rating={getRatingCount(1)} totalRatings={getTotalRating()} color="#8374b8" />
+            <RatingBars rating={getRatingCount(2)} totalRatings={getTotalRating()} color="#8374b8" />
+            <RatingBars rating={getRatingCount(3)} totalRatings={getTotalRating()} color="#8374b8" />
+            <RatingBars rating={getRatingCount(4)} totalRatings={getTotalRating()} color="#8374b8" />
+            <RatingBars rating={getRatingCount(5)} totalRatings={getTotalRating()} color="#8374b8" />
             </div>
           </div>
         </div>
         <div className={styles.characteristicBreakdown}>
-          {review_meta !== 0 && review_meta !== null ? getCharacteristics().map( (text) => {
+          {/* {review_meta !== 0 && review_meta !== null ? getCharacteristics().map( (text) => {
             return <div key={text}>{text} </div>;
-          }) : <div></div>}
+          }) : <div></div>} */}
+          {review_meta !== 0 && review_meta !== null ? getCharacteristics().map ( (charactAndValue) => {
+            return <CharacteristicBars characteristic={charactAndValue[0]} value={charactAndValue[1]} key={charactAndValue[0] + charactAndValue[1]}color="#8374b8"/>
+          })
+          :
+          <div></div>
+          }
+
         </div>
       </div>
     );

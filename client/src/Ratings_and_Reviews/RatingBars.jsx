@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Bars = ({rating, totalRatings, color}) => {
+const RatingBars = ({rating, totalRatings, color}) => {
 
 const getWidth = (inputRating, inputTotalRatings) => {
   if(inputRating === 0 && inputTotalRatings === 0) {
@@ -22,4 +22,4 @@ const getWidth = (inputRating, inputTotalRatings) => {
 }
 
 
-export default Bars;
+export default RatingBars;
