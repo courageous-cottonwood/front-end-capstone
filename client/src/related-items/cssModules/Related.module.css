@@ -84,6 +84,9 @@
   cursor: pointer;
   border-radius: 30px;
 }
+.arrowRight:hover {
+  background-color: #9a8eac;
+}
 
 .arrowLeft {
   z-index: 0;
@@ -93,4 +96,7 @@
   align-self: center;
   cursor: pointer;
   border-radius: 30px;
+}
+.arrowLeft:hover {
+  background-color: #9a8eac;
 }
