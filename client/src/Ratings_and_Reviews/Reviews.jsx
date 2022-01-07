@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import DummyReviews from './DummyReviews.js';
 import Review from './Review.jsx';
 import styles from './RR.module.css';
 import axios from 'axios';
@@ -18,9 +17,10 @@ const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleS
       <div className={styles.ReviewsContainer}>
         <div className={styles.sortContainer}>
         <select className={styles.select} onChange={handleSort}>
+        <option value="relevant">relevant</option>
           <option value="newest">newest</option>
           <option value="helpful">helpful</option>
-          <option value="relevant">relevant</option>
+
         </select>
       </div>
         {reviews.map( (review) =>
@@ -47,9 +47,9 @@ const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleS
       <div className={styles.ReviewsContainer}>
         <div className={styles.sortContainer}>
         <select className={styles.select} onChange={handleSort}>
+          <option value="relevant">relevant</option>
           <option value="newest">newest</option>
           <option value="helpful">helpful</option>
-          <option value="relevant">relevant</option>
         </select>
       </div>
         <p> No Reviews found </p>
