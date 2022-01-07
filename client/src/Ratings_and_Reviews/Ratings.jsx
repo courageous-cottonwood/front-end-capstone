@@ -79,28 +79,32 @@ const Ratings = ({product_id, review_meta}) => {
             <Stars rating={getAverageRating()} size={24} color='#9484cd'/>
           </div>
         </div>
+        <div className={styles.ratingsRecommend}>
+          <span> {getTotalRating()} total reviews </span>
+        </div>
+
         <div className={styles.ratingsRecommend} >
           <span> {getRecommendedPercent()}% of reviews recommend this product </span>
         </div>
         <div className={styles.ratingBreakdown}>
           <div className={styles.starsAndBars}>
-            <span> 1 star: </span>
+            <span>  1: ({getRatingCount(1)}) </span>
             <Bars rating={getRatingCount(1)} totalRatings={getTotalRating()} color="#8374b8" />
           </div>
           <div className={styles.starsAndBars}>
-            <span> 2 star: </span>
+            <span> 2: ({getRatingCount(2)}) </span>
             <Bars rating={getRatingCount(2)} totalRatings={getTotalRating()} color="#8374b8" />
           </div>
           <div className={styles.starsAndBars}>
-            <span> 3 star: </span>
+            <span> 3: ({getRatingCount(3)})</span>
             <Bars rating={getRatingCount(3)} totalRatings={getTotalRating()} color="#8374b8" />
           </div>
           <div className={styles.starsAndBars}>
-            <span> 4 star: </span>
+            <span> 4: ({getRatingCount(4)})</span>
             <Bars rating={getRatingCount(4)} totalRatings={getTotalRating()} color="#8374b8" />
           </div>
           <div className={styles.starsAndBars}>
-            <span> 5 star: </span>
+            <span> 5: ({getRatingCount(5)})</span>
             <Bars rating={getRatingCount(5)} totalRatings={getTotalRating()} color="#8374b8" />
           </div>
         </div>
