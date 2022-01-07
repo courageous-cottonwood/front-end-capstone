@@ -18,6 +18,7 @@
 }
 
 .inner {
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   min-height: 485px;
   max-height: 530px;
@@ -64,6 +65,7 @@
 
 .button_compare {
   /* display: block; */
+  font-family: 'Montserrat', sans-serif;
   width: 60%;
   height: 40%;
   /* margin: 10px 10px 10px 60px; */

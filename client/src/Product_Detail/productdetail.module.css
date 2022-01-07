@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   margin: 30px;
+  color: #384047e9;
 }
 
 .leftPanel {
@@ -35,7 +36,7 @@
   height: 400px;
   object-fit: cover;
   margin: 5px;
-  border-color: black;
+  border-color: #384047e9;
 }
 
 .sidebar {
@@ -47,6 +48,8 @@
 .productInfoContainer {
   display: flex;
   flex-direction: column;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .styleSelector {
@@ -73,7 +76,7 @@
 }
 
 .addToCart {
-  margin-top: 10px;
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
 }
@@ -88,35 +91,35 @@
 
 /* Darya's proposed changes */
 .cartButton {
-  max-width: 30%;
+  /* max-width: 40%; */
   font-family: 'Montserrat', sans-serif;
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: center;
-  height: 55px;
+  /* height: 55px;
   border-radius: 10px;
   border-right: 1px solid #516885;
   border-radius: 15px;
   background-color: var(--color-primary-darker);
-  color: white;
+  color: white;*/
   text-decoration: none;
   margin-right: 10px;
   margin-top: 10px;
   /* ---- */
-  /* text-transform: uppercase;
-  max-width: 15%;
+  text-transform: uppercase;
+  max-width: 20%;
   height: 50px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 1% 1%;
-  padding: 15px;
-  border-radius: 7px;
-  border: 2.5px solid #d2d3d3;
+  padding: 5px 5px;
+  border-radius: 10px;
+  /* border: 2.5px solid #d2d3d3; */
+  border: none;
   color: #edeff0;
    font-weight: bold;
   background-color: #8374b8;
   font-size: 1em;
-  cursor: pointer; */
+  cursor: pointer;
 }
 
 .cartButton:hover {
@@ -134,12 +137,16 @@
   width: 50px;
   height: 50px;
   align-self: center;
+  background-color: #d2d3d3;
+  border-radius: 30px;
 }
 
 .arrowsNonClick {
   width: 50px;
   height: 50px;
   align-self: center;
+  background-color: #a698b3;
+  border-radius: 30px;
 }
 
 .arrows:hover {
