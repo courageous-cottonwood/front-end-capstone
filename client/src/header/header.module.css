@@ -1,7 +1,7 @@
 .header {
   display: flex;
   background-color: var(--color-primary);
-  padding: 10px;
+  /* padding: 10px; */
   position: fixed;
   width: 100%;
   top: 0;
@@ -20,7 +20,7 @@
 }
 
 .logo {
-  width: 80px;
+  width: 110px;
   height: auto;
 }
 
@@ -28,6 +28,7 @@
   margin-left: 5px;
   margin-bottom: 0px;
   margin-top: 0px;
+  text-transform: uppercase;
 }
 
 .header p {

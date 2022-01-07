@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import css from './productdetail.module.css';
 import StyleThumbnail from './Style_Thumbnail.jsx'
+import arrowLeftWhite from '../related-items/cssModules/arrows/left.png';
+import arrowRightWhite from '../related-items/cssModules/arrows/right.png';
+import arrowLeftGray from '../related-items/cssModules/arrows/arrow_left.png';
+import arrowRightGray from '../related-items/cssModules/arrows/arrow_right.png';
+//client/src/related-items/cssModules/arrows
 
 const ProductView = function (props) {
   const [leftArrowEnabled, setLeftArrowEnabled] = useState(false);
   const [rightArrowEnabled, setRightArrowEnabled] = useState(true);
+  const [modalEnabled, setModalEnabled] = useState(false);
 
   const handleLeftArrow = () => {
     props.setCurrentStyleIndex(props.currentStyleIndex - 1);
@@ -12,6 +18,10 @@ const ProductView = function (props) {
 
   const handleRightArrow = () => {
     props.setCurrentStyleIndex(props.currentStyleIndex + 1);
+  }
+
+  const handleModal = () => {
+    setModalEnabled(!modalEnabled);
   }
 
   const renderDefaultView = () => {
@@ -26,6 +36,7 @@ const ProductView = function (props) {
       return (
         <img
           className={css.defaultViewImage}
+          onClick={handleModal}
           src={props.currentStyle.photos[props.currentStyleIndex].url}
         ></img>
       )
@@ -41,14 +52,14 @@ const ProductView = function (props) {
       setLeftArrowEnabled(true);
     }
 
-    if (props.currentStyleIndex === props.styles.length - 1) {
+    if (props.currentStyleIndex === props.currentStyle.photos.length - 1) {
       setRightArrowEnabled(false);
     }
 
-    if (props.currentStyleIndex < props.styles.length - 1) {
+    if (props.currentStyleIndex < props.currentStyle.photos.length - 1) {
       setRightArrowEnabled(true);
     }
-  }, [props.currentStyleIndex])
+  }, [props.currentStyleIndex, props.currentStyle, props.product_id])
 
   return (
     <div className={css.leftPanel}>
@@ -63,13 +74,25 @@ const ProductView = function (props) {
         )}
       </div>
       {leftArrowEnabled ?
-        <img onClick={handleLeftArrow} className={css.arrows} src="https://img.icons8.com/ios-filled/344/chevron-left.png"></img> :
-        <img className={css.arrowsNonClick} src="https://img.icons8.com/ios/344/chevron-left.png"></img>
+        <img onClick={handleLeftArrow} className={css.arrows} src={arrowLeftWhite}></img> :
+        <img className={css.arrowsNonClick} src={arrowLeftWhite}></img>
       }
       {renderDefaultView()}
+      {modalEnabled ?
+        <div className={css.modal_background}>
+          <div className={css.model_content}>
+            <div className={css.closeButton} onClick={handleModal}>Close</div>
+            <img
+            className={css.largeViewImage}
+            src={props.currentStyle.photos[props.currentStyleIndex].url}
+            ></img>
+          </div>
+        </div> :
+        <div></div>
+      }
       {rightArrowEnabled ?
-        <img onClick={handleRightArrow} className={css.arrows} src="https://img.icons8.com/ios-filled/344/chevron-right.png"></img> :
-        <img className={css.arrowsNonClick} src="https://img.icons8.com/ios/344/chevron-right.png"></img>
+        <img onClick={handleRightArrow} className={css.arrows} src={arrowRightWhite}></img> :
+        <img className={css.arrowsNonClick} src={arrowRightWhite}></img>
       }
     </div>
   );

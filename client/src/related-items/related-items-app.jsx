@@ -16,7 +16,8 @@ import { useEffect, useState } from 'react';
 import Item from './Item.jsx';
 import axios from 'axios';
 import RelatedCSS from './cssModules/Related.module.css';
-//import arrows from './cssModules/arrows';
+import arrowLeft from './cssModules/arrows/left.png';
+import arrowRight from './cssModules/arrows/right.png';
 
 const AppRelated = (props) => {
   //const [state, setState] = useState(initialState);
@@ -78,21 +79,23 @@ const AppRelated = (props) => {
 
   //on click on the image need to scroll to item at 4th index (item # 5)
   const scrollRightCarousel = () => {
-    //console.log('scrolling right');
+    // console.log('scrolling right');
     document.querySelector('#carousel').scrollLeft += 200;
   };
 
   const scrollLeftCarousel = () => {
-    //console.log('scrolling left');
+    // console.log('scrolling left');
     document.querySelector('#carousel').scrollLeft += -200;
   };
 
+//"https://img.icons8.com/ios/50/ffffff/circled-chevron-left.png"
+//"https://img.icons8.com/ios/50/ffffff/circled-chevron-right.png"
 
   return (
     <div className = {RelatedCSS.outer}>
       <h3 className = {RelatedCSS.title}>Related Products</h3>
     <div className={RelatedCSS.app}>
-      <img className={RelatedCSS.arrowLeft} onClick={scrollLeftCarousel} src= "https://img.icons8.com/ios/50/ffffff/circled-chevron-left.png" />
+      <img className={RelatedCSS.arrowLeft} onClick={scrollLeftCarousel} src= {arrowLeft} />
       <div id = 'carousel' className={RelatedCSS.container}>
         {items.map((item) => {
           return (
@@ -103,7 +106,6 @@ const AppRelated = (props) => {
               key={item.id}
               id={item.id}
               parentId={props.product_id}
-              id={item.id}
               setProduct={props.setProduct}
             />
           )
@@ -111,7 +113,7 @@ const AppRelated = (props) => {
         )
         }
       </div>
-      <img className={RelatedCSS.arrowRight} onClick={scrollRightCarousel} src = "https://img.icons8.com/ios/50/ffffff/circled-chevron-right.png"/>
+      <img className={RelatedCSS.arrowRight} onClick={scrollRightCarousel} src = {arrowRight}/>
     </div>
     </div>
   )
