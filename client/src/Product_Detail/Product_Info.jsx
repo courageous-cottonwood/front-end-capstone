@@ -40,7 +40,7 @@ const ProductInfo = (props) => {
         color='#9484cd'
       />
       <h2>{props.product.name}</h2>
-      <div>{props.product.description}</div>
+      <div className={css.description}>{props.product.description}</div>
       {renderSale()}
       <div><b>Style > </b>{props.currentStyle.name}</div>
       <div className={css.styleSelector}>

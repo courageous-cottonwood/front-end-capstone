@@ -52,6 +52,11 @@
   font-weight: bold;
 }
 
+.description {
+  text-transform: none;
+  font-weight: normal;
+}
+
 .styleSelector {
   display: flex;
   flex-direction: row;
@@ -116,7 +121,7 @@
   /* border: 2.5px solid #d2d3d3; */
   border: none;
   color: #edeff0;
-   font-weight: bold;
+  font-weight: bold;
   background-color: #8374b8;
   font-size: 1em;
   cursor: pointer;
