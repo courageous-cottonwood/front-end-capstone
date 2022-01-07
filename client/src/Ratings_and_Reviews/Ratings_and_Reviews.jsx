@@ -3,7 +3,6 @@ import Reviews from './Reviews.jsx';
 import Ratings from './Ratings.jsx';
 import axios from 'axios';
 import styles from './RR.module.css';
-// import DummyReviews from './DummyReviews.js';
 
 
 const Ratings_and_Reviews = ({product_id}) => {
@@ -11,7 +10,7 @@ const Ratings_and_Reviews = ({product_id}) => {
   const [review_meta, setReviewMeta] = useState(0);
   const [reviews, setReviews] = useState(0);
   const [count, setCount] = useState(2);
-  const [sort, setSort] = useState('newest');
+  const [sort, setSort] = useState('relevant');
 
   const reloadAll = () => {
     getReviewMeta(product_id);

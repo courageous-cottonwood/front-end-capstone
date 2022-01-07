@@ -81,10 +81,10 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
       <div className={styles.reviewForm}>
         <div className={styles.starRatingSelect}>
           <div>
-            <label className={styles.label_bold}> Overall Rating</label>
+            <label className={styles.label_bold}> Overall Rating*</label>
           </div>
           <select className={styles.select} onChange={handleStarRatingSelect} required>
-            <option value="Select Star Rating">Select Star Rating</option>
+            <option value="Select Star Rating">--Select Star Rating--</option>
             <option value="1">1 star - Poor </option>
             <option value="2">2 stars - Fair</option>
             <option value="3">3 stars - Average</option>
@@ -94,7 +94,7 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
         </div>
 
 
-          <label className={styles.label_bold}> Do you Recommend this product?</label>
+          <label className={styles.label_bold}> Do you Recommend this product?*</label>
           <div className={styles.recommendSelectRadio}>
             <div>
               <input type="radio" name="recommendSelect" value="true" onChange={handleRecommendSelect} required></input>
@@ -175,16 +175,24 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
 
 
         <label className={styles.label_bold}> Review Summary</label>
-        <input name="summary" maxLength="60" onChange={updateForm}/>
-        <label className={styles.label_bold}> Review Body</label>
-        <textarea name="body" maxLength="1000" required onChange={updateForm}/>
-        <label className={styles.label_bold}> Display Name</label>
+        <input name="summary" maxLength="60" placeholder="Example: Best purchase ever!" onChange={updateForm}/>
+        <label className={styles.label_bold}> Review Body*</label>
+        <textarea name="body" minLength="50" maxLength="1000" placeholder="Why did you like the product or not?" required onChange={updateForm}/>
+        <span>{newReview.body.length < 50 ? `Minimum required characters left: ${50-newReview.body.length}` : "Minimum Reached"}</span>
+        <div>
+          <button className={styles.button} >Add Photos</button>
+        </div>
+
+        <label className={styles.label_bold}> Display Name*</label>
         <label> For privacy reasons do not use your full name or email address</label>
-        <input name="name"  maxLength="60" required onChange={updateForm}/>
+        <input name="name"  maxLength="60" placeholder="Example:jackson11!" required onChange={updateForm}/>
         <label className={styles.label_bold}> Email </label>
         <label> For authentication reasons, you will not be emailed</label>
-        <input name="email" type="email" maxLength="60" required onChange={updateForm}/>
-        <button className={styles.button} onClick={submitForm}> Submit Review</button>
+        <input name="email" type="email" maxLength="60" placeholder="Example:jackson11@email.com" required onChange={updateForm}/>
+        <div className={styles.submitFormContainer}>
+          <button className={styles.button} onClick={submitForm}> Submit Review</button>
+        </div>
+
       </div>
     </div>
   )
