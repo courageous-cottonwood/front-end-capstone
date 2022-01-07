@@ -9,6 +9,7 @@
     "start": "npx nodemon server/index.js",
     "web": "node server/index.js",
     "postinstall": "webpack --mode development",
+    "production": "webpack --mode production",
     "test": "jest"
   },
   "repository": {

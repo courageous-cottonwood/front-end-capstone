@@ -6,3 +6,4 @@ client/dist/client_src*
 client/src/.DS_Store
 client/.DS_Store
 client/src/related-items/.DS_Store
+client/src/.DS_Store
