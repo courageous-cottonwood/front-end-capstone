@@ -274,3 +274,8 @@ a:link {
   display: flex;
   gap: 20px;
 }
+
+.starsAndBars {
+  display: flex;
+  gap: 10px;
+}
