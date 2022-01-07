@@ -1,6 +1,7 @@
 import React from "react";
 import style from './header.module.css';
-import logo from './logo.png';
+//import logo from './logo.png';
+import logo from './logo-no-tag.png';
 
 const Header = () => {
 
@@ -11,7 +12,7 @@ const Header = () => {
       <img src={logo} className={style.logo} />
       <h3>Courageous Cottonwood</h3>
       </div>
-      <p>Cart</p>
+      <p>CART</p>
     </div>
   )
 }
