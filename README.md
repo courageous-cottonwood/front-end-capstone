@@ -26,6 +26,8 @@ The project was built using React 17 using functional classes, and served using 
 
 **Technical Walkthrough and Challenges:**
 
+Figuring out data flow for many differnet api calls to get info needed for the component. Breaking down a big component into smaller sections and requesting only the data needed for each smaller component to display so the server does not have to do too many requests, gradual fetching.
+
 ## Sean Welch
 **Widget:** Questions Answers
 
