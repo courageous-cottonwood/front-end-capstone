@@ -19,7 +19,7 @@ The project was built using React 17 using functional classes, and served using 
 **Technical Walkthrough and Challenges:**
 
 
-## Darya Kutrovaya
+## Darya Kutovaya
 **Widget:** Related Items
 
 **Additional Areas of Responsibility:** CSS and Styling Management
