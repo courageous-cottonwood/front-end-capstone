@@ -24,10 +24,11 @@
 .app {
   display: flex;
   flex-direction: row;
-  width: 90%;
+  width: 85%;
   margin: 1em 1em auto;
   margin: 20px;
   justify-content: normal;
+  height: 90%;
 }
 
 .container {
@@ -39,6 +40,7 @@
   flex-direction: row;
   flex-wrap: nonwrap;
   overflow-x: auto;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   overflow: scroll;
@@ -46,11 +48,12 @@
   row-gap: calc(10%);
   gap: calc(0.7%) calc(0.5%);
   font-family: var(--font-family);
+  position: relative;
 }
 
 .title {
   font-family: var(--font-family);
-  font-size: 1.25em;
+  font-size: 1.25vw;
   margin-inline-start: 0.15em;
   line-height: 1.2;
   margin-top: 5px;

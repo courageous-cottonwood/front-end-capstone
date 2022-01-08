@@ -82,7 +82,7 @@ const AppRelated = (props) => {
                 name={item.name}
                 category={item.category}
                 price={item.default_price}
-                key={item.id}
+                key={item.id-0.5}
                 id={item.id}
                 parentId={props.product_id}
                 setProduct={props.setProduct}

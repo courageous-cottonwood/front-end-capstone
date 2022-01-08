@@ -38,6 +38,7 @@ const Item = (props) => {
     <div className={ItemCSS.card}>
       {showCompare ?
         <Compare
+          key ={props.id-0.1}
           id={props.id}
           parentId={props.parentId}
           name={props.name}
@@ -45,7 +46,7 @@ const Item = (props) => {
         /> : null
       }
       <ItemCard
-        key={props.id}
+        key={props.id-0.25}
         id={props.id}
         parentId={props.parentId}
         category={props.category}
