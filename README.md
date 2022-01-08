@@ -58,7 +58,7 @@ One main challenge was ensuring that data was rendered quickly, which meant miti
 
 **Clone the repository:**
 ```
-Git clone
+git clone https://github.com/courageous-cottonwood/front-end-capstone.git
 ```
 **Install the packages:**
 ```
