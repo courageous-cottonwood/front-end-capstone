@@ -57,7 +57,7 @@ const Reviews = ({product_id, reviews, handleMoreQuestions, review_meta, handleS
           <button className={styles.button} onClick={showModal}> Add Review </button>
         </div>
         {showReviewForm ?
-          <div className={styles.modal_background}>
+          <div className={styles.modal_background} onClick={showModal}>
             <div className={styles.modal_content}>
             <AddReview product_id={product_id} review_meta={review_meta} showModal={showModal} reloadAll={reloadAll}/>
             </div>

@@ -37,11 +37,9 @@ const App = (props) =>  {
   useEffect(() => {
     window.history.pushState("", "", `/${productId}`);
   }, [productId])
-
   if (productId === null) {
     return (<div></div>)
   } else {
-
     return (
       <div>
         <Header />
@@ -53,10 +51,7 @@ const App = (props) =>  {
         </Suspense>
       </div>
     )
-
   }
-
-
 }
 
 export default App;

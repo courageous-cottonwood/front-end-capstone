@@ -133,7 +133,19 @@ body {
   text-decoration: none;
 }
 
-
+.button_disabled {
+  background-color: grey;
+  border: none;
+  border-radius: var(--border-radius-buttons);
+  font-weight: 700;
+  color: white;
+  font-size: medium;
+  padding: 12px;
+  margin-right: 20px;
+  /* padding: .6em 0.5em .5em .5em; */
+  text-transform: uppercase;
+  text-align: center;
+}
 
 .button {
   /* background-color: var(--color-primary-darker); */
