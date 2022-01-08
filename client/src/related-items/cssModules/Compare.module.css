@@ -10,7 +10,7 @@
   display: flex;
   min-width: fit-content;
   width: 30%;
-  height: 27%;
+  height: calc(25%);
   max-height: fit-content;
   background: white;
   padding: 20px;
@@ -33,7 +33,7 @@
   height: 50%;
   max-width: fit-content;
   max-height: fit-content;
-
+  size: calc(85%);
 }
 
 .loader {
@@ -58,13 +58,14 @@
   height: 50px;
   text-align: center;
   text-transform: uppercase;
+  font-size: 1.25vw;
 }
 
 
 .list {
   list-style: none;
   padding-inline-start: 10px;
-  font-size: 0.9em;
+  font-size: 1vw;
   margin-bottom: 1em;
   line-height: 1.4;
 }
