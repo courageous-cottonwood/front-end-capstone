@@ -18,8 +18,49 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
 
   const [allowSubmit, setAllowSubmit] = useState(false);
 
+  const validateForm = () => {
+    let isValid = true;
+    let regexEmail = /^\S+@\S+\.\S+$/;
 
-  const submitForm = () => {
+    if(typeof(newReview.rating) !== 'number') {
+      isValid = false;
+    }
+    if(typeof(newReview.recommend) !== 'boolean') {
+      isValid = false;
+    }
+    if(Object.keys(newReview.characteristics).length !== Object.keys(review_meta.characteristics).length) {
+      isValid = false;
+    }
+    if(newReview.body.length < 50) {
+      isValid = false;
+    }
+    if(newReview.body.name === 0) {
+      isValid = false;
+    }
+
+    if(regexEmail.test(newReview.email) !== true) {
+      isValid = false;
+    }
+
+
+
+    return isValid;
+  }
+
+  useEffect( () => {
+    if(validateForm()) {
+      setAllowSubmit(true);
+    }
+    if(validateForm() === false) {
+      setAllowSubmit(false);
+    }
+  }, [newReview]);
+
+
+
+
+  const submitForm = (event) => {
+    event.preventDefault();
     axios.post('/reviews', newReview)
     .then((res) => {
       if(res.data === 'Created') {
@@ -78,7 +119,7 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
         <h3> Write Your Review</h3>
         <button className={styles.button_small} onClick={showModal}> X </button>
       </div>
-      <div className={styles.reviewForm}>
+      <form className={styles.reviewForm} onSubmit={submitForm}>
         <div className={styles.starRatingSelect}>
           <div>
             <label className={styles.label_bold}> Overall Rating*</label>
@@ -177,7 +218,7 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
         <label className={styles.label_bold}> Review Summary</label>
         <input name="summary" maxLength="60" placeholder="Example: Best purchase ever!" onChange={updateForm}/>
         <label className={styles.label_bold}> Review Body*</label>
-        <textarea name="body" minLength="50" maxLength="1000" placeholder="Why did you like the product or not?" required onChange={updateForm}/>
+        <input name="body" minLength="50" maxLength="1000" placeholder="Why did you like the product or not?" required onChange={updateForm}/>
         <span>{newReview.body.length < 50 ? `Minimum required characters left: ${50-newReview.body.length}` : "Minimum Reached"}</span>
         <div>
           <button className={styles.button} >Add Photos</button>
@@ -190,10 +231,14 @@ const AddReview = ({product_id, review_meta, showModal, reloadAll}) => {
         <label> For authentication reasons, you will not be emailed</label>
         <input name="email" type="email" maxLength="60" placeholder="Example:jackson11@email.com" required onChange={updateForm}/>
         <div className={styles.submitFormContainer}>
-          <button className={styles.button} onClick={submitForm}> Submit Review</button>
+          {allowSubmit ?
+          <button type="submit" className={styles.button} onClick={submitForm}> Submit Review</button>
+          :
+          <button type="submit" className={styles.button_disabled} disabled> Submit Review</button>
+          }
         </div>
 
-      </div>
+      </form>
     </div>
   )
 

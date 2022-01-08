@@ -86,13 +86,13 @@ const CharacteristicBars = ({characteristic, value, color}) => {
         </svg>
       </div>
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="132" height="12" >
+        <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="132" height="13" >
           <rect x="0" width="132" height="12" fill="none" stroke="black" viewBox = "0 0 12 12" rx="5"/>
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="132" height="12" >
+        <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="132" height="13" >
           <rect x="0" width="132" height="12" fill="none" stroke="black" viewBox = "0 0 12 12" rx="5"/>
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="132" height="12" >
+        <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="132" height="13" >
           <rect x="0" width="132" height="12" fill="none" stroke="black" viewBox = "0 0 12 12" rx="5"/>
         </svg>
       </div>
