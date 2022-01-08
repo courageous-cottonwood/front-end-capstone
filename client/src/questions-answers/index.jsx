@@ -25,9 +25,7 @@ const QuestionsAnswers = function (props) {
   const getQADataForItem = (number) => {
     axios.get('/qa/questions', { params: { product_id: props.product_id, page: 1, count: numQuestions } })
     .then((response) => {
-      console.log(response.data);
       setQuestions(response.data.results);
-
     });
   };
 
