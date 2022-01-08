@@ -16,8 +16,8 @@ const ProductDetail = (props) => {
   const [currentStyle, setCurrentStyle] = useState({
     photos: [
       {
-        url: 'https://images.wondershare.com/mockitt/ux-beginner/loading-time-tips.jpeg',
-        thumbnail_url: 'https://images.wondershare.com/mockitt/ux-beginner/loading-time-tips.jpeg'
+        url: 'https://cdn.discordapp.com/attachments/922944888415334446/929067528532148275/loading.png',
+        thumbnail_url: 'https://cdn.discordapp.com/attachments/922944888415334446/929067528532148275/loading.png'
       }
     ]
   });
