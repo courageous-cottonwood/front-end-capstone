@@ -45,7 +45,7 @@ Forms and images use a modal format to present the user with a focused view to v
 
 One main challenge was ensuring that data was rendered quickly, which meant mitigating API calls unless necessary. For example, all question data for each is only fetched when the user first clicks into the search bar, limiting the API call unless the user specifically intends to search.
 
-## Brian Dihn
+## Brian Dinh
 **Widget:** Product Reviews
 
 **Additional Areas of Responsibility:** Project Management in Trello
