@@ -4,11 +4,7 @@ This is an application that was developed as a group for the HackReactor front-e
 
 The page included four distinct sections: detailed product information, related products, questions and answers, and products reviews, with each team member producing one of the four individual components. 
 
-<<<<<<< HEAD
-![](https://drive.google.com/file/d/1HGL2SNIGj5fxFtoxFdbNIg-5OE0t0y_s/view?usp=sharing)
-=======
-(https://drive.google.com/file/d/1HGL2SNIGj5fxFtoxFdbNIg-5OE0t0y_s/view?usp=sharing)
->>>>>>> 856f84cdc3ae6afe042a04331437da2f1bf751c2
+![](https://i.imgur.com/44pVrTl.png)
 
 ## Technology
 The project was built using React 17 using functional classes, and served using an expressJS Server. Following the satisfaction of all business requirements, the completed application was deployed to an AWS server for public consumption.
@@ -23,7 +19,7 @@ The project was built using React 17 using functional classes, and served using 
 **Technical Walkthrough and Challenges:**
 
 
-## Darya Kutrovaya
+## Darya Kutovaya
 **Widget:** Related Items
 
 **Additional Areas of Responsibility:** CSS and Styling Management
@@ -49,7 +45,7 @@ Forms and images use a modal format to present the user with a focused view to v
 
 One main challenge was ensuring that data was rendered quickly, which meant mitigating API calls unless necessary. For example, all question data for each is only fetched when the user first clicks into the search bar, limiting the API call unless the user specifically intends to search.
 
-## Brian Dihn
+## Brian Dinh
 **Widget:** Product Reviews
 
 **Additional Areas of Responsibility:** Project Management in Trello
@@ -62,11 +58,7 @@ One main challenge was ensuring that data was rendered quickly, which meant miti
 
 **Clone the repository:**
 ```
-<<<<<<< HEAD
-Git clone
-=======
 git clone https://github.com/courageous-cottonwood/front-end-capstone.git
->>>>>>> 856f84cdc3ae6afe042a04331437da2f1bf751c2
 ```
 **Install the packages:**
 ```
