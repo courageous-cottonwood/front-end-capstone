@@ -26,9 +26,8 @@ const parentItemStub = {
       "value": "Brass"
     }
   ]
-}
+};
 
-// items related to parent item
 const relatedArray = [
   63610,
   63611,
@@ -39,7 +38,7 @@ const relatedArray = [
 const thumbnailplaceHolder = 'https://www.budget101.com/images/image-not-available.png?14867';
 
 
-test('should render with a product id passed as a prop and see related items as a title',async () => {
+test('should render with a product id passed as a prop and see related items as a title', async () => {
   await render(<AppRelated product_id={product_id} />);
   expect(screen.getByText("FETCHING RELATED ITEMS"));
 });
@@ -61,8 +60,7 @@ const stubbedItemTwo = {
   'image': 'https://images.unsplash.com/photo-1552902865-b72c031ac5ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
   'price': '40.00',
   'name': 'Morning Joggers'
-}
-
+};
 
 const stubbedItemThree = {
   'parentId': "63609",
@@ -71,8 +69,7 @@ const stubbedItemThree = {
   'image': 'https://images.unsplash.com/photo-1551489186-cf8726f514f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
   'price': '450.00',
   'name': 'YEasy 350'
-}
-
+};
 
 const stubbedItemFour = {
   'parentId': "63609",
@@ -81,7 +78,7 @@ const stubbedItemFour = {
   'image': 'https://images.unsplash.com/photo-1561861422-a549073e547a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
   'price': '120.00',
   'name': 'Blues Suede Shoes'
-}
+};
 
 it('matches snapshot of Item One', async () => {
   const { asFragment } = await render(<ItemCard id={stubbedItemOne.id} parentId={stubbedItemOne.parentId} category={stubbedItemOne.category} name={stubbedItemOne.name} image={stubbedItemOne.image} price={stubbedItemOne.price} noImage={thumbnailplaceHolder} />);
@@ -108,43 +105,33 @@ it('matches snapshot of Item Four', async () => {
   expect(asFragment()).toMatchSnapshot();
 });
 
-
-//each card needs to have a compare me button
 it('each card has compare button', () => {
   render(<ItemCard id={relatedArray[0]} />);
   expect(screen.getByText("Compare Me"));
 });
 
-
-//snapshot tests for compare card modal
-
-//id = 63610
 const itemOneFeaturesStub = [
   { feature: 'Lenses', value: 'Ultrasheen' },
   { feature: 'UV Protection', value: null },
   { feature: 'Frames', value: 'LightCompose' }
 ];
 
-
-//id = 63611
 const itemTwoFeaturesStub = [
   { feature: 'Fabric', value: '100% Cotton' },
   { feature: 'Cut', value: 'Skinny' }
-]
+];
 
-//id = 63616
 const itemThreeFeaturesStub = [
   { feature: 'Sole', value: 'Rubber' },
   { feature: 'Material', value: 'FullControlSkin' },
   { feature: 'Stitching', value: 'Double Stitch' }
-]
+];
 
-//id = 63615
 const itemFourFeaturesStub = [
   { feature: 'Sole', value: 'Rubber' },
   { feature: 'Material', value: 'FullControlSkin' },
   { feature: 'Stitching', value: 'Double Stitch' }
-]
+];
 
 it('matches snapshot of features for Item One', async () => {
   const { asFragment } = await render(<CompareCard id={stubbedItemOne.id} parentId={parentItemStub.id} parentFeatures={parentItemStub.features} itemFeatures={itemOneFeaturesStub} itemName={stubbedItemOne.name} parentItemName={parentItemStub.name} />);

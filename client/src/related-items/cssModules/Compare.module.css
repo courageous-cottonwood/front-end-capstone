@@ -1,11 +1,14 @@
-/*add css for popup*/
+:root {
+  --color-font: #384047e9;
+  --font-family: 'Montserrat', sans-serif;
+  }
+
+
 .container {
   display: flex;
   box-sizing: border-box;
   display: flex;
   min-width: fit-content;
-  /* max-width: 601px;
-  min-height: 300px; */
   width: 30%;
   height: 27%;
   max-height: fit-content;
@@ -19,19 +22,18 @@
   overflow-x: auto;
   -webkit-overflow-scrolling: auto;
   -ms-overflow-style: -ms-autohiding-scrollbar;
+  font-family: var(--font-family);
+  color: var(--color-font);
 }
 
 .item {
-  /* flex: 0 0 auto; */
   flex-grow: 1 1;
   justify-content: center;
-  /* padding: 10px; */
-  /* min-width: 300px;
-  min-height: 300px; */
   width: 80%;
   height: 50%;
   max-width: fit-content;
   max-height: fit-content;
+
 }
 
 .loader {
@@ -49,7 +51,6 @@
 }
 
 .h3 {
-  color: #384047e9;
   margin-top: auto;
   margin-bottom: 0;
   padding-bottom: 7px;
@@ -63,7 +64,6 @@
 .list {
   list-style: none;
   padding-inline-start: 10px;
-  color: #222;
   font-size: 0.9em;
   margin-bottom: 1em;
   line-height: 1.4;
@@ -76,7 +76,6 @@
 .list li {
   margin-top: 1em;
   padding: 5px;
-  color: #222;
   font-size: 0.9em;
   margin-bottom: 1em;
   line-height: 1.4;

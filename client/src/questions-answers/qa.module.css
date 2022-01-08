@@ -6,16 +6,10 @@ body {
 }
 
 
-/* Darya's proposed changes */
 :root {
   --color-light: #9484cd;
-  /*the base color*/
-
   --color-primary: #8374b8;
-  /* --color-primary-darker: #5b4d8d; */
-  /* dont need 4 variations of the same color */
   --color-primary-darker:#6a5b9f;
-  /* --color-primary-darkest: #2f2749; */
   --color-primary-darkest: #584796;
   --border-radius-buttons: 10px;
   --answer-text-size: 14px;
