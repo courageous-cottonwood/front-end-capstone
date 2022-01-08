@@ -35,12 +35,10 @@
 
  .image {
   width: 80%;
-  height: 65%;
   min-height: 199px;
   height: 200px;
   object-fit: cover;
   border-radius: 5px;
-  object-fit: cover;
 }
 
 .item_title {
