@@ -4,7 +4,11 @@ This is an application that was developed as a group for the HackReactor front-e
 
 The page included four distinct sections: detailed product information, related products, questions and answers, and products reviews, with each team member producing one of the four individual components. 
 
+<<<<<<< HEAD
 ![](https://drive.google.com/file/d/1HGL2SNIGj5fxFtoxFdbNIg-5OE0t0y_s/view?usp=sharing)
+=======
+(https://drive.google.com/file/d/1HGL2SNIGj5fxFtoxFdbNIg-5OE0t0y_s/view?usp=sharing)
+>>>>>>> 856f84cdc3ae6afe042a04331437da2f1bf751c2
 
 ## Technology
 The project was built using React 17 using functional classes, and served using an expressJS Server. Following the satisfaction of all business requirements, the completed application was deployed to an AWS server for public consumption.
@@ -58,7 +62,11 @@ One main challenge was ensuring that data was rendered quickly, which meant miti
 
 **Clone the repository:**
 ```
+<<<<<<< HEAD
 Git clone
+=======
+git clone https://github.com/courageous-cottonwood/front-end-capstone.git
+>>>>>>> 856f84cdc3ae6afe042a04331437da2f1bf751c2
 ```
 **Install the packages:**
 ```

@@ -87,6 +87,8 @@
 }
 
 .selectors {
+  display: flex;
+  flex-direction: row;
   margin-bottom: 10px;
 }
 
@@ -110,7 +112,6 @@
   color: white;*/
   text-decoration: none;
   margin-right: 10px;
-  margin-top: 10px;
   /* ---- */
   text-transform: uppercase;
   max-width: 20%;
@@ -184,8 +185,8 @@
 }
 
 .largeViewImage {
-  width: 800px;
-  height: 1000px;
+  width: 70%;
+  height: 70%;
   object-fit: cover;
   margin: 5px;
   border-color: black;

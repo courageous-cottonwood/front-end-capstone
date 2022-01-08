@@ -52,11 +52,11 @@ const AddToCart = (props) => {
           <option value="XXL">Size: XXL</option>
         </select>
         <input
+          className={css.quantitySelector}
           type="number"
           name="quantity-selector"
           min="1"
           defaultValue="1"
-          className={css.quantitySelector}
           onChange={handleQuantitySelector}
         ></input>
       </div>
