@@ -48,6 +48,7 @@
   row-gap: calc(10%);
   gap: calc(0.7%) calc(0.5%);
   font-family: var(--font-family);
+  position: relative;
 }
 
 .title {

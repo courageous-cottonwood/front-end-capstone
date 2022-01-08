@@ -51,7 +51,7 @@ const Compare = (props) => {
   }
 
   return (
-    <div className={CompareCSS.container}
+    <div id = 'modal'className={CompareCSS.container}
       onClick={props.showModal}>
         <CompareCard
         key ={props.id-0.25}
