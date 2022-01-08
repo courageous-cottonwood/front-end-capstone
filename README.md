@@ -26,7 +26,12 @@ The project was built using React 17 using functional classes, and served using 
 
 **Technical Walkthrough and Challenges:**
 
-Figuring out data flow for many differnet api calls to get info needed for the component. Breaking down a big component into smaller sections and requesting only the data needed for each smaller component to display so the server does not have to do too many requests, gradual fetching.
+Breaking down a big component into smaller sections and requesting only the data needed for each smaller component to display so API does not have too many fetch requests, gradual fetching.
+- Initial Fetching in RelatedApp component: related item array fetch, individual item fetch.
+- Thumbnail fetch for each card in Item component
+- Re-render of entire app with selected item triggered on an item title click.
+- Item rating fetch and calulation of average rating, rendering of stars in StarRating component
+- Compare fetatures betweeen the parent item and indivaidual item fetch in Compare modal component fired on "compare me" button click event.
 
 ## Sean Welch
 **Widget:** Questions Answers
