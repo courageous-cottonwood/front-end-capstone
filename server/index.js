@@ -8,7 +8,7 @@ const app = express();
 
 const controllers = require('./controllers/controllers');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.get('*.js', (req, res, next) => {
   req.url = req.url + '.gz';

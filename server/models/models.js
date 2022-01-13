@@ -62,7 +62,7 @@ module.exports = {
     },
   ),
   listQuestions: (req) => axios.get(
-    'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions',
+    'http://localhost:3000/qa/questions',
     {
       params: req,
       headers: { Authorization: config.API_KEY },

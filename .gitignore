@@ -4,7 +4,7 @@ client/src/config/config.js
 FEC.pem
 client/dist/vendors*
 client/dist/client_src*
+client/dist/*.bundle.js*
 client/src/.DS_Store
 client/.DS_Store
 client/src/related-items/.DS_Store
-
