@@ -18,6 +18,15 @@ The project was built using React 17 using functional classes, and served using 
 
 **Technical Walkthrough and Challenges:**
 
+The product detail overview section displays all of the products and styles available in stock, where the product/style's data is fetched from an API call to the server.
+
+Challenges:
+- Initial fetching for the description and photos of the current selected product
+- Fetching for the multiple styles available for that currently selected product
+- Re-rendering of component when different style is selected
+- Pop-up modal for currently displayed style photo, allows for a larger image pop-up on click
+- Carousel display for all available styles for selected product, scroll through photos displayed by clicking on arrow
+
 
 ## Darya Kutovaya
 **Widget:** Related Items
